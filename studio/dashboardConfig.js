@@ -1,12 +1,29 @@
 export default {
   widgets: [
+{ name: 'minesweeper'},
     {
       name: 'sanity-tutorials',
       options: {
         templateRepoId: 'sanity-io/sanity-template-gatsby-blog'
       }
     },
+    {
+      name: 'gatsby',
+      options: {
+        description:
+          'These are your Gatsby Preview instance.',
+        instances: [
+          {
+            title: 'My Gatsby Preview ✨',
+            name: 'knutmelvaer-no-v2-3373152487',
+            instanceId: 'bca87ec5-12b6-4daa-98ba-e2e1fb53fd55',
+            orgId: 'c6a37ad7-ef84-4241-a2b8-f2aec3fa65ba'
+          }
+        ]
+      }
+    },
     {name: 'structure-menu'},
+    {name: 'notes'},
     {
       name: 'project-info',
       options: {
