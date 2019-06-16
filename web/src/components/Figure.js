@@ -1,18 +1,19 @@
 import React from 'react'
 import Img from 'gatsby-image'
-import { getFluidGatsbyImage, getFixedGatsbyImage } from 'gatsby-source-sanity'
+import {getFluidGatsbyImage} from 'gatsby-source-sanity'
 import clientConfig from '../../client-config'
+import css from './Figure.module.css'
 
-export default ({ node }) => {
+export default ({node}) => {
   const fluidProps = getFluidGatsbyImage(
     node.asset._id,
-    { maxWidth: 675 },
+    {maxWidth: 675},
     ...clientConfig.sanity
   )
   return (
-    <figure>
+    <figure className={css.root}>
       <Img fluid={fluidProps} alt={node.alt} />
-      <caption>{node.caption}</caption>
+      <figcaption>{node.caption}</figcaption>
     </figure>
   )
 }
