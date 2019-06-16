@@ -1,0 +1,32 @@
+@import '../styles/custom-media.css';
+.figure {
+  margin: 0;
+  max-width: 80%;
+  padding: 0 0.5em;
+
+  @media (--media-min-medium) {
+    display: flex;
+    align-items: center;
+  }
+
+}
+
+.img {
+  display: none;
+  position: relative;
+  overflow: hidden;
+  width: 50px;
+  height: 50px;
+  margin-right: 0.875rem;
+  margin-bottom: 0px;
+  min-width: 50px;
+  border-radius: 100%;
+
+  @media (--media-min-medium) {
+    display: inline-block;
+  }
+}
+
+.figcaption {
+
+}

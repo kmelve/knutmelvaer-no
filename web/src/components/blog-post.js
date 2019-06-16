@@ -12,19 +12,19 @@ function BlogPost (props) {
   const {_rawBody, authors, categories, title, mainImage, publishedAt} = props
   return (
     <article className={styles.root}>
-      {mainImage && mainImage.asset && (
-        <div className={styles.mainImage}>
-          <img
-            src={imageUrlFor(buildImageObj(mainImage))
-              .width(1200)
-              .height(Math.floor((9 / 16) * 1200))
-              .fit('crop')
-              .url()}
-            alt={mainImage.alt}
-          />
-        </div>
-      )}
       <Container>
+        {mainImage && mainImage.asset && (
+          <div className={styles.mainImage}>
+            <img
+              src={imageUrlFor(buildImageObj(mainImage))
+                .width(960)
+                .height(Math.floor((9 / 16) * 960))
+                .fit('crop')
+                .url()}
+              alt={mainImage.alt}
+            />
+          </div>
+        )}
         <div className={styles.grid}>
           <div className={styles.mainContent}>
             <h1 className={styles.title}>{title}</h1>

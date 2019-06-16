@@ -1,11 +1,12 @@
 import React from 'react'
-import { graphql } from 'gatsby'
+import {graphql} from 'gatsby'
 import {
   mapEdgesToNodes,
   filterOutDocsWithoutSlugs,
   filterOutDocsPublishedInTheFuture
 } from '../lib/helpers'
 import BlogPostPreviewList from '../components/blog-post-preview-list'
+import Bio from '../components/bio'
 import Container from '../components/container'
 import GraphQLErrorList from '../components/graphql-error-list'
 import SEO from '../components/seo'
@@ -40,6 +41,14 @@ export const query = graphql`
       description
       keywords
     }
+    author: sanityAuthor(slug: { current: { eq: "knut-melvaer" } }) {
+      _rawBio
+      image {
+        ...SanityImage
+        alt
+        caption
+      }
+    }
     posts: allSanityPost(
       limit: 6
       sort: { fields: [publishedAt], order: DESC }
@@ -65,7 +74,7 @@ export const query = graphql`
 `
 
 const IndexPage = props => {
-  const { data, errors } = props
+  const {data, errors} = props
 
   if (errors) {
     return (
@@ -76,6 +85,7 @@ const IndexPage = props => {
   }
 
   const site = (data || {}).site
+  const author = (data || {}).author
   const postNodes = (data || {}).posts
     ? mapEdgesToNodes(data.posts)
       .filter(filterOutDocsWithoutSlugs)
@@ -96,12 +106,12 @@ const IndexPage = props => {
         keywords={site.keywords}
       />
       <Container>
-        <h1 hidden>Welcome to {site.title}</h1>
+        {author && <Bio author={author} />}
         {postNodes && (
           <BlogPostPreviewList
-            title="Latest blog posts"
+            title='Latest blog posts'
             nodes={postNodes}
-            browseMoreHref="/archive/"
+            browseMoreHref='/archive/'
           />
         )}
       </Container>

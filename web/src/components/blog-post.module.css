@@ -50,7 +50,7 @@
   }
 
   @nest & figure {
-    margin: 0;
+    margin: 0 0 1em 0;
     padding: 0;
 
     @nest & img {
