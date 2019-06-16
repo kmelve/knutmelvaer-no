@@ -1,12 +1,6 @@
 export default {
   widgets: [
-{ name: 'minesweeper'},
-    {
-      name: 'sanity-tutorials',
-      options: {
-        templateRepoId: 'sanity-io/sanity-template-gatsby-blog'
-      }
-    },
+    {name: 'minesweeper'},
     {
       name: 'gatsby',
       options: {
@@ -16,7 +10,7 @@ export default {
           {
             title: 'My Gatsby Preview ✨',
             name: 'knutmelvaer-no-v2-3373152487',
-            instanceId: 'bca87ec5-12b6-4daa-98ba-e2e1fb53fd55',
+            instanceUrl: 'https://knutmelvaer-no-v2-3373152487.gtsb.io',
             orgId: 'c6a37ad7-ef84-4241-a2b8-f2aec3fa65ba'
           }
         ]

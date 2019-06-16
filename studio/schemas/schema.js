@@ -6,9 +6,13 @@ import schemaTypes from 'all:part:@sanity/base/schema-type'
 
 // document schemas
 import author from './documents/author'
+import presentation from './documents/presentation'
+import publication from './documents/publication'
 import category from './documents/category'
 import post from './documents/post'
 import siteSettings from './documents/siteSettings'
+
+import * as deck from './deck'
 
 // Object types
 import bodyPortableText from './objects/bodyPortableText'
@@ -26,10 +30,13 @@ export default createSchema({
   types: schemaTypes.concat([
     // The following are document types which will appear
     // in the studio.
+    ...Object.values(deck),
     siteSettings,
     post,
     category,
     author,
+    presentation,
+    publication,
     mainImage,
     authorReference,
     bodyPortableText,

@@ -16,7 +16,11 @@
     "@sanity/desk-tool",
     "dashboard-widget-structure-menu",
     "dashboard-widget-document-list",
-    "dashboard-widget-netlify"
+    "dashboard-widget-notes",
+    "dashboard-widget-netlify",
+    "@sanity/code-input",
+    "dashboard-widget-gatsby",
+    "minesweeper"
   ],
   "parts": [
     {
