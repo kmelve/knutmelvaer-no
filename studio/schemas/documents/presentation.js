@@ -24,6 +24,16 @@ export default {
       type: 'url'
     },
     {
+      name: 'collaborators',
+      type: 'array',
+      of: [
+        {type: 'reference',
+          to: [
+            {type: 'person'}
+          ]}
+      ]
+    },
+    {
       name: 'tags',
       type: 'array',
       of: [
