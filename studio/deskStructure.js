@@ -23,10 +23,10 @@ export default () =>
         .schemaType('post')
         .child(S.documentTypeList('post').title('Blog posts')),
       S.listItem()
-        .title('Authors')
+        .title('Persons')
         .icon(MdPerson)
-        .schemaType('author')
-        .child(S.documentTypeList('author').title('Authors')),
+        .schemaType('person')
+        .child(S.documentTypeList('person').title('Persons')),
       S.listItem()
         .title('Categories')
         .schemaType('category')
