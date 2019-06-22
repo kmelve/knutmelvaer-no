@@ -18,6 +18,7 @@
     "@sanity/cli": "^0.140.36",
     "@sanity/components": "^0.140.36",
     "@sanity/core": "^0.140.36",
+    "@sanity/default-layout": "^0.140.36",
     "lerna": "^3.15.0"
   }
 }
