@@ -26,7 +26,7 @@ export const query = graphql`
       _rawBody(resolveReferences: {maxDepth: 5})
       authors {
         _key
-        author {
+        person {
           image {
             crop {
               _key

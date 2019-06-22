@@ -1,0 +1,42 @@
+@import '../styles/custom-properties.css';
+
+
+.container {
+  border-bottom: 1px solid var(--color-very-light-gray);
+  padding: 0 0 1rem 0;
+}
+
+
+.collaborator, .time, .place, .lang, .type {
+  color: var(--color-dark-gray);
+  background: var(--color-very-light-gray);
+  padding: 2px 5px;
+  border-radius: var(--border-radius);
+
+  @nest & + .collaborator {
+    margin-left: 0.5em;
+  }
+}
+.header {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.headerLink {
+  color: var(--color-black);
+  text-decoration: none;
+
+  @nest &:hover, &:focus {
+    color: var(--color-accent);
+    text-decoration: underline;
+  }
+  @nest &:after {
+    content: '↗';
+  }
+}
+
+.description {
+  margin: 1rem 0;
+  padding-left: 1rem;
+  border-left: 5px solid var(--color-very-light-gray);
+}

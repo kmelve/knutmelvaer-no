@@ -8,12 +8,24 @@ export default {
       type: 'string'
     },
     {
+      name: 'originalTitle',
+      type: 'string'
+    },
+    {
       name: 'date',
       type: 'datetime'
     },
     {
+      name: 'language',
+      type: 'string'
+    },
+    {
       name: 'place',
       type: 'string'
+    },
+    {
+      name: 'abstract',
+      type: 'text'
     },
     {
       name: 'description',
@@ -22,6 +34,16 @@ export default {
     {
       name: 'link',
       type: 'url'
+    },
+    {
+      name: 'collaborators',
+      type: 'array',
+      of: [
+        {type: 'reference',
+          to: [
+            {type: 'person'}
+          ]}
+      ]
     },
     {
       name: 'tags',

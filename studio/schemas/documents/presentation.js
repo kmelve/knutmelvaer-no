@@ -16,8 +16,26 @@ export default {
       type: 'string'
     },
     {
+      name: 'language',
+      type: 'string'
+    },
+    {
       name: 'description',
       type: 'text'
+    },
+    {
+      name: 'presentationType',
+      type: 'string',
+      title: 'Presentation type',
+      options: {
+        list: [
+          {value: 'workshop', title: 'Workshop'},
+          {value: 'talk', title: 'Talk'},
+          {value: 'course', title: 'Course'},
+          {value: 'panel', title: 'Panel'},
+          {value: 'podcast', title: 'Podcast'}
+        ]
+      }
     },
     {
       name: 'link',
