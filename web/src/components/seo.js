@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 import {StaticQuery, graphql} from 'gatsby'
 
-function SEO ({description, lang, meta, keywords, title}) {
+function SEO ({description, lang, meta, keywords, title, image, slug = {}}) {
   return (
     <StaticQuery
       query={detailsQuery}
@@ -11,7 +11,8 @@ function SEO ({description, lang, meta, keywords, title}) {
         const metaDescription = description || (data.site && data.site.description) || ''
         const siteTitle = (data.site && data.site.title) || ''
         const siteAuthor = (data.site && data.site.author && data.site.author.name) || ''
-
+        const siteUrl = (data.site && data.site.url) || 'https://www.knutmelvaer.no/'
+        const { current: pageSlug } = slug
         return (
           <Helmet
             htmlAttributes={{lang}}
@@ -23,8 +24,16 @@ function SEO ({description, lang, meta, keywords, title}) {
                 content: metaDescription
               },
               {
+                property: 'og:url',
+                content: pageSlug ? `${siteUrl}/${pageSlug}` : siteUrl
+              },
+              {
                 property: 'og:title',
                 content: title
+              },
+              {
+                property: 'og:image',
+                content: image || 'https://cdn.sanity.io/images/ndjrels0/production/46f420efe0408caaf07eb2c4e6989323001f080f-1200x802.jpg'
               },
               {
                 property: 'og:description',
@@ -88,6 +97,7 @@ const detailsQuery = graphql`
     site: sanitySiteSettings(_id: {eq: "siteSettings"}) {
       title
       description
+      url
       keywords
       author {
         name

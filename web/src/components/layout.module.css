@@ -28,11 +28,11 @@
 .footerWrapper {
   box-sizing: border-box;
   max-width: 960px;
-  padding: 4.5em 1.5em 1.5em;
+  padding: 3.5em 1.5em 1.5em;
   margin: 0 auto;
 
   @media (--media-min-small) {
-    padding: 6em 2em 2em;
+    padding: 3em 2em 2em;
   }
 }
 
@@ -40,7 +40,10 @@
   text-align: center;
   margin: 0 0 1rem;
 }
-
+.social {
+  text-align: center;
+  margin: 0 0 2rem 0;
+}
 .siteInfo {
   text-align: center;
   font-size: var(--font-small-size);
