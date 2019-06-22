@@ -2,7 +2,7 @@
 require('dotenv').config({
   path: `.env.${process.env.NODE_ENV || 'development'}`
 })
-
+console.log(process.env.WEBMENTIONS_TOKEN)
 const clientConfig = require('./client-config')
 
 const isProd = process.env.NODE_ENV === 'production'
@@ -23,15 +23,15 @@ module.exports = {
     {
       resolve: `gatsby-plugin-webmention`,
       options: {
-        username: undefined, // webmention.io username
+        username: 'www.knutmelvaer.no', // webmention.io username
         identity: {
           github: 'kmelve',
           twitter: 'kmelve' // no @
         },
         mentions: true,
         pingbacks: false,
-        forwardPingbacksAsWebmentions: 'https://example.com/endpoint',
-        domain: 'knutmelvaer.no',
+        //forwardPingbacksAsWebmentions: 'https://www.knutmelvaer.no/endpoint',
+        domain: 'www.knutmelvaer.no',
         token: process.env.WEBMENTIONS_TOKEN
       }
     },
