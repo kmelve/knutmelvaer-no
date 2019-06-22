@@ -106,6 +106,7 @@ const IndexPage = props => {
         keywords={site.keywords}
       />
       <Container>
+      {author && <Bio author={author} />}
         {postNodes && (
           <BlogPostPreviewList
             title='Latest blog posts'
@@ -113,7 +114,7 @@ const IndexPage = props => {
             browseMoreHref='/archive/'
           />
         )}
-        {author && <Bio author={author} />}
+
       </Container>
     </Layout>
   )
