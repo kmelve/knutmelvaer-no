@@ -11,7 +11,7 @@ const Layout = ({children, onHideNav, onShowNav, showNav, siteTitle}) => (
     <footer className={styles.footer}>
       <div className={styles.footerWrapper}>
         <div className={styles.social}>
-          <p>Follow <a class="h-card" rel="me" href="https://www.knutmelvaer.no/">Knut</a> on <a href='https://twitter.com/kmelve' rel='me'>Twitter (@kmelve)</a>, <a href='https://github.com/kmelve' rel='me'>GitHub</a>, or send him an <a className="u-email" href='mailto:knut.melvaer@gmail.com' rel='me'>email</a>.</p><p><a href="https://dev.to/kmelve">
+          <p>Follow <a className="h-card" rel="me" href="https://www.knutmelvaer.no/">Knut</a> on <a href='https://twitter.com/kmelve' rel='me'>Twitter (@kmelve)</a>, <a href='https://github.com/kmelve' rel='me'>GitHub</a>, or send him an <a className="u-email" href='mailto:knut.melvaer@gmail.com' rel='me'>email</a>.</p><p><a href="https://dev.to/kmelve">
   <img src="https://d2fltix0v2e0sb.cloudfront.net/dev-badge.svg" alt="Knut Melvær's DEV Profile" height="30" width="30" />
 </a></p>
         </div>

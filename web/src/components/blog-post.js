@@ -11,7 +11,7 @@ import styles from './blog-post.module.css'
 function BlogPost (props) {
   const {_rawBody, authors, categories, title, mainImage, publishedAt, slug} = props
   return (
-    <article className={styles.root + " e-entry"}>
+    <article className={styles.root + " h-entry"}>
       <Container>
         {mainImage && mainImage.asset && (
           <div className={styles.mainImage}>
@@ -27,7 +27,7 @@ function BlogPost (props) {
         )}
         <div className={styles.grid}>
           <div className={styles.mainContent}>
-            <h1 className={styles.title + " e-name"}>{title}</h1>
+            <h1 className={styles.title + " p-name"}>{title}</h1>
             {_rawBody && <PortableText className="e-content" blocks={_rawBody} />}
           </div>
           <aside className={styles.metaContent}>
@@ -37,7 +37,7 @@ function BlogPost (props) {
                 {differenceInDays(new Date(publishedAt), new Date()) > 3
                   ? distanceInWords(new Date(publishedAt), new Date())
                   : format(new Date(publishedAt), 'MMMM Do, YYYY')}
-                </a>
+                </a><time className={styles.hidden + " dt-published"}>{publishedAt}</time>
               </div>
             )}
             {authors && <AuthorList items={authors} title='Authors' />}

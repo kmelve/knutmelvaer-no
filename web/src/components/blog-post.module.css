@@ -6,7 +6,9 @@
 .title {
   composes: responsiveTitle1 from './typography.module.css';
 }
-
+.hidden {
+  visibility: hidden;
+}
 .mainImage {
   display: block;
   position: relative;
