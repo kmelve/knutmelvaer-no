@@ -19,3 +19,18 @@ body > div,
 body > div > div {
   height: 100%;
 }
+
+a {
+  color: var(--color-accent);
+
+  @nest &:hover, &:focus {
+    color: var(--color-dark-gray);
+  }
+}
+
+h2 {
+  font-size: 2rem;
+}
+h3 {
+  font-size: 1.5rem;
+}

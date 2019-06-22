@@ -39,7 +39,7 @@ function BlogPost (props) {
               </div>
             )}
             {authors && <AuthorList items={authors} title='Authors' />}
-            {categories && (
+            {categories.length > 0 && (
               <div className={styles.categories}>
                 <h3 className={styles.categoriesHeadline}>Categories</h3>
                 <ul>

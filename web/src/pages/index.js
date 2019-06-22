@@ -41,7 +41,7 @@ export const query = graphql`
       description
       keywords
     }
-    author: sanityAuthor(slug: { current: { eq: "knut-melvaer" } }) {
+    author: sanityPerson(slug: { current: { eq: "knut-melvaer" } }) {
       _rawBio
       image {
         ...SanityImage
