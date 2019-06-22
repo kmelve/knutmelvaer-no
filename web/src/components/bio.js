@@ -14,9 +14,9 @@ function Bio ({author}) {
   )
   return (<Fragment>
     <figure className={css.figure}>
-      <Img fluid={fluidProps} alt={image.alt} className={css.img} />
+      <Img fluid={fluidProps} alt={image.alt} className={css.img + " u-photo"} />
       <figcaption className={css.figcaption}>
-        <PortableText blocks={_rawBio} />
+        <PortableTextc className="p-note" blocks={_rawBio} />
       </figcaption>
     </figure>
   </Fragment>)
