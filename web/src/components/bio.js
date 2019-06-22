@@ -16,7 +16,7 @@ function Bio ({author}) {
     <figure className={css.figure}>
       <Img fluid={fluidProps} alt={image.alt} className={css.img + " u-photo"} />
       <figcaption className={css.figcaption}>
-        <PortableTextc className="p-note" blocks={_rawBio} />
+        <PortableText className="p-note" blocks={_rawBio} />
       </figcaption>
     </figure>
   </Fragment>)
