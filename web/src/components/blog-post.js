@@ -11,11 +11,12 @@ import styles from './blog-post.module.css'
 function BlogPost (props) {
   const {_rawBody, _rawExcerpt, authors, categories, title, mainImage, publishedAt, slug} = props
   return (
-    <article className={styles.root}>
+    <article className={styles.root + " h-entry"}>
       <Container>
         {mainImage && mainImage.asset && (
           <div className={styles.mainImage}>
             <img
+              className="u-photo"
               src={imageUrlFor(buildImageObj(mainImage))
                 .width(960)
                 .height(Math.floor((9 / 16) * 960))
@@ -25,7 +26,7 @@ function BlogPost (props) {
             />
           </div>
         )}
-        <div className={styles.grid + " h-entry"}>
+        <div className={styles.grid}>
           <main className={styles.mainContent}>
             <h1 className={styles.title + " p-name"}>{title}</h1>
             {_rawBody && <PortableText blocks={_rawBody} />}

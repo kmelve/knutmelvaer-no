@@ -18,7 +18,6 @@ function AuthorList ({ items, title }) {
                   author.image &&
                   author.image.asset && (
                     <img
-                      className="u-photo"
                       src={imageUrlFor(buildImageObj(author.image))
                         .width(100)
                         .height(100)
