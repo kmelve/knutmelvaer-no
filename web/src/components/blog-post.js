@@ -11,7 +11,7 @@ import styles from './blog-post.module.css'
 function BlogPost (props) {
   const {_rawBody, _rawExcerpt, authors, categories, title, mainImage, publishedAt, slug} = props
   return (
-    <article className={styles.root + " h-entry"}>
+    <article className={styles.root}>
       <Container>
         {mainImage && mainImage.asset && (
           <div className={styles.mainImage}>
@@ -25,21 +25,21 @@ function BlogPost (props) {
             />
           </div>
         )}
-        <div className={styles.grid}>
+        <div className={styles.grid + " h-entry"}>
           <main className={styles.mainContent}>
             <h1 className={styles.title + " p-name"}>{title}</h1>
-            {_rawBody && <PortableText className="e-content" blocks={_rawBody} />}
+            {_rawBody && <PortableText blocks={_rawBody} />}
           </main>
           <aside className={styles.metaContent}>
             {publishedAt && (
-              <div className={styles.publishedAt + " dt-published"}>
+              <div className={styles.publishedAt}>
                 <a className="u-url" href={`https://www.knutmelvaer.no${getBlogUrl(publishedAt, slug)}`}>
                 {differenceInDays(new Date(publishedAt), new Date()) > 3
                   ? distanceInWords(new Date(publishedAt), new Date())
                   : format(new Date(publishedAt), 'MMMM Do, YYYY')}
                 </a>
                 <time className={styles.hidden + " dt-published"} itemprop="datepublished" datetime={publishedAt}>{new Date(publishedAt).toISOString().replace('Z', '') + "+01:00"}</time>
-                {_rawExcerpt && <div className={styles.hidden + " p-summary"}>{toPlainText(_rawExcerpt)}</div>}
+                {_rawExcerpt && <div className={styles.hidden + " p-summary e-content"}>{toPlainText(_rawExcerpt)}</div>}
               </div>
             )}
             {authors && <AuthorList items={authors} title='Authors' />}
@@ -48,7 +48,7 @@ function BlogPost (props) {
                 <h3 className={styles.categoriesHeadline}>Categories</h3>
                 <ul>
                   {categories.map(category => (
-                    <li key={category._id}>{category.title}</li>
+                    <li className="p-category" key={category._id}>{category.title}</li>
                   ))}
                 </ul>
               </div>
