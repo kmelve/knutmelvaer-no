@@ -28,8 +28,8 @@ function AuthorList ({ items, title }) {
                     />
                   )}
               </div>
-              <div className="p-name">
-                {authorName || <em>Missing name</em>}
+              <div>
+                <a rel="author" className="p-author h-card" href={author.url || 'https://www.knutmelvaer.no'}>{authorName || <em>Missing name</em>}</a>
               </div>
             </li>
           )
