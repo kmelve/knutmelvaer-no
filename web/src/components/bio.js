@@ -6,13 +6,13 @@ import clientConfig from '../../client-config'
 import css from './bio.module.css'
 
 function Bio ({author}) {
-  const {_rawBio, image} = author
-  const fluidProps = getFluidGatsbyImage(
-    image.asset._id,
-    {width: 100, height: 100},
-    ...clientConfig.sanity
-  )
-  return (<Fragment>
+  const {_id, _rawBio, image} = author
+    const fluidProps = getFluidGatsbyImage(
+      image.asset._id,
+      {width: 100, height: 100},
+      ...clientConfig.sanity
+    )
+  return (<Fragment key={_id}>
     <figure className={css.figure}>
       <Img fluid={fluidProps} alt={image.alt} className={css.img + " u-photo"} />
       <figcaption className={css.figcaption}>

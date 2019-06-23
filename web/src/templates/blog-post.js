@@ -6,6 +6,7 @@ import BlogPost from '../components/blog-post'
 import SEO from '../components/seo'
 import Layout from '../containers/layout'
 
+
 export const query = graphql`
   query BlogPostTemplateQuery($id: String!) {
     post: sanityPost(id: {eq: $id}) {
@@ -23,10 +24,13 @@ export const query = graphql`
       slug {
         current
       }
+      _rawExcerpt
       _rawBody(resolveReferences: {maxDepth: 5})
       authors {
         _key
-        person {
+        author: person {
+          _rawBio
+          _id
           image {
             crop {
               _key
@@ -63,12 +67,12 @@ const BlogPostTemplate = props => {
       {errors && <SEO title='GraphQL Error' />}
       {post && <SEO title={post.title || 'Untitled'} />}
 
+
       {errors && (
         <Container>
           <GraphQLErrorList errors={errors} />
         </Container>
       )}
-
       {post && <BlogPost {...post} />}
     </Layout>
   )
