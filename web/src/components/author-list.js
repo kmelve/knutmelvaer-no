@@ -12,7 +12,7 @@ function AuthorList ({ items, title }) {
         {items.map(({ author, _key }) => {
           const authorName = author && author.name
           return (
-            <li key={_key} className={styles.listItem + ' h-card'}>
+            <li key={_key} className={styles.listItem}>
               <div className={styles.avatar}>
                 {author &&
                   author.image &&
@@ -28,7 +28,7 @@ function AuthorList ({ items, title }) {
                   )}
               </div>
               <div>
-                <a rel="author" className="p-author h-card" href={author.url || 'https://www.knutmelvaer.no'}>{authorName || <em>Missing name</em>}</a>
+                {authorName || <em>Missing name</em>}
               </div>
             </li>
           )

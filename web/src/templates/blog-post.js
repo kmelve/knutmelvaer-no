@@ -8,7 +8,7 @@ import Layout from '../containers/layout'
 
 
 export const query = graphql`
-  query BlogPostTemplateQuery($id: String!) {
+  query BlogPostTemplateQuery($id: String!, $permalink: String!) {
     post: sanityPost(id: {eq: $id}) {
       id
       publishedAt
@@ -56,6 +56,27 @@ export const query = graphql`
         }
       }
     }
+    allWebMentionEntry(filter: {wmTarget: {eq: $permalink}}) {
+    edges {
+      node {
+        type
+        mentionOf
+        name
+        wmTarget
+        wmSource
+        wmProperty
+        wmPrivate
+        wmId
+        url
+        author {
+          name
+          type
+          photo
+          url
+        }
+      }
+    }
+  }
   }
 `
 
