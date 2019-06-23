@@ -22,6 +22,11 @@ export default {
       }
     },
     {
+      name: 'tweet',
+      type: 'url',
+      title: 'Post tweet'
+    },
+    {
       name: 'publishedAt',
       type: 'datetime',
       title: 'Published at',

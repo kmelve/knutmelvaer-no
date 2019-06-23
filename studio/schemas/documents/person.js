@@ -27,6 +27,16 @@ export default {
       name: 'bio',
       type: 'bioPortableText',
       title: 'Biography'
+    },
+    {
+      name: 'url',
+      type: 'url',
+      title: 'Website url'
+    },
+    {
+      name: 'twitter',
+      type: 'string',
+      title: 'Twitter handle (without the @)'
     }
   ],
   preview: {
