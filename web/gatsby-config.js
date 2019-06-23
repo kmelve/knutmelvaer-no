@@ -29,7 +29,7 @@ module.exports = {
           twitter: 'kmelve' // no @
         },
         mentions: true,
-        pingbacks: false,
+        pingbacks: true,
         //forwardPingbacksAsWebmentions: 'https://www.knutmelvaer.no/endpoint',
         domain: 'www.knutmelvaer.no',
         token: process.env.WEBMENTIONS_TOKEN

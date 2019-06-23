@@ -43,7 +43,7 @@ async function createBlogPostPages (graphql, actions, reporter) {
       createPage({
         path,
         component: require.resolve('./src/templates/blog-post.js'),
-        context: { id }
+        context: { id, permalink: `https://www.knutmelvaer.no${path}` }
       })
 
       createPageDependency({ path, nodeId: id })
