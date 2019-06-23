@@ -7,7 +7,7 @@
   composes: responsiveTitle1 from './typography.module.css';
 }
 .hidden {
-  visibility: hidden;
+  display: none;
 }
 .mainImage {
   display: block;
@@ -88,4 +88,10 @@
 .categoriesHeadline {
   composes: base from './typography.module.css';
   margin: 0.5rem 0 0;
+}
+
+.footer {
+  margin: 1rem 0 1rem 0;
+  padding-top: 1rem;
+  border-top: 1px solid var(--color-very-light-gray);
 }
