@@ -10,7 +10,7 @@ import Layout from '../containers/layout'
 import {responsiveTitle1} from '../components/typography.module.css'
 
 export const query = graphql`
-  query ArchivePageQuery {
+  query BlogPageQuery {
     posts: allSanityPost(limit: 12, sort: {fields: [publishedAt], order: DESC}) {
       edges {
         node {
@@ -31,7 +31,7 @@ export const query = graphql`
   }
 `
 
-const ArchivePage = props => {
+const BlogPage = props => {
   const {data, errors} = props
 
   if (errors) {
@@ -46,13 +46,13 @@ const ArchivePage = props => {
 
   return (
     <Layout>
-      <SEO title='Archive' />
+      <SEO title='Blog' />
       <Container>
-        <h1 className={responsiveTitle1}>Archive</h1>
+        <h1 className={responsiveTitle1}>Blog</h1>
         {postNodes && postNodes.length > 0 && <BlogPostPreviewGrid nodes={postNodes} />}
       </Container>
     </Layout>
   )
 }
 
-export default ArchivePage
+export default BlogPage
