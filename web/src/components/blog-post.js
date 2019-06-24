@@ -4,6 +4,7 @@ import {buildImageObj, getBlogUrl, toPlainText} from '../lib/helpers'
 import {imageUrlFor} from '../lib/image-url'
 import PortableText from './portableText'
 import Container from './container'
+import SEO from '../components/seo'
 import AuthorList from './author-list'
 import Bio from './bio'
 import styles from './blog-post.module.css'
@@ -12,6 +13,16 @@ function BlogPost (props) {
   const {_rawBody, _rawExcerpt, authors, categories, title, mainImage, publishedAt, slug} = props
   return (
     <article className={styles.root + " h-entry"}>
+      <SEO
+        title={title}
+        description={toPlainText(_rawExcerpt || [])}
+        image={imageUrlFor(buildImageObj(mainImage))
+          .width(960)
+          .height(Math.floor((9 / 16) * 960))
+          .fit('crop')
+          .url()}
+        type="article"
+      />
       <Container>
         {mainImage && mainImage.asset && (
           <div className={styles.mainImage}>
