@@ -26,6 +26,7 @@ export const query = graphql`
       }
       _rawExcerpt
       _rawBody(resolveReferences: {maxDepth: 5})
+      tweet
       authors {
         _key
         author: person {
