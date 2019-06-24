@@ -1,6 +1,6 @@
 import React from 'react'
 import Figure from './Figure'
-import Code from './Code'
+import Code from './code'
 const serializers = {
   container: ({children}) => <React.Fragment>{children}</React.Fragment>,
   types: {
