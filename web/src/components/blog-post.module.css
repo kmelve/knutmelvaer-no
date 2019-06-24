@@ -37,6 +37,7 @@
 }
 
 .mainContent {
+  min-width: 0;
   @nest & a {
     color: var(--color-accent);
 

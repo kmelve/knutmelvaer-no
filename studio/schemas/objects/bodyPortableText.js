@@ -38,6 +38,12 @@ export default {
           }
         ]
       }
+    },
+    {
+      type: 'mainImage'
+    },
+    {
+      type: 'code'
     }
   ]
 }

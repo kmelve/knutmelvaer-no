@@ -5,6 +5,14 @@ import clientConfig from '../../client-config'
 import css from './Figure.module.css'
 
 export default ({node}) => {
+  if (node.asset.mimeType === "image/gif")
+  {
+    return (<figure className={css.root}>
+      <img src={node.asset.url} alt={node.alt} />
+      <figcaption>{node.caption}</figcaption>
+    </figure>)
+  }
+
   const fluidProps = getFluidGatsbyImage(
     node.asset._id,
     {maxWidth: 675},
