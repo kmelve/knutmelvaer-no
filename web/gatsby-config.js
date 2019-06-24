@@ -2,8 +2,13 @@
 require('dotenv').config({
   path: `.env.${process.env.NODE_ENV || 'development'}`
 })
-console.log(process.env.WEBMENTIONS_TOKEN)
+const PortableText = require('@sanity/block-content-to-html')
+const imageUrlBuilder = require('@sanity/image-url')
+const h = PortableText.h
 const clientConfig = require('./client-config')
+const imageUrlFor = source => imageUrlBuilder(clientConfig.sanity).image(source)
+
+const {getBlogUrl,filterOutDocsPublishedInTheFuture } = require('./nodeHelpers.js')
 
 const isProd = process.env.NODE_ENV === 'production'
 
@@ -49,15 +54,24 @@ module.exports = {
         `,
         feeds: [
           {
-            serialize: ({query: {site, allSanityPost}}) => {
-              return allSanityPost.edges.map(edge => {
+            serialize: ({query: {site, allSanityPost = []}}) => {
+              return allSanityPost.edges
+                .filter(({node}) => filterOutDocsPublishedInTheFuture(node))
+                .filter(({node}) => node.slug)
+                .map(({node}) => {
+                const { title, publishedAt, slug, _rawBody} = node
+                const url = site.siteUrl + getBlogUrl(publishedAt, slug.current)
                 return {
-                  title: edge.node.title,
-                  date: edge.node.publishedAt,
-                  url: site.siteUrl + edge.node.slug.current,
-                  guid: site.siteUrl + edge.node.slug.current
-                  /* custom_elements: [{ "content:encoded": edge.node.html }], */
-
+                  title: title,
+                  date: publishedAt,
+                  url,
+                  guid: url,
+                  custom_elements: [{ "content:encoded": PortableText({blocks: _rawBody, serializers: {
+                    types: {
+                      code: ({node}) => h('pre', h('code', {lang: node.language}, node.code)),
+                      mainImage: ({node}) => h('img', {src: imageUrlFor(node.asset).url()})
+                    }
+                  }})}]
                 }
               })
             },
@@ -66,6 +80,7 @@ module.exports = {
                 edges {
                   node {
                     _rawExcerpt
+                    _rawBody(resolveReferences: {maxDepth: 10})
                     title
                     publishedAt
                     slug {
@@ -77,12 +92,11 @@ module.exports = {
             }
             `,
             output: '/rss.xml',
-            title: "Your Site's RSS Feed",
+            title: "Knut Melvær",
             // optional configuration to insert feed reference in pages:
             // if `string` is used, it will be used to create RegExp and then test if pathname of
             // current page satisfied this regular expression;
             // if not provided or `undefined`, all pages will have feed reference inserted
-            match: '^/blog/'
           }
         ]
       }
