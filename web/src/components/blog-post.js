@@ -8,10 +8,11 @@ import SEO from '../components/seo'
 import AuthorList from './author-list'
 import Bio from './bio'
 import WM from './wm'
+import Twitter from './twitter'
 import styles from './blog-post.module.css'
 
 function BlogPost (props) {
-  const {_rawBody, _rawExcerpt, authors, categories, title, mainImage, publishedAt, slug, wm} = props
+const {_rawBody, _rawExcerpt, authors, categories, title, mainImage, publishedAt, slug, wm, tweet} = props
   return (
     <article className={styles.root + " h-entry"}>
       <SEO
@@ -64,6 +65,8 @@ function BlogPost (props) {
                     <li className="p-category" key={category._id}>{category.title}</li>
                   ))}
                 </ul>
+                <h3 className={styles.categoriesHeadline}>Twitter</h3>
+                {tweet && <Twitter twitterUrl={tweet} />}
                 {wm && <WM {...wm} />}
               </div>
             )}

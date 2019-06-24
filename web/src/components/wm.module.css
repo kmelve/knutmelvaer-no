@@ -1,7 +1,6 @@
 
 @import '../styles/custom-properties.css';
 .root {
-  border-top: 1px solid var(--color-very-light-gray);
   padding: 0 0 2rem 0;
 }
 .container {

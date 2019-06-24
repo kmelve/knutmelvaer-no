@@ -71,7 +71,6 @@
 }
 
 .categories {
-  border-top: 1px solid var(--color-very-light-gray);
   margin: 2rem 0 3rem;
 
   @nest & ul {
@@ -88,6 +87,8 @@
 .categoriesHeadline {
   composes: base from './typography.module.css';
   margin: 0.5rem 0 0;
+  padding: 1rem 0 0 0;
+  border-top: 1px solid var(--color-very-light-gray);
 }
 
 .footer {
