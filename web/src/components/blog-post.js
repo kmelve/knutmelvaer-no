@@ -7,10 +7,11 @@ import Container from './container'
 import SEO from '../components/seo'
 import AuthorList from './author-list'
 import Bio from './bio'
+import WM from './wm'
 import styles from './blog-post.module.css'
 
 function BlogPost (props) {
-  const {_rawBody, _rawExcerpt, authors, categories, title, mainImage, publishedAt, slug} = props
+  const {_rawBody, _rawExcerpt, authors, categories, title, mainImage, publishedAt, slug, wm} = props
   return (
     <article className={styles.root + " h-entry"}>
       <SEO
@@ -63,6 +64,7 @@ function BlogPost (props) {
                     <li className="p-category" key={category._id}>{category.title}</li>
                   ))}
                 </ul>
+                {wm && <WM {...wm} />}
               </div>
             )}
             <div>

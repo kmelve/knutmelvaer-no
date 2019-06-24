@@ -83,6 +83,7 @@ export const query = graphql`
 const BlogPostTemplate = props => {
   const {data, errors} = props
   const post = data && data.post
+  const allWebMentionEntry = data && data.allWebMentionEntry
   return (
     <Layout>
       {errors && <SEO title='GraphQL Error' />}
@@ -94,7 +95,7 @@ const BlogPostTemplate = props => {
           <GraphQLErrorList errors={errors} />
         </Container>
       )}
-      {post && <BlogPost {...post} />}
+      {post && <BlogPost {...post} wm={allWebMentionEntry} />}
     </Layout>
   )
 }
