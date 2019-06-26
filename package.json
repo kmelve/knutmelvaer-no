@@ -19,7 +19,7 @@
     "@sanity/components": "^0.140.36",
     "@sanity/core": "^0.140.36",
     "@sanity/default-layout": "^0.140.36",
-    "@sanity/default-login": "^0.140.34",
+    "@sanity/default-login": "^0.141.1",
     "lerna": "^3.15.0"
   }
 }
