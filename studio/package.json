@@ -16,7 +16,7 @@
     "@sanity/base": "^0.140.36",
     "@sanity/cli": "^0.140.36",
     "@sanity/code-input": "^0.140.34",
-    "@sanity/components": "^0.140.36",
+    "@sanity/components": "^0.141.1",
     "@sanity/core": "^0.140.36",
     "@sanity/dashboard": "^0.140.36",
     "@sanity/default-layout": "^0.140.36",
