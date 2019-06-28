@@ -13,6 +13,13 @@ const {getBlogUrl,filterOutDocsPublishedInTheFuture } = require('./nodeHelpers.j
 const isProd = process.env.NODE_ENV === 'production'
 
 module.exports = {
+  site: {
+    siteMetadata: {
+      title: "Knut Melvær",
+      siteUrl: 'https://www.knutmelvaer.no',
+      description: 'The blog and website of Knut Melvær'
+    }
+  },
   plugins: [
     'gatsby-plugin-postcss',
     'gatsby-plugin-react-helmet',
@@ -45,10 +52,11 @@ module.exports = {
       options: {
         query: `
         {
-          site: sanitySiteSettings {
+          siteMetadata {
             title
             description
-            siteUrl: url
+            siteUrl
+            site_url: siteUrl
           }
         }
         `,
