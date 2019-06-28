@@ -8,17 +8,18 @@ const h = PortableText.h
 const clientConfig = require('./client-config')
 const imageUrlFor = source => imageUrlBuilder(clientConfig.sanity).image(source)
 
-const {getBlogUrl,filterOutDocsPublishedInTheFuture } = require('./nodeHelpers.js')
+const {
+  getBlogUrl,
+  filterOutDocsPublishedInTheFuture
+} = require('./nodeHelpers.js')
 
 const isProd = process.env.NODE_ENV === 'production'
 
 module.exports = {
-  site: {
-    siteMetadata: {
-      title: "Knut Melvær",
-      siteUrl: 'https://www.knutmelvaer.no',
-      description: 'The blog and website of Knut Melvær'
-    }
+  siteMetadata: {
+    title: 'Knut Melvær',
+    siteUrl: 'https://www.knutmelvaer.no',
+    description: 'The blog and website of Knut Melvær'
   },
   plugins: [
     'gatsby-plugin-postcss',
@@ -42,7 +43,7 @@ module.exports = {
         },
         mentions: true,
         pingbacks: true,
-        //forwardPingbacksAsWebmentions: 'https://www.knutmelvaer.no/endpoint',
+        // forwardPingbacksAsWebmentions: 'https://www.knutmelvaer.no/endpoint',
         domain: 'www.knutmelvaer.no',
         token: process.env.WEBMENTIONS_TOKEN
       }
@@ -52,36 +53,51 @@ module.exports = {
       options: {
         query: `
         {
-          siteMetadata {
-            title
-            description
-            siteUrl
-            site_url: siteUrl
+          site {
+            siteMetadata {
+              title
+              description
+              siteUrl
+              site_url: siteUrl
+            }
           }
         }
         `,
         feeds: [
           {
-            serialize: ({query: {site, allSanityPost = []}}) => {
+            serialize: ({ query: { site, allSanityPost = [] } }) => {
               return allSanityPost.edges
-                .filter(({node}) => filterOutDocsPublishedInTheFuture(node))
-                .filter(({node}) => node.slug)
-                .map(({node}) => {
-                const { title, publishedAt, slug, _rawBody} = node
-                const url = site.siteUrl + getBlogUrl(publishedAt, slug.current)
-                return {
-                  title: title,
-                  date: publishedAt,
-                  url,
-                  guid: url,
-                  custom_elements: [{ "content:encoded": PortableText({blocks: _rawBody, serializers: {
-                    types: {
-                      code: ({node}) => h('pre', h('code', {lang: node.language}, node.code)),
-                      mainImage: ({node}) => h('img', {src: imageUrlFor(node.asset).url()})
-                    }
-                  }})}]
-                }
-              })
+                .filter(({ node }) => filterOutDocsPublishedInTheFuture(node))
+                .filter(({ node }) => node.slug)
+                .map(({ node }) => {
+                  const { title, publishedAt, slug, _rawBody } = node
+                  const url =
+                    site.siteUrl + getBlogUrl(publishedAt, slug.current)
+                  return {
+                    title: title,
+                    date: publishedAt,
+                    url,
+                    guid: url,
+                    custom_elements: [
+                      {
+                        'content:encoded': PortableText({
+                          blocks: _rawBody,
+                          serializers: {
+                            types: {
+                              code: ({ node }) =>
+                                h(
+                                  'pre',
+                                  h('code', { lang: node.language }, node.code)
+                                ),
+                              mainImage: ({ node }) =>
+                                h('img', { src: imageUrlFor(node.asset).url() })
+                            }
+                          }
+                        })
+                      }
+                    ]
+                  }
+                })
             },
             query: `{
               allSanityPost(sort: {fields: publishedAt, order: DESC}) {
@@ -100,7 +116,7 @@ module.exports = {
             }
             `,
             output: '/rss.xml',
-            title: "Knut Melvær",
+            title: 'Knut Melvær'
             // optional configuration to insert feed reference in pages:
             // if `string` is used, it will be used to create RegExp and then test if pathname of
             // current page satisfied this regular expression;
