@@ -22,6 +22,7 @@ const {_rawBody, _rawExcerpt, authors, categories, title, mainImage, publishedAt
           .width(960)
           .height(Math.floor((9 / 16) * 960))
           .fit('crop')
+          .auto('format')
           .url()}
         type="article"
       />
@@ -34,6 +35,7 @@ const {_rawBody, _rawExcerpt, authors, categories, title, mainImage, publishedAt
                 .width(960)
                 .height(Math.floor((9 / 16) * 960))
                 .fit('crop')
+                .auto('format')
                 .url()}
               alt={mainImage.alt}
             />

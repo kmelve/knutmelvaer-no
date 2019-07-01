@@ -22,6 +22,7 @@ function AuthorList ({ items, title }) {
                         .width(100)
                         .height(100)
                         .fit('crop')
+                        .auto('format')
                         .url()}
                       alt={authorName}
                     />
