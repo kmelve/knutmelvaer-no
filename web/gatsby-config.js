@@ -53,7 +53,7 @@ module.exports = {
       }`,
       serialize: ({ site, allSitePage, allSanityPost }) => {
         // make a list of future posts
-        const futurePages = [
+        const futurePosts = [
           ...allSanityPost.edges.filter(({node})=> isFuture(node.publishedAt)),
           // ...otherSanityType.edges.filter(({node})=> isFuture(node.publishedAt)),
         ]
