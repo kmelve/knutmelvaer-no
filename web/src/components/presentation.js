@@ -46,10 +46,12 @@ export default function Presentation (props) {
 
     </h4>
     {description && <blockquote className={css.description}>{addLineBreaks(description)}</blockquote>}
+    <p className={css.byline}>
     A <span className={css.type}>{presentationType}</span> on <time className={css.time}>{date}</time> at <span className={css.place}>{place}</span>{language && languageRender(language)}
     {
       collaborators.length > 0 &&
         <span> with {collaborators.map(Collaborators)}</span>
     }
+    </p>
   </article>)
 }
