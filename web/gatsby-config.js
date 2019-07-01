@@ -26,6 +26,11 @@ module.exports = {
       options: {
         query: `
         {
+          site {
+            siteMetadata {
+              siteUrl
+            }
+          }
           allSitePage {
             edges {
               node {
