@@ -12,18 +12,13 @@
 .mainImage {
   display: block;
   position: relative;
-  background: var(--color-very-light-gray);
-  padding-bottom: calc(9 / 16 * 100%);
 
-  @nest & img {
-    display: block;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    vertical-align: top;
-    object-fit: cover;
+  @nest & figcaption {
+    font-size: 0.8rem;
+    max-width: 100%;
+    @media (--media-min-medium) {
+      max-width: 60%;
+    }
   }
 }
 

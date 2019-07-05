@@ -1,6 +1,9 @@
 import {format, distanceInWords, differenceInDays} from 'date-fns'
 import React from 'react'
+import Img from 'gatsby-image'
+import {getFluidGatsbyImage} from 'gatsby-source-sanity'
 import {buildImageObj, getBlogUrl, toPlainText} from '../lib/helpers'
+import clientConfig from '../../client-config'
 import {imageUrlFor} from '../lib/image-url'
 import PortableText from './portableText'
 import Container from './container'
@@ -12,9 +15,14 @@ import Twitter from './twitter'
 import styles from './blog-post.module.css'
 
 function BlogPost (props) {
-const {_rawBody, _rawExcerpt, authors, categories, title, mainImage, publishedAt, slug, wm, tweet} = props
+  const {_rawBody, _rawExcerpt, authors, categories, title, mainImage, publishedAt, slug, wm, tweet} = props
+  const fluidProps = getFluidGatsbyImage(
+    mainImage.asset._id,
+    {width: 960, height: Math.floor((9 / 16) * 960)},
+    ...clientConfig.sanity
+  )
   return (
-    <article className={styles.root + " h-entry"}>
+    <article className={styles.root + ' h-entry'}>
       <SEO
         title={title}
         description={toPlainText(_rawExcerpt || [])}
@@ -24,38 +32,30 @@ const {_rawBody, _rawExcerpt, authors, categories, title, mainImage, publishedAt
           .fit('crop')
           .auto('format')
           .url()}
-        type="article"
+        type='article'
       />
       <Container>
         {mainImage && mainImage.asset && (
           <div className={styles.mainImage}>
-            <img
-              className="u-photo"
-              src={imageUrlFor(buildImageObj(mainImage))
-                .width(960)
-                .height(Math.floor((9 / 16) * 960))
-                .fit('crop')
-                .auto('format')
-                .url()}
-              alt={mainImage.alt}
-            />
+            <Img fluid={fluidProps} alt={mainImage.alt} className='u-photo' />
+            <figcaption>{mainImage.caption}</figcaption>
           </div>
         )}
         <div className={styles.grid}>
           <main className={styles.mainContent}>
-            <h1 className={styles.title + " p-name"}>{title}</h1>
+            <h1 className={styles.title + ' p-name'}>{title}</h1>
             {_rawBody && <PortableText blocks={_rawBody} />}
           </main>
           <aside className={styles.metaContent}>
             {publishedAt && (
               <div className={styles.publishedAt}>
-                <a className="u-url" href={`https://www.knutmelvaer.no${getBlogUrl(publishedAt, slug)}`}>
-                {differenceInDays(new Date(publishedAt), new Date()) > 3
-                  ? distanceInWords(new Date(publishedAt), new Date())
-                  : format(new Date(publishedAt), 'MMMM Do, YYYY')}
+                <a className='u-url' href={`https://www.knutmelvaer.no${getBlogUrl(publishedAt, slug)}`}>
+                  {differenceInDays(new Date(publishedAt), new Date()) > 3
+                    ? distanceInWords(new Date(publishedAt), new Date())
+                    : format(new Date(publishedAt), 'MMMM Do, YYYY')}
                 </a>
-                <time className={styles.hidden + " dt-published"} itemprop="datepublished" datetime={publishedAt}>{new Date(publishedAt).toISOString().replace('Z', '') + "+01:00"}</time>
-                {_rawExcerpt && <div className={styles.hidden + " p-summary e-content"}>{toPlainText(_rawExcerpt)}</div>}
+                <time className={styles.hidden + ' dt-published'} itemProp='datepublished' dateTime={publishedAt}>{new Date(publishedAt).toISOString().replace('Z', '') + '+01:00'}</time>
+                {_rawExcerpt && <div className={styles.hidden + ' p-summary e-content'}>{toPlainText(_rawExcerpt)}</div>}
               </div>
             )}
             {authors && <AuthorList items={authors} title='Authors' />}
@@ -64,7 +64,7 @@ const {_rawBody, _rawExcerpt, authors, categories, title, mainImage, publishedAt
                 <h3 className={styles.categoriesHeadline}>Categories</h3>
                 <ul>
                   {categories.map(category => (
-                    <li className="p-category" key={category._id}>{category.title}</li>
+                    <li className='p-category' key={category._id}>{category.title}</li>
                   ))}
                 </ul>
                 <h3 className={styles.categoriesHeadline}>Twitter</h3>
@@ -72,8 +72,7 @@ const {_rawBody, _rawExcerpt, authors, categories, title, mainImage, publishedAt
                 {wm && <WM {...wm} />}
               </div>
             )}
-            <div>
-            </div>
+            <div />
           </aside>
           <footer className={styles.footer}>
             {authors && authors.map(({author}) => <Bio author={author} />)}
