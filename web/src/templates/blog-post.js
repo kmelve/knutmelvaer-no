@@ -19,6 +19,7 @@ export const query = graphql`
       mainImage {
         ...SanityImage
         alt
+        caption
       }
       title
       slug {
@@ -89,7 +90,6 @@ const BlogPostTemplate = props => {
     <Layout>
       {errors && <SEO title='GraphQL Error' />}
       {post && <SEO title={post.title || 'Untitled'} description={toPlainText(post._rawExcerpt || [])} />}
-
 
       {errors && (
         <Container>

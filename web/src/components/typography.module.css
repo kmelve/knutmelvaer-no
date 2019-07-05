@@ -76,8 +76,8 @@
   margin: 1rem 0 2rem;
 
   @media (--media-min-small) {
-    font-size: var(--font-title2-size);
-    line-height: var(--font-title2-line-height);
+    font-size: var(--font-title1-size);
+    line-height: var(--font-title1-line-height);
   }
 
   @media (--media-min-medium) {
