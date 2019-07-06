@@ -27,7 +27,7 @@ module.exports = {
         // Fathom server URL. Defaults to `cdn.usefathom.com`
         trackingUrl: '78.141.209.227:8080',
         // Unique site id
-        siteId: 'CDWAH'
+        siteId: process.env.FATHOM_KEY
       }
     },
     {
