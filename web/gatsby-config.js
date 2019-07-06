@@ -22,6 +22,15 @@ module.exports = {
     'gatsby-plugin-postcss',
     'gatsby-plugin-react-helmet',
     {
+      resolve: 'gatsby-plugin-fathom',
+      options: {
+        // Fathom server URL. Defaults to `cdn.usefathom.com`
+        trackingUrl: '78.141.209.227:8080',
+        // Unique site id
+        siteId: 'CDWAH'
+      }
+    },
+    {
       resolve: 'gatsby-plugin-sitemap',
       options: {
         query: `
