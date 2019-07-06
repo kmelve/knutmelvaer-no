@@ -25,7 +25,7 @@ module.exports = {
       resolve: 'gatsby-plugin-fathom',
       options: {
         // Fathom server URL. Defaults to `cdn.usefathom.com`
-        trackingUrl: '78.141.209.227:8080',
+        trackingUrl: 'stats.knutmelvaer.no',
         // Unique site id
         siteId: process.env.FATHOM_KEY
       }
