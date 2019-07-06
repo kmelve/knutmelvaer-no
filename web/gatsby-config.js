@@ -2,15 +2,18 @@
 require('dotenv').config({
   path: `.env.${process.env.NODE_ENV || 'development'}`
 })
+
+const fetch = require("isomorphic-fetch")
+const {createHttpLink} = require("apollo-link-http")
 const PortableText = require('@sanity/block-content-to-html')
 const imageUrlBuilder = require('@sanity/image-url')
+
+const {isFuture} = require('date-fns')
 const h = PortableText.h
 const clientConfig = require('./client-config')
 const imageUrlFor = source => imageUrlBuilder(clientConfig.sanity).image(source)
-const {isFuture} = require('date-fns')
-const {getBlogUrl, filterOutDocsPublishedInTheFuture} = require('./nodeHelpers.js')
-
 const isProd = process.env.NODE_ENV === 'production'
+const {getBlogUrl, filterOutDocsPublishedInTheFuture} = require('./nodeHelpers.js')
 
 module.exports = {
   siteMetadata: {
@@ -29,6 +32,25 @@ module.exports = {
         // Unique site id
         siteId: process.env.FATHOM_KEY
       }
+    },
+    {
+      resolve: "gatsby-source-graphql",
+      options: {
+        // This type will contain remote schema Query type
+        typeName: "FATHOM",
+        // This is the field under which it's accessible
+        fieldName: "fathom",
+        // URL to query from
+        createLink: () =>
+        createHttpLink({
+          uri: `${ process.env.HASURA_GRAPHQL_URL }`, // <- Configure connection GraphQL url
+          headers: {
+            'x-hasura-admin-secret': process.env.HASURA_ADMIN_SECRET
+          },
+          fetch,
+        }),
+      refetchInterval: 10, // Refresh every 10 seconds for new data
+      },
     },
     {
       resolve: 'gatsby-plugin-sitemap',

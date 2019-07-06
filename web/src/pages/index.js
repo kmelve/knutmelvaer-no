@@ -11,6 +11,7 @@ import Container from '../components/container'
 import GraphQLErrorList from '../components/graphql-error-list'
 import SEO from '../components/seo'
 import Layout from '../containers/layout'
+import Stats from '../components/stats'
 
 export const query = graphql`
   fragment SanityImage on SanityMainImage {
@@ -86,6 +87,7 @@ const IndexPage = props => {
 
   const site = (data || {}).site
   const author = (data || {}).author
+  const stats = (data || {}).stats
   const postNodes = (data || {}).posts
     ? mapEdgesToNodes(data.posts)
       .filter(filterOutDocsWithoutSlugs)
@@ -114,7 +116,7 @@ const IndexPage = props => {
             browseMoreHref='/archive/'
           />
         )}
-
+      <Stats {...stats} />
       </Container>
     </Layout>
   )
