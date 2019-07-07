@@ -1,4 +1,5 @@
 import React from 'react'
+import {Link} from 'gatsby'
 import { buildImageObj } from '../lib/helpers'
 import { imageUrlFor } from '../lib/image-url'
 
@@ -29,7 +30,7 @@ function AuthorList ({ items, title }) {
                   )}
               </div>
               <div>
-                {authorName || <em>Missing name</em>}
+                <Link to="/work">{authorName || <em>Missing name</em>}</Link>
               </div>
             </li>
           )
