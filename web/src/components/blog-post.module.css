@@ -34,11 +34,11 @@
 .mainContent {
   min-width: 0;
   @nest & a {
-    color: var(--color-accent);
+    color: inherit;
 
     @media (hover: hover) {
       @nest &:hover {
-        color: inherit;
+        color: var(--color-accent);
       }
     }
   }
@@ -67,7 +67,7 @@
 }
 
 .categories {
-  margin: 2rem 0 3rem;
+  margin: 2rem 0 0 0;
 
   @nest & ul {
     list-style: none;
