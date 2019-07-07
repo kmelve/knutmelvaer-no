@@ -11,7 +11,6 @@ import Container from '../components/container'
 import GraphQLErrorList from '../components/graphql-error-list'
 import SEO from '../components/seo'
 import Layout from '../containers/layout'
-import Stats from '../components/stats'
 
 export const query = graphql`
   fragment SanityImage on SanityMainImage {
@@ -51,7 +50,7 @@ export const query = graphql`
       }
     }
     posts: allSanityPost(
-      limit: 6
+      limit: 5
       sort: { fields: [publishedAt], order: DESC }
       filter: { slug: { current: { ne: null } }, publishedAt: { ne: null } }
     ) {
@@ -113,10 +112,9 @@ const IndexPage = props => {
           <BlogPostPreviewList
             title='Latest blog posts'
             nodes={postNodes}
-            browseMoreHref='/archive/'
+            browseMoreHref='/blog/'
           />
         )}
-      <Stats {...stats} />
       </Container>
     </Layout>
   )
