@@ -2,7 +2,7 @@
 @import '../styles/custom-properties.css';
 
 .root {
-  margin: 2rem 0 3rem;
+  margin: 2rem 0 0 0;
   border-top: 1px solid var(--color-very-light-gray);
   display: none;
   @media (--media-min-medium) {

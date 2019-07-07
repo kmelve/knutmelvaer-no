@@ -74,9 +74,9 @@ function BlogPost (props) {
             )}
             <div />
           </aside>
-          <footer className={styles.footer}>
+          {/* <footer className={styles.footer}>
             {authors && authors.map(({author}) => <Bio author={author} />)}
-          </footer>
+          </footer> */}
         </div>
       </Container>
     </article>
