@@ -158,7 +158,8 @@ module.exports = {
                       serializers: {
                         types: {
                           code: ({node}) => h('pre', h('code', {lang: node.language}, node.code)),
-                          mainImage: ({node}) => h('img', {src: imageUrlFor(node.asset).url()})
+                          mainImage: ({node}) => h('img', {src: imageUrlFor(node.asset).url()}),
+                          twitter: ({node}) => h('p', {}, h('a', {href: node.url, innerHTML: 'Look at the tweet.'}))
                         }
                       }})}]
                   }
