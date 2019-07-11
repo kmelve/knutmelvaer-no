@@ -44,6 +44,9 @@ export default {
     },
     {
       type: 'code'
+    },
+    {
+      type: 'twitter'
     }
   ]
 }
