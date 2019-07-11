@@ -31,7 +31,8 @@
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-helmet": "^5.2.1",
-    "react-syntax-highlighter": "^11.0.1"
+    "react-syntax-highlighter": "^11.0.1",
+    "react-twitter-embed": "^2.0.8"
   },
   "devDependencies": {
     "dotenv": "^8.0.0",

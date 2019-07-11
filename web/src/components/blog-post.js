@@ -14,13 +14,14 @@ import WM from './wm'
 import Twitter from './twitter'
 import styles from './blog-post.module.css'
 
+const fluidProps = mainImage => (mainImage && mainImage.asset) && getFluidGatsbyImage(
+  mainImage.asset._id,
+  {width: 960, height: Math.floor((9 / 16) * 960)},
+  ...clientConfig.sanity
+)
 function BlogPost (props) {
   const {_rawBody, _rawExcerpt, authors, categories, title, mainImage, publishedAt, slug, wm, tweet} = props
-  const fluidProps = getFluidGatsbyImage(
-    mainImage.asset._id,
-    {width: 960, height: Math.floor((9 / 16) * 960)},
-    ...clientConfig.sanity
-  )
+
   return (
     <article className={styles.root + ' h-entry'}>
       <SEO
@@ -37,7 +38,7 @@ function BlogPost (props) {
       <Container>
         {mainImage && mainImage.asset && (
           <div className={styles.mainImage}>
-            <Img fluid={fluidProps} alt={mainImage.alt} className='u-photo' />
+            <Img fluid={fluidProps(mainImage)} alt={mainImage.alt} className='u-photo' />
             <figcaption>{mainImage.caption}</figcaption>
           </div>
         )}
