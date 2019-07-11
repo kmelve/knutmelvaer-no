@@ -9,7 +9,7 @@ export default ({node}) => {
   {
     return (<figure className={css.root}>
       <img src={node.asset.url} alt={node.alt} />
-      <figcaption>{node.caption}</figcaption>
+      <figcaption className={css.figcaption}>{node.caption}</figcaption>
     </figure>)
   }
 
@@ -21,7 +21,7 @@ export default ({node}) => {
   return (
     <figure className={css.root}>
       <Img fluid={fluidProps} alt={node.alt} />
-      <figcaption>{node.caption}</figcaption>
+      <figcaption className={css.figcaption}>{node.caption}</figcaption>
     </figure>
   )
 }
