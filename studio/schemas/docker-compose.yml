@@ -1,0 +1,37 @@
+version: '3'
+
+services:
+  fathom:
+    image: usefathom/fathom:latest
+    environment:
+      FATHOM_DATABASE_DRIVER: postgres
+      FATHOM_DATABASE_HOST: postgres
+      FATHOM_DATABASE_PASSWORD: e5daaf1612a0
+      FATHOM_DATABASE_USER: postgres
+      FATHOM_DATABASE_SSLMODE: disable
+    depends_on:
+      - postgres
+    ports:
+      - 8080:8080
+
+  postgres:
+    image: postgres:latest
+    volumes:
+      - /host/fathom/data:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_DB="fathom.db"
+      - POSTGRES_USER="postgres"
+      - POSTGRES_PASSWORD="e5daaf1612a0"
+
+  graphql-engine:
+    image: hasura/graphql-engine:v1.0.0-beta.2
+    ports:
+    - "9090:8080"
+    depends_on:
+    - "postgres"
+    restart: always
+    environment:
+      HASURA_GRAPHQL_DATABASE_URL: postgres://postgres:e5daaf1612a0@postgres:5432/fathom
+      HASURA_GRAPHQL_ENABLE_CONSOLE: true # set to "false" to disable console
+      ## uncomment next line to set an admin secret
+      HASURA_GRAPHQL_ADMIN_SECRET: e5daaf1612a0

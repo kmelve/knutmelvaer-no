@@ -28,9 +28,10 @@ export default function Stats () {
               }
             }
           }
-          posts: allSanityPost(limit: 5) {
+          posts: allSanityPost(limit: 5, filter: {publishedAt: {nin: "true"}, slug: {current: {nin: "true"}}}) {
             edges {
               node {
+                _id
                 title
                 publishedAt(formatString: "YYYY/MM")
                 slug {
@@ -46,27 +47,29 @@ export default function Stats () {
       `}
       render={({ site, posts, fathom: { stats, totals } }) => {
         const mergeStatsAndPosts = (acc, entry) => {
-          const findPostBySlug = ({ node: { publishedAt, slug } }) =>
-            slug && entry.name == `/blog/${publishedAt}/${slug.current}/`
-          return [
+          const [node] = posts.edges.filter(({node}) => entry.name == `/blog/${node.publishedAt}/${node.slug.current}/`)
+          return node ? [
             ...acc,
-            { ...entry, ...posts.edges.find(findPostBySlug).node }
-          ]
+            { ...entry, ...node }
+          ] : acc
         }
         return (
           <div>
             <h2 className={css.headline}>Most read posts</h2>
             <ol className={css.root}>
               {stats
-                .filter(({ name }) => /^\/blog.*/.test(name))
+                .filter(({ name }) => /^\/blog\/.*$/.test(name))
                 .reduce(mergeStatsAndPosts, [])
-                .map(({ title, name }) => (
-                  <li>
+                .filter(Boolean)
+                .sort((a,b) => b.pageviews - a.pageviews)
+                .slice(0,5)
+                .map(({ name, node: {_id, title} }) => (
+                  <li key={_id}>
                     <Link to={name}>{title}</Link>
                   </li>
                 ))}
             </ol>
-            <p>This website has been viewed {totals.aggregate.sum.pageviews} times by {totals.aggregate.sum.visitors} visitors ({site.buildTime}). </p>
+            <p>This website has been viewed {totals.aggregate.sum.pageviews} times by {totals.aggregate.sum.visitors} visitors (2019-07-07 to {site.buildTime}). </p>
           </div>
         )
       }}
