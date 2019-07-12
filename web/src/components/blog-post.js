@@ -13,6 +13,7 @@ import Bio from './bio'
 import WM from './wm'
 import Twitter from './twitter'
 import styles from './blog-post.module.css'
+import clientConfig from '../../client-config'
 
 const fluidProps = mainImage => (mainImage && mainImage.asset) && getFluidGatsbyImage(
   mainImage.asset._id,
