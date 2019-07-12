@@ -13,12 +13,13 @@ import Bio from './bio'
 import WM from './wm'
 import Twitter from './twitter'
 import styles from './blog-post.module.css'
-import clientConfig from '../../client-config'
+
 
 const fluidProps = mainImage => (mainImage && mainImage.asset) && getFluidGatsbyImage(
   mainImage.asset._id,
   {width: 960, height: Math.floor((9 / 16) * 960)},
-  ...clientConfig.sanity
+  {projectId: process.env.GATSBY_SANITY_PROJECT_ID || 'ndjrels0',
+  dataset: process.env.GATSBY_SANITY_DATASET || 'production'}
 )
 function BlogPost (props) {
   const {_rawBody, _rawExcerpt, authors, categories, title, mainImage, publishedAt, slug, wm, tweet} = props

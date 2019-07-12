@@ -35,7 +35,8 @@ function Bio ({ author = {} }) {
         const fluidProps = getFluidGatsbyImage(
           (image.asset || {})._id || fallbackAuthor.image.asset._id,
           { width: 100, height: 100 },
-          ...clientConfig.sanity
+          {projectId: process.env.GATSBY_SANITY_PROJECT_ID || 'ndjrels0',
+  dataset: process.env.GATSBY_SANITY_DATASET || 'production'}
         )
         return (
           <div key={_id || fallbackAuthor._id} className="p-author h-card">

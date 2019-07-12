@@ -16,7 +16,8 @@ export default ({node}) => {
   const fluidProps = getFluidGatsbyImage(
     node.asset._id,
     {maxWidth: 675},
-    ...clientConfig.sanity
+    {projectId: process.env.GATSBY_SANITY_PROJECT_ID || 'ndjrels0',
+  dataset: process.env.GATSBY_SANITY_DATASET || 'production'}
   )
   return (
     <figure className={css.root}>
