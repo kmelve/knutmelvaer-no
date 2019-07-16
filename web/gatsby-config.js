@@ -47,7 +47,7 @@ module.exports = {
         // URL to query from
         createLink: () =>
           createHttpLink({
-            uri: process.env.HASURA_GRAPHQL_URL, // <- Configure connection GraphQL url
+            uri: 'https://graphql.knutmelvaer.no/v1/graphql', // <- Configure connection GraphQL url
             headers: {
               'x-hasura-admin-secret': process.env.HASURA_ADMIN_SECRET
             },
