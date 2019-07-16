@@ -2,7 +2,6 @@ import React from 'react'
 import css from './twitter.module.css'
 
 function Twitter ({twitterUrl}) {
-  console.log(twitterUrl)
   const twitterId = twitterUrl.match(/.*status\/(.*)$/)[1]
   return (<ul className={css.root}>
     <li>
