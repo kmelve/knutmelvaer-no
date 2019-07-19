@@ -6,6 +6,7 @@ export default function wm ({ edges }) {
   const retweetFaces = retweets.map(
     ({ node }) => node.author && { wmId: node.wmId, ...node.author }
   )
+  console.log(retweetFaces)
   const likeFaces = likes.map(
     ({ node }) => node.author && { wmId: node.wmId, ...node.author }
   )
@@ -16,8 +17,11 @@ export default function wm ({ edges }) {
       </h4>
       <div className={css.container}>
         {likeFaces.map(face => (
-          <a className={css.face} href={face.url}>
-            <img alt={face.name} src={face.photo} key={face.wmId} />
+          <a className={css.face} href={face.url} key={face.wmId}>
+            {face.photo
+            ? <img alt={face.name} src={face.photo} />
+            : <div className={css.faceFallback}>{face.name}</div>
+            }
           </a>
         ))}
       </div>
@@ -26,8 +30,11 @@ export default function wm ({ edges }) {
       </h4>
       <div className={css.container}>
         {retweetFaces.map(face => (
-          <a className={css.face} href={face.url}>
-            <img alt={face.name} src={face.photo} key={face.wmId} />
+          <a className={css.face} href={face.url} key={face.wmId}>
+            {face.photo
+            ? <img alt={face.name} src={face.photo} />
+            : <div className={css.faceFallback}>{face.name[0]}</div>
+            }
           </a>
         ))}
       </div>
