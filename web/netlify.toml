@@ -1,0 +1,3 @@
+[[headers]]
+  # Define which paths this specific [[headers]] block will cover.
+  Access-Control-Allow-Origin = "*"
