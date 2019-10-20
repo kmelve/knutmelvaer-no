@@ -1,10 +1,10 @@
-import {format} from 'date-fns'
+import {format, parseISO} from 'date-fns'
 
 const path = ({publishedAt, slug}) => {
   if (!publishedAt || !slug) {
     return false
   }
-  const dateSegment = format(publishedAt, 'YYYY/MM')
+  const dateSegment = format(parseISO(publishedAt), 'yyyy/MM')
   return `/${dateSegment}/${slug.current}/`
 }
 

@@ -8,7 +8,7 @@ const { createHttpLink } = require('apollo-link-http')
 const PortableText = require('@sanity/block-content-to-html')
 const imageUrlBuilder = require('@sanity/image-url')
 
-const { isFuture } = require('date-fns')
+const { isFuture, parseISO } = require('date-fns')
 const clientConfig = require('./client-config')
 const {
   getBlogUrl,
@@ -90,7 +90,7 @@ module.exports = {
           // make a list of future posts
           const futurePosts = [
             ...allSanityPost.edges.filter(({ node }) =>
-              isFuture(node.publishedAt)
+              isFuture(parseISO(node.publishedAt))
             )
             // ...otherSanityType.edges.filter(({node})=> isFuture(node.publishedAt)),
           ]
