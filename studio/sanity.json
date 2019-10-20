@@ -20,7 +20,8 @@
     "dashboard-widget-netlify",
     "@sanity/code-input",
     "dashboard-widget-gatsby",
-    "minesweeper"
+    "minesweeper",
+    "seo-tools"
   ],
   "parts": [
     {
