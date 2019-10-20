@@ -1,4 +1,4 @@
-const {format, isFuture} = require('date-fns')
+const {format, isFuture, parseISO} = require('date-fns')
 
 function cn (...args) {
   return args.filter(Boolean).join(' ')
@@ -14,11 +14,11 @@ function filterOutDocsWithoutSlugs ({slug}) {
 }
 
 function filterOutDocsPublishedInTheFuture({publishedAt}) {
-  return !isFuture(publishedAt)
+  return !isFuture(parseISO(publishedAt))
 }
 
 function getBlogUrl (publishedAt, slug) {
-  return `/blog/${format(publishedAt, 'YYYY/MM')}/${slug.current || slug}/`
+  return `/blog/${format(parseISO(publishedAt), 'yyyy/MM')}/${slug.current || slug}/`
 }
 
 function buildImageObj (source) {

@@ -1,13 +1,13 @@
 import React from 'react'
 import {graphql} from 'gatsby'
-import {isFuture} from 'date-fns'
+import {isFuture,parseISO} from 'date-fns'
 import Container from '../components/container'
 import GraphQLErrorList from '../components/graphql-error-list'
 import SEO from '../components/seo'
 import Presentation from '../components/presentation'
 import Layout from '../containers/layout'
 
-const isPast = ({node: {machineDate}}) => !isFuture(machineDate)
+const isPast = ({node: {machineDate}}) => !isFuture(parseISO(machineDate))
 
 export const query = graphql`{
   presentations: allSanityPresentation(sort: {fields: date, order: DESC}, filter: {tags: {in: "tech"}}) {
