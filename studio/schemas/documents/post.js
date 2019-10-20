@@ -1,9 +1,20 @@
 import {format} from 'date-fns'
 
+const path = ({publishedAt, slug}) => {
+  if (!publishedAt || !slug) {
+    return false
+  }
+  const dateSegment = format(publishedAt, 'YYYY/MM')
+  return `/${dateSegment}/${slug.current}/`
+}
+
 export default {
   name: 'post',
   type: 'document',
   title: 'Blog Post',
+  fieldsets: [
+    {name: 'social', title: 'Social media handles'}
+  ],
   fields: [
     {
       name: 'title',
@@ -71,6 +82,19 @@ export default {
       name: 'body',
       type: 'bodyPortableText',
       title: 'Body'
+    },
+    {
+      name: 'seo',
+      title: 'SEO',
+      type: 'seo-tools',
+      options: {
+        baseUrl: 'https://knutmelvaer.no/blog',
+        slug (doc) { // (REQUIRED) a function to return the sug of the current page, which will be appended to the baseUrl
+          const {slug, publishedAt} = doc
+          console.log(path({slug, publishedAt}))
+          return path({slug, publishedAt})
+        }
+      }
     }
   ],
   orderings: [
@@ -111,12 +135,10 @@ export default {
       media: 'mainImage'
     },
     prepare ({title = 'No title', publishedAt, slug = {}, media}) {
-      const dateSegment = format(publishedAt, 'YYYY/MM')
-      const path = `/${dateSegment}/${slug.current}/`
       return {
         title,
         media,
-        subtitle: publishedAt ? path : 'Missing publishing date'
+        subtitle: path({publishedAt, slug}) || 'Missing publishing date'
       }
     }
   }

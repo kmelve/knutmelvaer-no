@@ -60,7 +60,7 @@ public
 
 # Yarn
 yarn-error.log
-yarn.lock
+
 .pnp/
 .pnp.js
 
@@ -68,8 +68,6 @@ yarn.lock
 .yarn-integrity
 
 # Lock files
-/package-lock.json
-/yarn.lock
 
 # Secrets
 .env.development
