@@ -34,7 +34,7 @@ export const query = graphql`{
 const WorkPage = props => {
   const {data, errors} = props
   const presentations = data.presentations.edges
-  const futurePresentations = presentations.filter(({node: {machineDate}}) => isFuture(machineDate))
+  const futurePresentations = presentations.filter(({node: {machineDate}}) => isFuture(parseISO(machineDate)))
   const pastPresentations = presentations.filter(isPast)
   if (errors) {
     return (
