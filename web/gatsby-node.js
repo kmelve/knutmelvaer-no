@@ -8,7 +8,7 @@ const { isFuture, parseISO } = require('date-fns')
 const { format } = require('date-fns')
 
 async function createBlogPostPages (graphql, actions, reporter) {
-  const { createPage, createPageDependency } = actions
+  const { createPage } = actions
   const result = await graphql(`
     {
       allSanityPost(
@@ -35,7 +35,7 @@ async function createBlogPostPages (graphql, actions, reporter) {
     .filter(edge => !isFuture(parseISO(edge.node.publishedAt)))
     .forEach((edge, index) => {
       const { id, slug = {}, publishedAt } = edge.node
-      const dateSegment = format(parseISO(publishedAt), 'yyyy/mm')
+      const dateSegment = format(parseISO(publishedAt), 'yyyy/MM')
       const path = `/blog/${dateSegment}/${slug.current}/`
 
       reporter.info(`Creating blog post page: ${path}`)
@@ -45,8 +45,6 @@ async function createBlogPostPages (graphql, actions, reporter) {
         component: require.resolve('./src/templates/blog-post.js'),
         context: { id, permalink: `https://www.knutmelvaer.no${path}` }
       })
-
-      createPageDependency({ path, nodeId: id })
     })
 }
 
