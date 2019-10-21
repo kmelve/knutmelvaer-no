@@ -1,4 +1,4 @@
-import {format, distanceInWords, differenceInDays,parseISO} from 'date-fns'
+import {format, formatDistanceToNow, differenceInDays,parseISO} from 'date-fns'
 import React from 'react'
 import Img from 'gatsby-image'
 import {getFluidGatsbyImage} from 'gatsby-source-sanity'
@@ -54,8 +54,8 @@ function BlogPost (props) {
               <div className={styles.publishedAt}>
                 <a className='u-url' href={`https://www.knutmelvaer.no${getBlogUrl(publishedAt, slug)}`}>
                   {differenceInDays(new Date(publishedAt), new Date()) > 3
-                    ? distanceInWords(new Date(publishedAt), new Date())
-                    : format(new Date(publishedAt), 'MMMM Do, YYYY')}
+                    ? formatDistanceToNow(new Date(publishedAt), new Date())
+                    : format(new Date(publishedAt), 'MMMM Do, yyyy')}
                 </a>
                 <time className={styles.hidden + ' dt-published'} itemProp='datepublished' dateTime={publishedAt}>{new Date(publishedAt).toISOString().replace('Z', '') + '+01:00'}</time>
                 {_rawExcerpt && <div className={styles.hidden + ' p-summary e-content'}>{toPlainText(_rawExcerpt)}</div>}

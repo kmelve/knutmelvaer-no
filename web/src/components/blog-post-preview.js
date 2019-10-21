@@ -1,4 +1,4 @@
-import {format} from 'date-fns'
+import {format, parseISO} from 'date-fns'
 import {Link} from 'gatsby'
 import React from 'react'
 import {buildImageObj, cn, getBlogUrl} from '../lib/helpers'
@@ -33,7 +33,7 @@ function BlogPostPreview ({isInList, title, publishedAt, slug = {}, mainImage, _
             <PortableText blocks={_rawExcerpt} />
           </div>
         )}
-        <div className={styles.date}>{format(publishedAt, 'MMMM Do, YYYY')}</div>
+        <div className={styles.date}>{format(parseISO(publishedAt), 'MMMM Do, yyyy')}</div>
       </div>
     </Link>
   )
