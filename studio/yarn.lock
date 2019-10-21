@@ -7702,7 +7702,7 @@ sanity-plugin-dashboard-widget-document-list@^0.0.8:
 
 sanity-plugin-dashboard-widget-gatsby@^1.0.7:
   version "1.0.9"
-  resolved "https://registry.npmjs.org/sanity-plugin-dashboard-widget-gatsby/-/sanity-plugin-dashboard-widget-gatsby-1.0.9.tgz#2f7e2fcbb0e9465cd44a0cca06c4d30824b55546"
+  resolved "https://registry.yarnpkg.com/sanity-plugin-dashboard-widget-gatsby/-/sanity-plugin-dashboard-widget-gatsby-1.0.9.tgz#2f7e2fcbb0e9465cd44a0cca06c4d30824b55546"
   dependencies:
     abort-controller "^2.0.3"
     react-props-stream "^1.0.0"
