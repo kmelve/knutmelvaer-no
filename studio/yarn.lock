@@ -934,8 +934,8 @@
     "@sanity/rich-date-input" "0.142.6"
 
 "@sanity/default-layout@^0.142.7":
-  version "0.142.7"
-  resolved "https://registry.npmjs.org/@sanity/default-layout/-/default-layout-0.142.7.tgz#2513517cda4e9692e2836fb6a0df81873000bca5"
+  version "0.142.10"
+  resolved "https://registry.yarnpkg.com/@sanity/default-layout/-/default-layout-0.142.10.tgz#98e3027bda2fcc585587943db40ebcdbc0b426a8"
   dependencies:
     "@sanity/generate-help-url" "0.142.0"
     is-hotkey "^0.1.4"
