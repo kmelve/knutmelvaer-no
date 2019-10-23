@@ -770,8 +770,8 @@
     object-assign "^4.1.1"
 
 "@sanity/code-input@^0.142.6":
-  version "0.142.6"
-  resolved "https://registry.npmjs.org/@sanity/code-input/-/code-input-0.142.6.tgz#23cf9ee93ac3259b07c496ee37c00bffdb3cd87a"
+  version "0.142.9"
+  resolved "https://registry.yarnpkg.com/@sanity/code-input/-/code-input-0.142.9.tgz#4438608e6449e4bfd5760b32758acd1d1cdf4a70"
   dependencies:
     lodash "^4.17.4"
     react-ace "^5.0.1"
