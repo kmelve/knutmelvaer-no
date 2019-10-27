@@ -28,7 +28,7 @@ export default function Stats () {
               }
             }
           }
-          posts: allSanityPost(limit: 5, filter: {publishedAt: {nin: "true"}, slug: {current: {nin: "true"}}}) {
+          posts: allSanityPost(filter: {publishedAt: {nin: "true"}, slug: {current: {nin: "true"}}}) {
             edges {
               node {
                 _id
@@ -47,7 +47,9 @@ export default function Stats () {
       `}
       render={({ site, posts, fathom: { stats, totals } }) => {
         const mergeStatsAndPosts = (acc, entry) => {
-          const [node] = posts.edges.filter(({node}) => entry.name == `/blog/${node.publishedAt}/${node.slug.current}/`)
+          const [node] = posts.edges
+          .filter(({node}) => node.slug && node.slug.current)
+          .filter(({node}) => entry.name == `/blog/${node.publishedAt}/${node.slug.current}/`)
           return node ? [
             ...acc,
             { ...entry, ...node }
