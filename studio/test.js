@@ -1,6 +1,8 @@
 import client from 'part:@sanity/base/client'
 
-const referal = 'r' + hashCode('https://twitter.com')
+client.patch('GPPrJJGEVIEaX15hN4fHWE').inc({thing: 2}).commit().then(console.log)
+
+/* const referal = 'r' + hashCode('https://twitter.com')
 
 const path = `referals.${referal}`
 
@@ -19,3 +21,4 @@ function hashCode (str) {
   return str.split('').reduce((prevHash, currVal) =>
     (((prevHash << 5) - prevHash) + currVal.charCodeAt(0)) | 0, 0)
 }
+ */
