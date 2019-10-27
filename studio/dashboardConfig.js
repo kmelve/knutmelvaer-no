@@ -4,15 +4,8 @@ export default {
     {
       name: 'gatsby',
       options: {
-        description:
-          'These are your Gatsby Preview instance.',
-        instances: [
-          {
-            title: 'My Gatsby Preview ✨',
-            name: 'knutmelvaer-no-v2-3373152487',
-            instanceUrl: 'https://knutmelvaer-no-v2-3373152487.gtsb.io',
-            orgId: 'c6a37ad7-ef84-4241-a2b8-f2aec3fa65ba'
-          }
+        sites: [
+          {siteUrl: 'https://knutmelvaer-no-v2-3373152487.gtsb.io'}
         ]
       }
     },

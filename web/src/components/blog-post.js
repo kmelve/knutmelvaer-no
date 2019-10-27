@@ -55,7 +55,7 @@ function BlogPost (props) {
                 <a className='u-url' href={`https://www.knutmelvaer.no${getBlogUrl(publishedAt, slug)}`}>
                   {differenceInDays(new Date(publishedAt), new Date()) > 3
                     ? formatDistanceToNow(new Date(publishedAt), new Date())
-                    : format(new Date(publishedAt), 'MMMM Do, yyyy')}
+                    : format(new Date(publishedAt), 'MMMM dd, yyyy')}
                 </a>
                 <time className={styles.hidden + ' dt-published'} itemProp='datepublished' dateTime={publishedAt}>{new Date(publishedAt).toISOString().replace('Z', '') + '+01:00'}</time>
                 {_rawExcerpt && <div className={styles.hidden + ' p-summary e-content'}>{toPlainText(_rawExcerpt)}</div>}
