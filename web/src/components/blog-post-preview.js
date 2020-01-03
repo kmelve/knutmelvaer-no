@@ -33,7 +33,7 @@ function BlogPostPreview ({isInList, title, publishedAt, slug = {}, mainImage, _
             <PortableText blocks={_rawExcerpt} />
           </div>
         )}
-        <div className={styles.date}>{format(parseISO(publishedAt), 'MMMM dd, yyyy')}</div>
+        {publishedAt && <div className={styles.date}>{format(parseISO(publishedAt), 'MMMM dd, yyyy')}</div>}
       </div>
     </Link>
   )
