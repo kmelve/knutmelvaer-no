@@ -6,7 +6,7 @@ export default function wm ({ edges }) {
   const retweetFaces = retweets.map(
     ({ node }) => node.author && { wmId: node.wmId, ...node.author }
   )
-  console.log(retweetFaces)
+
   const likeFaces = likes.map(
     ({ node }) => node.author && { wmId: node.wmId, ...node.author }
   )
