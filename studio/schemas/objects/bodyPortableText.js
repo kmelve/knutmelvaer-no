@@ -9,6 +9,17 @@ export default {
       marks: {
         annotations: [
           {
+            name: 'footnote',
+            type: 'object',
+            title: 'Footnote',
+            fields: [
+              {
+                type: 'excerptPortableText',
+                name: 'text'
+              }
+            ]
+          },
+          {
             name: 'internalLink',
             type: 'object',
             title: 'Internal link',
@@ -47,6 +58,7 @@ export default {
     },
     {
       type: 'twitter'
-    }
+    },
+
   ]
 }

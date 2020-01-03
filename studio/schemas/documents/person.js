@@ -1,3 +1,5 @@
+import Webcam from 'part:sanity-plugin-asset-source-webcam/image-asset-source'
+
 export default {
   name: 'person',
   type: 'document',
@@ -21,7 +23,10 @@ export default {
     {
       name: 'image',
       type: 'mainImage',
-      title: 'Image'
+      title: 'Image',
+      options: {
+        sources: [Webcam]
+      }
     },
     {
       name: 'bio',
