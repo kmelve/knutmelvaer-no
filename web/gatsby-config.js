@@ -149,6 +149,7 @@ module.exports = {
           {
             serialize: ({ query: { site, allSanityPost = [] } }) => {
               return allSanityPost.edges
+                .filter(({ node }) => node.publishedAt)
                 .filter(({ node }) => filterOutDocsPublishedInTheFuture(node))
                 .filter(({ node }) => node.slug)
                 .map(({ node }) => {
