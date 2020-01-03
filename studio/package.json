@@ -13,7 +13,6 @@
     "test": "sanity check"
   },
   "dependencies": {
-    "@rexxars/react-diff-viewer": "^2.0.5",
     "@sanity/base": "^0.147.6",
     "@sanity/cli": "^0.147.3",
     "@sanity/code-input": "^0.147.0",
