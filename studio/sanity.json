@@ -21,7 +21,13 @@
     "@sanity/code-input",
     "dashboard-widget-gatsby",
     "minesweeper",
-    "seo-tools"
+    "seo-tools",
+    "contextual-previews",
+    "content-model-graph",
+    "media",
+    "asset-source-unsplash",
+    "asset-source-webcam",
+    "asset-source-webcam-2"
   ],
   "parts": [
     {
@@ -35,6 +41,10 @@
     {
       "implements": "part:@sanity/dashboard/config",
       "path": "dashboardConfig.js"
+    },
+    {
+      "implements": "part:sanity-plugin-contextual-previews/resolve-contextual-previews",
+      "path": "resolveContextualPreviews.js"
     }
   ]
 }

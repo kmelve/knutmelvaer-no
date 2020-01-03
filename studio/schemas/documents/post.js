@@ -1,6 +1,6 @@
 import {format, parseISO} from 'date-fns'
 
-const path = ({publishedAt, slug}) => {
+export const path = ({publishedAt, slug}) => {
   if (!publishedAt || !slug) {
     return false
   }

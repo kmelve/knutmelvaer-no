@@ -3,7 +3,8 @@ import FolderIcon from 'part:@sanity/base/folder-icon'
 import FileIcon from 'part:@sanity/base/file-icon'
 import React from 'react'
 import styles from './StructureMenuWidget.css'
-
+import schema from 'part:@sanity/base/schema'
+console.log(schema)
 function getIconComponent (item) {
   if (item.icon) return item.icon
   if (!item.schemaType) return FileIcon
