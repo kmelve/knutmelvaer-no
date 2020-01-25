@@ -82,8 +82,8 @@ export default {
       name: 'body',
       type: 'bodyPortableText',
       title: 'Body'
-    },
-    {
+    }
+    /* {
       name: 'seo',
       title: 'SEO',
       type: 'seo-tools',
@@ -95,7 +95,7 @@ export default {
           return path({slug, publishedAt})
         }
       }
-    }
+    } */
   ],
   orderings: [
     {

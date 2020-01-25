@@ -4,11 +4,11 @@ require('dotenv').config({
 })
 
 const fetch = require('isomorphic-fetch')
-const { createHttpLink } = require('apollo-link-http')
+const {createHttpLink} = require('apollo-link-http')
 const PortableText = require('@sanity/block-content-to-html')
 const imageUrlBuilder = require('@sanity/image-url')
 
-const { isFuture, parseISO } = require('date-fns')
+const {isFuture, parseISO} = require('date-fns')
 const clientConfig = require('./client-config')
 const {
   getBlogUrl,
@@ -86,20 +86,20 @@ module.exports = {
             }
           }
       }`,
-        serialize: ({ site, allSitePage, allSanityPost }) => {
+        serialize: ({site, allSitePage, allSanityPost}) => {
           // make a list of future posts
           const futurePosts = [
-            ...allSanityPost.edges.filter(({ node }) =>
+            ...allSanityPost.edges.filter(({node}) =>
               isFuture(parseISO(node.publishedAt))
             )
             // ...otherSanityType.edges.filter(({node})=> isFuture(node.publishedAt)),
           ]
-          const pagesInFuture = ({ node }) =>
-            futurePosts.find(({ node }) => node.id !== node.context.id)
+          const pagesInFuture = ({node}) =>
+            futurePosts.find(({node}) => node.id !== node.context.id)
           return allSitePage.edges.filter(pagesInFuture).map(edge => {
             return {
               url: site.siteMetadata.siteUrl + edge.node.path,
-              changefreq: `daily`,
+              changefreq: 'daily',
               priority: 0.7
             }
           })
@@ -116,7 +116,7 @@ module.exports = {
       }
     },
     {
-      resolve: `gatsby-plugin-webmention`,
+      resolve: 'gatsby-plugin-webmention',
       options: {
         username: 'www.knutmelvaer.no', // webmention.io username
         identity: {
@@ -131,7 +131,7 @@ module.exports = {
       }
     },
     {
-      resolve: `gatsby-plugin-feed`,
+      resolve: 'gatsby-plugin-feed',
       options: {
         query: `
         {
@@ -147,13 +147,13 @@ module.exports = {
         `,
         feeds: [
           {
-            serialize: ({ query: { site, allSanityPost = [] } }) => {
+            serialize: ({query: {site, allSanityPost = []}}) => {
               return allSanityPost.edges
-                .filter(({ node }) => node.publishedAt)
-                .filter(({ node }) => filterOutDocsPublishedInTheFuture(node))
-                .filter(({ node }) => node.slug)
-                .map(({ node }) => {
-                  const { title, publishedAt, slug, _rawBody } = node
+                .filter(({node}) => node.publishedAt)
+                .filter(({node}) => filterOutDocsPublishedInTheFuture(node))
+                .filter(({node}) => node.slug)
+                .map(({node}) => {
+                  const {title, publishedAt, slug, _rawBody} = node
                   const url =
                     site.siteMetadata.siteUrl +
                     getBlogUrl(publishedAt, slug.current)
@@ -164,31 +164,33 @@ module.exports = {
                     guid: url,
                     custom_elements: [
                       {
-                        'content:encoded': PortableText({
-                          blocks: _rawBody,
-                          serializers: {
-                            types: {
-                              code: ({ node }) =>
-                                h(
-                                  'pre',
-                                  h('code', { lang: node.language }, node.code)
-                                ),
-                              mainImage: ({ node }) =>
-                                h('img', {
-                                  src: imageUrlFor(node.asset).url()
-                                }),
-                              twitter: ({ node }) =>
-                                h(
-                                  'p',
-                                  {},
-                                  h('a', {
-                                    href: node.url,
-                                    innerHTML: 'Look at the tweet.'
-                                  })
-                                )
+                        'content:encoded': {
+                          _cdata: PortableText({
+                            blocks: _rawBody,
+                            serializers: {
+                              types: {
+                                code: ({node}) =>
+                                  h(
+                                    'pre',
+                                    h('code', {lang: node.language}, node.code)
+                                  ),
+                                mainImage: ({node}) =>
+                                  h('img', {
+                                    src: imageUrlFor(node.asset).url()
+                                  }),
+                                twitter: ({node}) =>
+                                  h(
+                                    'p',
+                                    {},
+                                    h('a', {
+                                      href: node.url,
+                                      innerHTML: 'Look at the tweet.'
+                                    })
+                                  )
+                              }
                             }
-                          }
-                        })
+                          })
+                        }
                       }
                     ]
                   }
