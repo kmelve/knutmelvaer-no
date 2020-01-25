@@ -59,6 +59,8 @@ export default {
     {
       type: 'twitter'
     },
-
+    {
+      type: 'codepen'
+    }
   ]
 }

@@ -21,7 +21,7 @@ import excerptPortableText from './objects/excerptPortableText'
 import mainImage from './objects/mainImage'
 import personReference from './objects/personReference'
 import twitter from './objects/twitter'
-
+import codepen from './objects/codepen'
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
   // We name our schema
@@ -36,6 +36,7 @@ export default createSchema({
     post,
     category,
     person,
+    codepen,
     presentation,
     publication,
     mainImage,
