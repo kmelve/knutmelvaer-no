@@ -29,8 +29,7 @@
     "asset-source-webcam",
     "asset-source-webcam-2"
   ],
-  "parts": [
-    {
+  "parts": [{
       "name": "part:@sanity/base/schema",
       "path": "./schemas/schema.js"
     },
@@ -45,6 +44,10 @@
     {
       "implements": "part:sanity-plugin-contextual-previews/resolve-contextual-previews",
       "path": "resolveContextualPreviews.js"
+    },
+    {
+      "implements": "part:@sanity/base/document-actions/resolver",
+      "path": "resolveDocumentActions.js"
     }
   ]
 }
