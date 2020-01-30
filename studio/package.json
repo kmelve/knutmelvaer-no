@@ -42,7 +42,7 @@
     "sanity-plugin-dashboard-widget-gatsby": "1.0.9",
     "sanity-plugin-dashboard-widget-netlify": "1.0.1",
     "sanity-plugin-dashboard-widget-notes": "0.3.2",
-    "sanity-plugin-media": "^0.1.4",
+    "sanity-plugin-media": "^0.2.10",
     "sanity-plugin-minesweeper": "0.0.3",
     "sanity-plugin-seo-tools": "1.0.3",
     "svgo": "1.3.0"
