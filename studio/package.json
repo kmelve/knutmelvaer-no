@@ -34,7 +34,7 @@
     "react-diff-viewer": "^2.0.5",
     "react-dom": "16.11.0",
     "react-twitter-embed": "2.0.8",
-    "react-webcam": "^4.0.0",
+    "react-webcam": "^5.0.0",
     "sanity-plugin-asset-source-unsplash": "^0.1.1",
     "sanity-plugin-content-model-graph": "^1.0.4",
     "sanity-plugin-contextual-previews": "^0.0.6",
