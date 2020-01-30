@@ -38,7 +38,7 @@
     "sanity-plugin-asset-source-unsplash": "^0.1.1",
     "sanity-plugin-content-model-graph": "^1.0.4",
     "sanity-plugin-contextual-previews": "^0.0.6",
-    "sanity-plugin-dashboard-widget-document-list": "0.0.8",
+    "sanity-plugin-dashboard-widget-document-list": "0.0.9",
     "sanity-plugin-dashboard-widget-gatsby": "1.0.9",
     "sanity-plugin-dashboard-widget-netlify": "1.0.1",
     "sanity-plugin-dashboard-widget-notes": "0.3.2",
