@@ -4,11 +4,11 @@ require('dotenv').config({
 })
 
 const fetch = require('isomorphic-fetch')
-const {createHttpLink} = require('apollo-link-http')
+const { createHttpLink } = require('apollo-link-http')
 const PortableText = require('@sanity/block-content-to-html')
 const imageUrlBuilder = require('@sanity/image-url')
 
-const {isFuture, parseISO} = require('date-fns')
+const { isFuture, parseISO } = require('date-fns')
 const clientConfig = require('./client-config')
 const {
   getBlogUrl,
@@ -66,7 +66,7 @@ module.exports = {
               siteUrl
             }
           }
-          allSitePage {
+          allSitePage(filter: {id:{ne: null}}) {
             edges {
               node {
                 id
@@ -77,7 +77,7 @@ module.exports = {
               }
             }
           }
-          allSanityPost{
+          allSanityPost(filter: {id:{ne: null}}) {
             edges {
               node {
                 id
@@ -86,16 +86,16 @@ module.exports = {
             }
           }
       }`,
-        serialize: ({site, allSitePage, allSanityPost}) => {
+        serialize: ({ site, allSitePage, allSanityPost }) => {
           // make a list of future posts
           const futurePosts = [
-            ...allSanityPost.edges.filter(({node}) =>
+            ...allSanityPost.edges.filter(({ node }) =>
               isFuture(parseISO(node.publishedAt))
             )
             // ...otherSanityType.edges.filter(({node})=> isFuture(node.publishedAt)),
           ]
-          const pagesInFuture = ({node}) =>
-            futurePosts.find(({node}) => node.id !== node.context.id)
+          const pagesInFuture = ({ node }) =>
+            futurePosts.find(({ node }) => node.id !== node.context.id)
           return allSitePage.edges.filter(pagesInFuture).map(edge => {
             return {
               url: site.siteMetadata.siteUrl + edge.node.path,
@@ -147,13 +147,13 @@ module.exports = {
         `,
         feeds: [
           {
-            serialize: ({query: {site, allSanityPost = []}}) => {
+            serialize: ({ query: { site, allSanityPost = [] } }) => {
               return allSanityPost.edges
-                .filter(({node}) => node.publishedAt)
-                .filter(({node}) => filterOutDocsPublishedInTheFuture(node))
-                .filter(({node}) => node.slug)
-                .map(({node}) => {
-                  const {title, publishedAt, slug, _rawBody} = node
+                .filter(({ node }) => node.publishedAt)
+                .filter(({ node }) => filterOutDocsPublishedInTheFuture(node))
+                .filter(({ node }) => node.slug)
+                .map(({ node }) => {
+                  const { title, publishedAt, slug, _rawBody } = node
                   const url =
                     site.siteMetadata.siteUrl +
                     getBlogUrl(publishedAt, slug.current)
@@ -168,17 +168,47 @@ module.exports = {
                           _cdata: PortableText({
                             blocks: _rawBody,
                             serializers: {
+                              marks: {
+                                internalLink: ({ mark, children }) => {
+                                  const {
+                                    publishedAt,
+                                    slug,
+                                    _type
+                                  } = mark.reference
+                                  if (_type == 'post') {
+                                    const path = getBlogUrl(publishedAt, slug)
+                                    return h(
+                                      'a',
+                                      {
+                                        href: `https://www.knutmelvaer.no/${
+                                          path
+                                        }`
+                                      },
+                                      children
+                                    )
+                                  }
+                                  console.log(
+                                    'Unknown internal link type ',
+                                    mark.reference
+                                  )
+                                  return h('span', {}, children)
+                                }
+                              },
                               types: {
-                                code: ({node}) =>
+                                code: ({ node }) =>
                                   h(
                                     'pre',
-                                    h('code', {lang: node.language}, node.code)
+                                    h(
+                                      'code',
+                                      { lang: node.language },
+                                      node.code
+                                    )
                                   ),
-                                mainImage: ({node}) =>
+                                mainImage: ({ node }) =>
                                   h('img', {
                                     src: imageUrlFor(node.asset).url()
                                   }),
-                                twitter: ({node}) =>
+                                twitter: ({ node }) =>
                                   h(
                                     'p',
                                     {},
