@@ -8,3 +8,6 @@
 /lerna-debug.log
 
 # Lock files
+.env.development
+.env.production
+.env
