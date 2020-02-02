@@ -31,7 +31,7 @@
     "react": "16.11.0",
     "react-codepen-embed": "^1.0.1",
     "react-diff-view": "^2.4.0",
-    "react-diff-viewer": "^2.0.5",
+    "react-diff-viewer": "^3.0.1",
     "react-dom": "16.11.0",
     "react-twitter-embed": "2.0.8",
     "react-webcam": "^4.0.0",
