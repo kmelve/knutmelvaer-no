@@ -1,4 +1,5 @@
 import {format, formatDistanceToNow, differenceInDays,parseISO} from 'date-fns'
+import {Link} from 'gatsby'
 import React from 'react'
 import Img from 'gatsby-image'
 import {getFluidGatsbyImage} from 'gatsby-source-sanity'
@@ -67,7 +68,11 @@ function BlogPost (props) {
                 <h3 className={styles.categoriesHeadline}>Categories</h3>
                 <ul>
                   {categories.map(category => (
-                    <li className='p-category' key={category._id}>{category.title}</li>
+                    <li className='p-category' key={category._id}>
+                      <Link to={`/category/${category.slug.current}`}>
+                        {category.title}
+                      </Link>
+                    </li>
                   ))}
                 </ul>
                 <h3 className={styles.categoriesHeadline}>Twitter</h3>
