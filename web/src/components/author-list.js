@@ -30,7 +30,7 @@ function AuthorList ({ items, title }) {
                   )}
               </div>
               <div>
-                <Link to="/work">{authorName || <em>Missing name</em>}</Link>
+                {authorName || <em>Missing name</em>}
               </div>
             </li>
           )

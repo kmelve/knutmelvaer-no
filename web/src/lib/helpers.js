@@ -18,6 +18,9 @@ export function filterOutDocsPublishedInTheFuture({publishedAt}) {
 }
 
 export function getBlogUrl (publishedAt, slug) {
+  if (!slug) {
+    return ''
+  }
   if (!publishedAt) {
     return `/blog/${slug.current || slug}`
   }

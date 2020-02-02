@@ -7,6 +7,41 @@ const { isFuture, parseISO } = require('date-fns')
 
 const { format } = require('date-fns')
 
+async function createCategoryPages (graphql, actions, reporter) {
+  const { createPage } = actions
+  const result = await graphql(`
+  {
+    allSanityCategory(filter: {slug: {current: {ne: null}}}) {
+      group(field: _id) {
+        nodes {
+          id
+          slug {
+            current
+          }
+        }
+      }
+    }
+  }
+
+  `)
+  if (result.errors) throw result.errors
+
+  const categoryEdges = result.data.allSanityCategory.group
+  categoryEdges
+    .forEach(({nodes}, index) => {
+      const { id, slug = {} } = nodes[0]
+      const path = `/category/${slug.current}`
+
+      createPage({
+        path,
+        component: require.resolve('./src/templates/category.js'),
+        context: {
+          id
+        }
+      })
+    })
+}
+
 async function createBlogPostPages (graphql, actions) {
   const { createPage } = actions
   const result = await graphql(`
@@ -46,6 +81,7 @@ async function createBlogPostPages (graphql, actions) {
     })
 }
 
-exports.createPages = async ({ graphql, actions }) => {
-  await createBlogPostPages(graphql, actions)
+exports.createPages = async ({ graphql, actions, reporter }) => {
+  await createBlogPostPages(graphql, actions, reporter)
+  await createCategoryPages(graphql, actions, reporter)
 }
