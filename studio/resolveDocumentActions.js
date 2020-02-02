@@ -5,6 +5,5 @@ import {PublishNowAction} from './src/actions/PublishNowAction'
 
 export default function resolveDocumentActions() {
   const actions = [...Object.values(defaultActions), PublishNowAction]
-  debugger
   return actions
 }
