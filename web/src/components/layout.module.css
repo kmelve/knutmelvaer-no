@@ -40,15 +40,18 @@
   text-align: left;
   margin: 0 0 1rem;
 }
+
 .social {
   text-align: left;
   margin: 0 0 2rem 0;
 }
+
 .siteInfo {
   text-align: left;
   font-size: var(--font-small-size);
   line-height: var(--font-small-line-height);
 }
+
 .logos {
   display: flex;
   align-items: center;
@@ -56,11 +59,14 @@
 
   @nest & a {
     transition: all 200ms ease-in-out;
+    margin-right: 0.25em;
   }
+
   @nest & a:hover {
     postion: relative;
     transform: scale(10) rotateZ(7deg);
-    background: rgba(255,255,255,0.8);
+    background: rgba(255, 255, 255, 0.8);
+
 
   }
 }
