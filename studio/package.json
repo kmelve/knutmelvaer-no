@@ -15,7 +15,7 @@
   "dependencies": {
     "@rexxars/react-diff-viewer": "^2.0.5",
     "@sanity/base": "0.147.10-document-actions.31",
-    "@sanity/cli": "0.147.10-document-actions.31",
+    "@sanity/cli": "0.147.10-ts-client.1",
     "@sanity/code-input": "0.147.10-document-actions.31",
     "@sanity/components": "0.147.10-document-actions.31",
     "@sanity/core": "0.147.10-document-actions.31",
