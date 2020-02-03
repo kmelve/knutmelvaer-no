@@ -17,7 +17,7 @@
     "@sanity/base": "0.147.10-document-actions.31",
     "@sanity/cli": "0.147.10-document-actions.31",
     "@sanity/code-input": "0.147.10-document-actions.31",
-    "@sanity/components": "0.147.10-document-actions.31",
+    "@sanity/components": "0.147.10-ts-client.1",
     "@sanity/core": "0.147.10-document-actions.31",
     "@sanity/dashboard": "0.147.10-document-actions.31",
     "@sanity/default-layout": "0.147.10-document-actions.31",
