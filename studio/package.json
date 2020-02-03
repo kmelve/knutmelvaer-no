@@ -19,7 +19,7 @@
     "@sanity/code-input": "0.147.10-document-actions.31",
     "@sanity/components": "0.147.10-document-actions.31",
     "@sanity/core": "0.147.10-document-actions.31",
-    "@sanity/dashboard": "0.147.10-document-actions.31",
+    "@sanity/dashboard": "0.147.10-ts-client.1",
     "@sanity/default-layout": "0.147.10-document-actions.31",
     "@sanity/default-login": "0.147.10-document-actions.31",
     "@sanity/desk-tool": "0.147.10-document-actions.31",
