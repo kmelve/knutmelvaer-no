@@ -7,7 +7,7 @@ function Code ({ node }) {
     return undefined
   }
   return (
-    <SyntaxHighlighter language={node.language || 'text'} showLineNumbers wrapLines>
+    <SyntaxHighlighter language={node.language || 'text'} wrapLines>
       {node.code}
     </SyntaxHighlighter>
   )

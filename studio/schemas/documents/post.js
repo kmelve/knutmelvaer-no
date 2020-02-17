@@ -15,6 +15,17 @@ export default {
   fieldsets: [
     {name: 'social', title: 'Social media handles'}
   ],
+  initialValue: {
+    authors: [
+      {
+        "_type": "personReference",
+        "person": {
+          "_type": "reference",
+          "_ref": "bc5ad6cb-ea01-42c7-a285-bd5031f5b71e"
+        }
+      }
+    ]
+  },
   fields: [
     {
       name: 'title',
@@ -77,6 +88,15 @@ export default {
           }
         }
       ]
+    },
+    {
+      name: 'tags',
+      type: 'array',
+      title: 'Tags',
+      of:[{type:'string'}],
+      options: {
+        layout: 'tags'
+      }
     },
     {
       name: 'body',

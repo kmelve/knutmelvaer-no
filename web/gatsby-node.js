@@ -32,6 +32,7 @@ async function createCategoryPages (graphql, actions, reporter) {
       const { id, slug = {} } = nodes[0]
       const path = `/category/${slug.current}`
 
+
       createPage({
         path,
         component: require.resolve('./src/templates/category.js'),
@@ -80,6 +81,20 @@ async function createBlogPostPages (graphql, actions) {
       })
     })
 }
+
+
+exports.onCreateNode = ({ node, getNode, actions }) => {
+  const { createNodeField } = actions;
+  if (node.internal.type === 'SanityCategory') {
+    console.log(JSON.stringify(node, null, 2))
+    createNodeField({
+      node,
+      name: 'posts',
+      value: 'test'
+  });
+  }
+};
+
 
 exports.createPages = async ({ graphql, actions, reporter }) => {
   await createBlogPostPages(graphql, actions, reporter)

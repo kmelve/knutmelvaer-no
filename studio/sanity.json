@@ -27,9 +27,11 @@
     "media",
     "asset-source-unsplash",
     "asset-source-webcam",
-    "asset-source-webcam-2"
+    "asset-source-webcam-2",
+    "@sanity/vision"
   ],
-  "parts": [{
+  "parts": [
+    {
       "name": "part:@sanity/base/schema",
       "path": "./schemas/schema.js"
     },
