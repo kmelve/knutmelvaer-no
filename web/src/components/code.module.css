@@ -1,0 +1,15 @@
+.container {
+  margin: 3rem 0;
+  border-radius: 0.5rem;
+  //transform: rotate3d(0.5, -1, 0, 15deg) rotateZ(0deg);
+  transition: transform 100ms ease-in-out;
+  box-shadow: 27.1px 62.5px 125px -25px rgba(213, 213, 223, 0.9), 16.2px 37.5px 35px -37.5px;
+}
+
+.container:hover {
+  transform: rotate3d(0, 0, 0, 0deg) rotateZ(0deg);
+}
+
+.container>* {
+  border-radius: 0.5rem;
+}
