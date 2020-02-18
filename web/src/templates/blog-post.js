@@ -11,7 +11,9 @@ export const query = graphql`
   query BlogPostTemplateQuery($id: String!, $permalink: String!) {
     post: sanityPost(id: {eq: $id}) {
       id
+      readingTimeInMinutes
       publishedAt
+      _updatedAt
       categories {
         _id
         title

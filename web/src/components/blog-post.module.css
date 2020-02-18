@@ -6,9 +6,11 @@
 .title {
   composes: responsiveTitle1 from './typography.module.css';
 }
+
 .hidden {
   display: none;
 }
+
 .mainImage {
   display: block;
   position: relative;
@@ -16,6 +18,7 @@
   @nest & figcaption {
     font-size: 0.8rem;
     max-width: 100%;
+
     @media (--media-min-medium) {
       max-width: 60%;
     }
@@ -33,6 +36,7 @@
 
 .mainContent {
   min-width: 0;
+
   @nest & a {
     color: inherit;
 
@@ -43,7 +47,11 @@
     }
   }
 
-  @nest & h2, & h3, & h4, & h5, & h6 {
+  @nest & h2,
+  & h3,
+  & h4,
+  & h5,
+  & h6 {
     font-weight: 600;
   }
 
@@ -57,12 +65,11 @@
   }
 }
 
-.metaContent {
-}
+.metaContent {}
 
 .publishedAt {
   composes: small from './typography.module.css';
-  margin: 2rem 0 3rem;
+  margin: 1rem 0 2rem;
   color: var(--color-gray);
 }
 

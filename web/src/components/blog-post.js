@@ -23,7 +23,7 @@ const fluidProps = mainImage => (mainImage && mainImage.asset) && getFluidGatsby
   dataset: process.env.GATSBY_SANITY_DATASET || 'production'}
 )
 function BlogPost (props) {
-  const {_rawBody, _rawExcerpt, authors, categories, title, mainImage, publishedAt, slug, wm, tweet} = props
+  const {_rawBody, _rawExcerpt, authors, categories, title, mainImage, publishedAt, _updatedAt, readingTimeInMinutes, slug, wm, tweet} = props
 
   return (
     <article className={styles.root + ' h-entry'}>
@@ -53,16 +53,17 @@ function BlogPost (props) {
           <aside className={styles.metaContent}>
             {publishedAt && (
               <div className={styles.publishedAt}>
-                <a className='u-url' href={`https://www.knutmelvaer.no${getBlogUrl(publishedAt, slug)}`}>
+                <p><a className='u-url' href={`https://www.knutmelvaer.no${getBlogUrl(publishedAt, slug)}`}>
                   {differenceInDays(new Date(publishedAt), new Date()) > 3
                     ? formatDistanceToNow(new Date(publishedAt), new Date())
                     : format(new Date(publishedAt), 'MMMM dd, yyyy')}
-                </a>
+                </a></p>
                 <time className={styles.hidden + ' dt-published'} itemProp='datepublished' dateTime={publishedAt}>{new Date(publishedAt).toISOString().replace('Z', '') + '+01:00'}</time>
+                <p>A {readingTimeInMinutes} minute{readingTimeInMinutes > 1 ? 's': ''} read. {readingTimeInMinutes > 5 ? '☕️' : '⚡️'}</p>
                 {_rawExcerpt && <div className={styles.hidden + ' p-summary e-content'}>{toPlainText(_rawExcerpt)}</div>}
               </div>
             )}
-            {authors && <AuthorList items={authors} title='Authors' />}
+            {authors && <AuthorList items={authors} title={`Author${authors.length > 1 ? 's' : '' }`} />}
             {categories.length > 0 && (
               <div className={styles.categories}>
                 <h3 className={styles.categoriesHeadline}>Categories</h3>
