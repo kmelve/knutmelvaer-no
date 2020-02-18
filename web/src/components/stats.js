@@ -28,7 +28,10 @@ export default function Stats () {
               }
             }
           }
-          posts: allSanityPost(filter: {publishedAt: {nin: "true"}, slug: {current: {nin: "true"}}}) {
+          posts: allSanityPost(filter: {
+              publishedAt: {nin: "true"},
+              slug: {current: {nin: "true"}}
+            }) {
             edges {
               node {
                 _id

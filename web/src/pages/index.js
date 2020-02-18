@@ -52,12 +52,16 @@ export const query = graphql`
     posts: allSanityPost(
       limit: 5
       sort: { fields: [publishedAt], order: DESC }
-      filter: { slug: { current: { ne: null } }, publishedAt: { ne: null } }
+      filter: {
+        slug: { current: { ne: null } },
+        publishedAt: { ne: null }
+      }
     ) {
       edges {
         node {
           id
           publishedAt
+          readingTimeInMinutes
           mainImage {
             ...SanityImage
             alt

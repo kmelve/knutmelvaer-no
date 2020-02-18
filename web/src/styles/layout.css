@@ -6,6 +6,12 @@ html {
   line-height: var(--font-base-line-height);
 }
 
+@supports (font-variation-settings: normal) {
+  html {
+    font-family: var(--font-family-variation);
+  }
+}
+
 body {
   -webkit-font-smoothing: antialiased;
   background: var(--color-white);
@@ -15,8 +21,8 @@ body {
 
 html,
 body,
-body > div,
-body > div > div {
+body>div,
+body>div>div {
   height: 100%;
 }
 
@@ -24,7 +30,8 @@ a {
   color: var(--color-dark-gray);
   text-decoration-skip-ink: 1;
 
-  @nest &:hover, &:focus {
+  @nest &:hover,
+  &:focus {
     color: var(--color-accent);
   }
 }
@@ -32,6 +39,7 @@ a {
 h2 {
   font-size: 2rem;
 }
+
 h3 {
   font-size: 1.5rem;
 }

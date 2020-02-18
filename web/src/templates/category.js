@@ -16,8 +16,9 @@ export const query = graphql`
       description
     }
     posts: allSanityPost(
+      sort: {fields: publishedAt, order: DESC}
       filter: {
-        slug: { current: { ne: null } }
+        slug: { current: { ne: null } },
         categories: { elemMatch: { id: { eq: $id } } }
       }
     ) {
