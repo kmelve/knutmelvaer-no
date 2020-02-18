@@ -34,6 +34,11 @@ export default {
       description: 'Titles should be catchy, descriptive, and not too long'
     },
     {
+      name: 'hide',
+      type: 'boolean',
+      title: 'Hide this post'
+    },
+    {
       name: 'slug',
       type: 'slug',
       title: 'Slug',
