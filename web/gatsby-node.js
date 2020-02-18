@@ -4,6 +4,7 @@ const { format, isFuture, parseISO } = require('date-fns')
  *
  * See: https://www.gatsbyjs.org/docs/node-apis/
  */
+const isProd = process.env.NODE_ENV === 'production'
 
 
 async function createCategoryPages (graphql, actions, reporter) {
@@ -52,6 +53,7 @@ async function createBlogPostPages (graphql, actions) {
         edges {
           node {
             id
+            hide
             publishedAt
             slug {
               current
@@ -68,6 +70,8 @@ async function createBlogPostPages (graphql, actions) {
 
   postEdges
     .filter(edge => !isFuture(parseISO(edge.node.publishedAt)))
+    // If it isn't prod return all posts, if it's prod, only return posts that's not hidden
+    .filter(({node}) => isProd ? !node.hide : true)
     .forEach((edge, index) => {
       const { id, slug = {}, publishedAt } = edge.node
       const dateSegment = format(parseISO(publishedAt), 'yyyy/MM')
@@ -85,7 +89,6 @@ async function createBlogPostPages (graphql, actions) {
 exports.onCreateNode = ({ node, getNode, actions }) => {
   const { createNodeField } = actions;
   if (node.internal.type === 'SanityCategory') {
-    console.log(JSON.stringify(node, null, 2))
     createNodeField({
       node,
       name: 'posts',
