@@ -201,6 +201,15 @@ module.exports = {
                                 }
                               },
                               types: {
+                                youtube: ({ node}) =>
+                                h(
+                                  'p',
+                                  {},
+                                  h('a', {
+                                    href: node.url,
+                                    innerHTML: 'Watch on Youtube.'
+                                  })
+                                ),
                                 code: ({ node }) =>
                                   h(
                                     'pre',

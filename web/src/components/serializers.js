@@ -5,7 +5,9 @@ import Code from './code'
 import TwitterEmbed from './twitterEmbed'
 import { getBlogUrl } from '../lib/helpers'
 import YouTube from './youtube'
-
+/**
+ * Remeber the RSS serializers too!
+ */
 const serializers = {
   container: ({ children }) => <React.Fragment>{children}</React.Fragment>,
   types: {
