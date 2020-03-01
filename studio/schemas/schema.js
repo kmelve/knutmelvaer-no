@@ -22,6 +22,7 @@ import mainImage from './objects/mainImage'
 import personReference from './objects/personReference'
 import twitter from './objects/twitter'
 import codepen from './objects/codepen'
+import youtube from './objects/youtube'
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
   // We name our schema
@@ -44,7 +45,8 @@ export default createSchema({
     bodyPortableText,
     bioPortableText,
     excerptPortableText,
-    twitter
+    twitter,
+    youtube
 
     // When added to this list, object types can be used as
     // { type: 'typename' } in other document schemas

@@ -1,3 +1,7 @@
+import React from 'react'
+
+const InternalLinkRender = ({ children }) => <span>{children} 🔗</span>;
+
 // portableText.js
 export default {
   name: 'bodyPortableText',
@@ -23,6 +27,9 @@ export default {
             name: 'internalLink',
             type: 'object',
             title: 'Internal link',
+            blockEditor: {
+              render: InternalLinkRender
+            },
             fields: [
               {
                 name: 'reference',
@@ -61,6 +68,9 @@ export default {
     },
     {
       type: 'codepen'
+    },
+    {
+      type: 'youtube'
     }
   ]
 }

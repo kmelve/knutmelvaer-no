@@ -29,12 +29,14 @@
     "gatsby-source-graphql": "^2.1.33",
     "gatsby-source-sanity": "^5.0.5",
     "gatsby-transform-portable-text": "0.0.2",
+    "get-youtube-id": "^1.0.1",
     "isomorphic-fetch": "^2.2.1",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "react-helmet": "^5.2.1",
     "react-syntax-highlighter": "^12.2.1",
-    "react-twitter-embed": "^3.0.3"
+    "react-twitter-embed": "^3.0.3",
+    "react-youtube": "^7.9.0"
   },
   "devDependencies": {
     "dotenv": "^8.2.0",

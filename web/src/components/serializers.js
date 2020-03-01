@@ -4,6 +4,7 @@ import Figure from './Figure'
 import Code from './code'
 import TwitterEmbed from './twitterEmbed'
 import { getBlogUrl } from '../lib/helpers'
+import YouTube from './youtube'
 
 const serializers = {
   container: ({ children }) => <React.Fragment>{children}</React.Fragment>,
@@ -11,7 +12,8 @@ const serializers = {
     authorReference: ({ node }) => <span>{node.author.name}</span>,
     mainImage: Figure,
     code: Code,
-    twitter: TwitterEmbed
+    twitter: TwitterEmbed,
+    youtube: YouTube
   },
   marks: {
     internalLink: ({ mark, children }) => {
