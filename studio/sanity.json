@@ -28,7 +28,9 @@
     "asset-source-unsplash",
     "asset-source-webcam",
     "asset-source-webcam-2",
-    "@sanity/vision"
+    "@sanity/vision",
+    "@sanity/storybook",
+    "asset-source-ogimage"
   ],
   "parts": [
     {

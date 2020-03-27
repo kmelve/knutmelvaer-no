@@ -5,6 +5,8 @@ import Code from './code'
 import TwitterEmbed from './twitterEmbed'
 import { getBlogUrl } from '../lib/helpers'
 import YouTube from './youtube'
+import ReactTooltip from 'react-tooltip'
+
 /**
  * Remeber the RSS serializers too!
  */

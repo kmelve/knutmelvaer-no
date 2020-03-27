@@ -14,14 +14,8 @@ export default {
         annotations: [
           {
             name: 'footnote',
-            type: 'object',
+            type: 'footnote',
             title: 'Footnote',
-            fields: [
-              {
-                type: 'excerptPortableText',
-                name: 'text'
-              }
-            ]
           },
           {
             name: 'internalLink',
