@@ -9,12 +9,11 @@ import Spinner from 'part:@sanity/components/loading/spinner'
 import Snackbar from 'part:@sanity/components/snackbar/default'
 import ReferringDocumentsLists from './src/ReferringDocumentsLists'
 const query = `//groq
- *[references($id)]
+ *[references($id) && !(_id in path("drafts.*"))]
 `
-const Incoming = ({document}) => (
+const Incoming = ({document}) => document ? (
   <QueryContainer query={query} params={{id: document.displayed._id}}>
     {({result, loading, error, onRetry}) => {
-      console.log(result)
       if (error) {
         return (
           <Snackbar
@@ -27,6 +26,7 @@ const Incoming = ({document}) => (
           />
         )
       }
+      debugger
 
       if (loading) {
         return (
@@ -49,7 +49,7 @@ const Incoming = ({document}) => (
       )
     }}
   </QueryContainer>
-)
+) : <div />
 
 const hiddenDocTypes = listItem =>
   !['category', 'author', 'post', 'siteSettings'].includes(listItem.getId())

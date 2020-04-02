@@ -3,13 +3,17 @@ import defaultResolve from 'part:@sanity/base/document-actions'
 
 import {PublishNowAction} from './src/actions/PublishNowAction'
 
-export default function resolveDocumentActions(props) {
+export default function resolveDocumentActions (props) {
   const {type} = props
+  if (type === 'post') {
+    return [
+      ...defaultResolve(props),
+      PublishNowAction
+    ]
+  }
   const actions = [
-    ...defaultResolve(props),
-    (type === "post" && PublishNowAction)
+    ...defaultResolve(props)
   ]
-  debugger
-  console.log(actions)
+
   return actions
 }
