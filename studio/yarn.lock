@@ -837,7 +837,7 @@
     memoize-one "^5.0.4"
     prop-types "^15.6.2"
 
-"@sanity/base@1.149.3", "@sanity/base@^1.149.3":
+"@sanity/base@1.149.3":
   version "1.149.3"
   resolved "https://registry.npmjs.org/@sanity/base/-/base-1.149.3.tgz#5d8c8f75915282388f6d56eecef5188796cecdcc"
   dependencies:
@@ -853,6 +853,38 @@
     "@sanity/structure" "1.149.0"
     "@sanity/transaction-collator" "1.149.0"
     "@sanity/util" "1.149.0"
+    "@sanity/uuid" "1.149.0"
+    "@sanity/validation" "1.149.0"
+    history "^4.6.3"
+    lodash "^4.17.15"
+    nano-pubsub "^1.0.2"
+    oneline "^1.0.3"
+    promise-props "^1.0.0"
+    react-fast-compare "^2.0.2"
+    react-icon-base "^2.1.2"
+    react-icons "^2.2.7"
+    react-intl "^2.2.2"
+    react-props-stream "^1.0.0"
+    rxjs "^6.5.3"
+    semver-compare "^1.0.0"
+    shallow-equals "^1.0.0"
+
+"@sanity/base@1.149.8", "@sanity/base@^1.149.3":
+  version "1.149.8"
+  resolved "https://registry.yarnpkg.com/@sanity/base/-/base-1.149.8.tgz#54caab90f5a6ecee67050207bef47a90f30bdf25"
+  dependencies:
+    "@sanity/client" "1.149.7"
+    "@sanity/generate-help-url" "1.149.0"
+    "@sanity/image-url" "0.140.15"
+    "@sanity/initial-value-templates" "1.149.7"
+    "@sanity/mutator" "1.149.0"
+    "@sanity/observable" "1.149.0"
+    "@sanity/preview" "1.149.4"
+    "@sanity/schema" "1.149.4"
+    "@sanity/state-router" "1.149.0"
+    "@sanity/structure" "1.149.7"
+    "@sanity/transaction-collator" "1.149.7"
+    "@sanity/util" "1.149.7"
     "@sanity/uuid" "1.149.0"
     "@sanity/validation" "1.149.0"
     history "^4.6.3"
@@ -931,6 +963,18 @@
 "@sanity/client@1.149.2":
   version "1.149.2"
   resolved "https://registry.npmjs.org/@sanity/client/-/client-1.149.2.tgz#fc47fe08e39d79b1099d1a9712d7e7bec12288ec"
+  dependencies:
+    "@sanity/eventsource" "1.149.0"
+    "@sanity/generate-help-url" "1.149.0"
+    "@sanity/observable" "1.149.0"
+    deep-assign "^2.0.0"
+    get-it "^5.0.0"
+    make-error "^1.3.0"
+    object-assign "^4.1.1"
+
+"@sanity/client@1.149.7":
+  version "1.149.7"
+  resolved "https://registry.yarnpkg.com/@sanity/client/-/client-1.149.7.tgz#117f870cedc5fa51ee36e5003bfb491c51b9f1da"
   dependencies:
     "@sanity/eventsource" "1.149.0"
     "@sanity/generate-help-url" "1.149.0"
@@ -1138,10 +1182,10 @@
     "@sanity/rich-date-input" "0.144.0"
 
 "@sanity/default-layout@^1.149.3":
-  version "1.149.3"
-  resolved "https://registry.npmjs.org/@sanity/default-layout/-/default-layout-1.149.3.tgz#80ebbc4e487f281e6037df2b74d1b74a39ac1a60"
+  version "1.149.8"
+  resolved "https://registry.yarnpkg.com/@sanity/default-layout/-/default-layout-1.149.8.tgz#cfc18bf3c0b8167f677292842c6a345cf01fee9d"
   dependencies:
-    "@sanity/base" "1.149.3"
+    "@sanity/base" "1.149.8"
     "@sanity/generate-help-url" "1.149.0"
     is-hotkey "^0.1.4"
     lodash "^4.17.15"
@@ -1350,6 +1394,18 @@
     memoize-one "^3.1.1"
     oneline "^1.0.3"
 
+"@sanity/initial-value-templates@1.149.7":
+  version "1.149.7"
+  resolved "https://registry.yarnpkg.com/@sanity/initial-value-templates/-/initial-value-templates-1.149.7.tgz#3d393bf8084053f32ad77a05a22967fee1b9fe87"
+  dependencies:
+    "@sanity/util" "1.149.7"
+    "@types/lodash" "^4.14.149"
+    "@types/memoize-one" "^3.1.1"
+    "@types/node" "^8.0.0"
+    lodash "^4.17.15"
+    memoize-one "^3.1.1"
+    oneline "^1.0.3"
+
 "@sanity/mutator@0.140.30":
   version "0.140.30"
   resolved "https://registry.npmjs.org/@sanity/mutator/-/mutator-0.140.30.tgz#04fea5333faa4ad23ac7538549e48ad7960f14e5"
@@ -1405,6 +1461,17 @@
 "@sanity/preview@1.149.0":
   version "1.149.0"
   resolved "https://registry.npmjs.org/@sanity/preview/-/preview-1.149.0.tgz#e4ea1c77b6fc863ee7a917afbbb56ddb76f3ce36"
+  dependencies:
+    "@sanity/image-url" "0.140.15"
+    lodash "^4.17.15"
+    observable-props "^2.0.0"
+    react-props-stream "^1.0.0"
+    rxjs "^6.5.3"
+    shallow-equals "^1.0.0"
+
+"@sanity/preview@1.149.4":
+  version "1.149.4"
+  resolved "https://registry.yarnpkg.com/@sanity/preview/-/preview-1.149.4.tgz#7321383fa05ec487b512866459f5820ab0081bfa"
   dependencies:
     "@sanity/image-url" "0.140.15"
     lodash "^4.17.15"
@@ -1470,6 +1537,18 @@
 "@sanity/schema@1.149.0":
   version "1.149.0"
   resolved "https://registry.npmjs.org/@sanity/schema/-/schema-1.149.0.tgz#47723a48bc9eab8f9849367d3c70386447d428f6"
+  dependencies:
+    "@sanity/generate-help-url" "1.149.0"
+    arrify "^1.0.1"
+    humanize-list "^1.0.1"
+    json-reduce "^1.0.0"
+    leven "^2.1.0"
+    lodash "^4.17.15"
+    object-inspect "^1.6.0"
+
+"@sanity/schema@1.149.4":
+  version "1.149.4"
+  resolved "https://registry.yarnpkg.com/@sanity/schema/-/schema-1.149.4.tgz#88b5315d3ecc71db551d5ef56d38e497d77486b4"
   dependencies:
     "@sanity/generate-help-url" "1.149.0"
     arrify "^1.0.1"
@@ -1556,6 +1635,17 @@
     lodash "^4.17.15"
     memoize-one "^3.1.1"
 
+"@sanity/structure@1.149.7":
+  version "1.149.7"
+  resolved "https://registry.yarnpkg.com/@sanity/structure/-/structure-1.149.7.tgz#1fbdf86c612d2715c1b969420e1254dc4b5ee908"
+  dependencies:
+    "@sanity/initial-value-templates" "1.149.7"
+    "@types/lodash" "^4.14.149"
+    "@types/memoize-one" "^3.1.1"
+    "@types/node" "^8.0.0"
+    lodash "^4.17.15"
+    memoize-one "^3.1.1"
+
 "@sanity/timed-out@^4.0.2":
   version "4.0.2"
   resolved "https://registry.npmjs.org/@sanity/timed-out/-/timed-out-4.0.2.tgz#c9f61f9a1609baa1eb3e4235a24ea2a775022cdf"
@@ -1568,9 +1658,27 @@
     "@types/node" "^8.0.0"
     lodash "^4.17.15"
 
+"@sanity/transaction-collator@1.149.7":
+  version "1.149.7"
+  resolved "https://registry.yarnpkg.com/@sanity/transaction-collator/-/transaction-collator-1.149.7.tgz#fce7485240a78a739b4060805db3bd45afeb3779"
+  dependencies:
+    "@types/lodash" "^4.14.149"
+    "@types/node" "^8.0.0"
+    lodash "^4.17.15"
+
 "@sanity/util@1.149.0":
   version "1.149.0"
   resolved "https://registry.npmjs.org/@sanity/util/-/util-1.149.0.tgz#9c10fc49bbbdc8c2185d0dd27f403d42fd087e97"
+  dependencies:
+    dotenv "^8.2.0"
+    fs-extra "^6.0.1"
+    get-random-values "^1.2.0"
+    lodash "^4.17.15"
+    resolve-from "^4.0.0"
+
+"@sanity/util@1.149.7":
+  version "1.149.7"
+  resolved "https://registry.yarnpkg.com/@sanity/util/-/util-1.149.7.tgz#a21a7539fa574070c2c096880bd346e3f7b597b9"
   dependencies:
     dotenv "^8.2.0"
     fs-extra "^6.0.1"
