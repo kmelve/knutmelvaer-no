@@ -29,8 +29,7 @@
     "asset-source-webcam",
     "asset-source-webcam-2",
     "@sanity/vision",
-    "@sanity/storybook",
-    "asset-source-ogimage"
+    "@sanity/storybook"
   ],
   "parts": [
     {
