@@ -1110,11 +1110,12 @@
     source-list-map "^2.0.0"
 
 "@sanity/dashboard@^1.149.3":
-  version "1.149.3"
-  resolved "https://registry.npmjs.org/@sanity/dashboard/-/dashboard-1.149.3.tgz#2e9b344149ed77a054435f8f69ec09a7bde99ded"
+  version "1.149.10"
+  resolved "https://registry.yarnpkg.com/@sanity/dashboard/-/dashboard-1.149.10.tgz#7973f64baa520e83037e707ec401604da5fb692c"
   dependencies:
     lodash "^4.17.15"
     react-icons "^2.2.7"
+    rxjs "^6.5.3"
 
 "@sanity/data-aspects@1.149.0":
   version "1.149.0"
