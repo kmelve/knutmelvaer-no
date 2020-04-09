@@ -837,7 +837,39 @@
     memoize-one "^5.0.4"
     prop-types "^15.6.2"
 
-"@sanity/base@1.149.3", "@sanity/base@^1.149.3":
+"@sanity/base@1.149.10", "@sanity/base@^1.149.3":
+  version "1.149.10"
+  resolved "https://registry.yarnpkg.com/@sanity/base/-/base-1.149.10.tgz#4b813600b707f4ddc0ea579189d125258d434b49"
+  dependencies:
+    "@sanity/client" "1.149.7"
+    "@sanity/generate-help-url" "1.149.0"
+    "@sanity/image-url" "0.140.15"
+    "@sanity/initial-value-templates" "1.149.7"
+    "@sanity/mutator" "1.149.0"
+    "@sanity/observable" "1.149.0"
+    "@sanity/preview" "1.149.4"
+    "@sanity/schema" "1.149.4"
+    "@sanity/state-router" "1.149.0"
+    "@sanity/structure" "1.149.7"
+    "@sanity/transaction-collator" "1.149.7"
+    "@sanity/util" "1.149.7"
+    "@sanity/uuid" "1.149.0"
+    "@sanity/validation" "1.149.0"
+    history "^4.6.3"
+    lodash "^4.17.15"
+    nano-pubsub "^1.0.2"
+    oneline "^1.0.3"
+    promise-props "^1.0.0"
+    react-fast-compare "^2.0.2"
+    react-icon-base "^2.1.2"
+    react-icons "^2.2.7"
+    react-intl "^2.2.2"
+    react-props-stream "^1.0.0"
+    rxjs "^6.5.3"
+    semver-compare "^1.0.0"
+    shallow-equals "^1.0.0"
+
+"@sanity/base@1.149.3":
   version "1.149.3"
   resolved "https://registry.npmjs.org/@sanity/base/-/base-1.149.3.tgz#5d8c8f75915282388f6d56eecef5188796cecdcc"
   dependencies:
@@ -895,9 +927,9 @@
     semver-compare "^1.0.0"
     shallow-equals "^1.0.0"
 
-"@sanity/block-tools@1.149.0":
-  version "1.149.0"
-  resolved "https://registry.npmjs.org/@sanity/block-tools/-/block-tools-1.149.0.tgz#2f3795c4ea950c59775d1bf8f6c771dd32394943"
+"@sanity/block-tools@1.149.4":
+  version "1.149.4"
+  resolved "https://registry.yarnpkg.com/@sanity/block-tools/-/block-tools-1.149.4.tgz#5ea94ee5c585bf5168d7704d6ed9d33cf7d46454"
   dependencies:
     get-random-values "^1.2.0"
     lodash "^4.17.15"
@@ -931,6 +963,18 @@
 "@sanity/client@1.149.2":
   version "1.149.2"
   resolved "https://registry.npmjs.org/@sanity/client/-/client-1.149.2.tgz#fc47fe08e39d79b1099d1a9712d7e7bec12288ec"
+  dependencies:
+    "@sanity/eventsource" "1.149.0"
+    "@sanity/generate-help-url" "1.149.0"
+    "@sanity/observable" "1.149.0"
+    deep-assign "^2.0.0"
+    get-it "^5.0.0"
+    make-error "^1.3.0"
+    object-assign "^4.1.1"
+
+"@sanity/client@1.149.7":
+  version "1.149.7"
+  resolved "https://registry.yarnpkg.com/@sanity/client/-/client-1.149.7.tgz#117f870cedc5fa51ee36e5003bfb491c51b9f1da"
   dependencies:
     "@sanity/eventsource" "1.149.0"
     "@sanity/generate-help-url" "1.149.0"
@@ -1116,9 +1160,9 @@
     lodash "^4.17.15"
     react-icons "^2.2.7"
 
-"@sanity/data-aspects@1.149.0":
-  version "1.149.0"
-  resolved "https://registry.npmjs.org/@sanity/data-aspects/-/data-aspects-1.149.0.tgz#93c431d62b68af2cf38b53bbe122e2166918dd81"
+"@sanity/data-aspects@1.149.7":
+  version "1.149.7"
+  resolved "https://registry.yarnpkg.com/@sanity/data-aspects/-/data-aspects-1.149.7.tgz#eeca6c285d764f132f73a7488aba2407c1506ae5"
   dependencies:
     "@sanity/generate-help-url" "1.149.0"
     lodash "^4.17.15"
@@ -1160,17 +1204,17 @@
     rxjs "^6.5.3"
 
 "@sanity/desk-tool@^1.149.3":
-  version "1.149.3"
-  resolved "https://registry.npmjs.org/@sanity/desk-tool/-/desk-tool-1.149.3.tgz#33864b905da835f2ca45cbb0cbd6a38c5ef7d55e"
+  version "1.149.10"
+  resolved "https://registry.yarnpkg.com/@sanity/desk-tool/-/desk-tool-1.149.10.tgz#c274c531d9773c8fa327ce87e96b52b05bea4e95"
   dependencies:
     "@reach/auto-id" "^0.7.2"
-    "@sanity/base" "1.149.3"
-    "@sanity/data-aspects" "1.149.0"
-    "@sanity/form-builder" "1.149.0"
+    "@sanity/base" "1.149.10"
+    "@sanity/data-aspects" "1.149.7"
+    "@sanity/form-builder" "1.149.7"
     "@sanity/generate-help-url" "1.149.0"
     "@sanity/mutator" "1.149.0"
-    "@sanity/react-hooks" "1.149.3"
-    "@sanity/structure" "1.149.0"
+    "@sanity/react-hooks" "1.149.10"
+    "@sanity/structure" "1.149.7"
     "@sanity/uuid" "1.149.0"
     "@sanity/validation" "1.149.0"
     boundless-arrow-key-navigation "^1.1.0"
@@ -1230,15 +1274,15 @@
     simple-get "^3.0.2"
     split2 "^2.1.1"
 
-"@sanity/form-builder@1.149.0":
-  version "1.149.0"
-  resolved "https://registry.npmjs.org/@sanity/form-builder/-/form-builder-1.149.0.tgz#754f697ee92ace166cbe4d40d25ebe219041b5a6"
+"@sanity/form-builder@1.149.7":
+  version "1.149.7"
+  resolved "https://registry.yarnpkg.com/@sanity/form-builder/-/form-builder-1.149.7.tgz#9208ba5e1baa684c5ed272f063ec844e67d45319"
   dependencies:
-    "@sanity/block-tools" "1.149.0"
+    "@sanity/block-tools" "1.149.4"
     "@sanity/generate-help-url" "1.149.0"
     "@sanity/imagetool" "1.149.0"
     "@sanity/mutator" "1.149.0"
-    "@sanity/util" "1.149.0"
+    "@sanity/util" "1.149.7"
     "@sanity/uuid" "1.149.0"
     attr-accept "^1.1.0"
     classnames "^2.2.5"
@@ -1350,6 +1394,18 @@
     memoize-one "^3.1.1"
     oneline "^1.0.3"
 
+"@sanity/initial-value-templates@1.149.7":
+  version "1.149.7"
+  resolved "https://registry.yarnpkg.com/@sanity/initial-value-templates/-/initial-value-templates-1.149.7.tgz#3d393bf8084053f32ad77a05a22967fee1b9fe87"
+  dependencies:
+    "@sanity/util" "1.149.7"
+    "@types/lodash" "^4.14.149"
+    "@types/memoize-one" "^3.1.1"
+    "@types/node" "^8.0.0"
+    lodash "^4.17.15"
+    memoize-one "^3.1.1"
+    oneline "^1.0.3"
+
 "@sanity/mutator@0.140.30":
   version "0.140.30"
   resolved "https://registry.npmjs.org/@sanity/mutator/-/mutator-0.140.30.tgz#04fea5333faa4ad23ac7538549e48ad7960f14e5"
@@ -1413,11 +1469,22 @@
     rxjs "^6.5.3"
     shallow-equals "^1.0.0"
 
-"@sanity/react-hooks@1.149.3":
-  version "1.149.3"
-  resolved "https://registry.npmjs.org/@sanity/react-hooks/-/react-hooks-1.149.3.tgz#b0867286fa52bb59731db7aafb1d1ea9192bbc3f"
+"@sanity/preview@1.149.4":
+  version "1.149.4"
+  resolved "https://registry.yarnpkg.com/@sanity/preview/-/preview-1.149.4.tgz#7321383fa05ec487b512866459f5820ab0081bfa"
   dependencies:
-    "@sanity/base" "1.149.3"
+    "@sanity/image-url" "0.140.15"
+    lodash "^4.17.15"
+    observable-props "^2.0.0"
+    react-props-stream "^1.0.0"
+    rxjs "^6.5.3"
+    shallow-equals "^1.0.0"
+
+"@sanity/react-hooks@1.149.10":
+  version "1.149.10"
+  resolved "https://registry.yarnpkg.com/@sanity/react-hooks/-/react-hooks-1.149.10.tgz#07dddeded163ff2adc7b85917550893f2d18bbe2"
+  dependencies:
+    "@sanity/base" "1.149.10"
     lodash "^4.17.15"
     rxjs "^6.5.3"
     shallow-equals "^1.0.0"
@@ -1470,6 +1537,18 @@
 "@sanity/schema@1.149.0":
   version "1.149.0"
   resolved "https://registry.npmjs.org/@sanity/schema/-/schema-1.149.0.tgz#47723a48bc9eab8f9849367d3c70386447d428f6"
+  dependencies:
+    "@sanity/generate-help-url" "1.149.0"
+    arrify "^1.0.1"
+    humanize-list "^1.0.1"
+    json-reduce "^1.0.0"
+    leven "^2.1.0"
+    lodash "^4.17.15"
+    object-inspect "^1.6.0"
+
+"@sanity/schema@1.149.4":
+  version "1.149.4"
+  resolved "https://registry.yarnpkg.com/@sanity/schema/-/schema-1.149.4.tgz#88b5315d3ecc71db551d5ef56d38e497d77486b4"
   dependencies:
     "@sanity/generate-help-url" "1.149.0"
     arrify "^1.0.1"
@@ -1556,6 +1635,17 @@
     lodash "^4.17.15"
     memoize-one "^3.1.1"
 
+"@sanity/structure@1.149.7":
+  version "1.149.7"
+  resolved "https://registry.yarnpkg.com/@sanity/structure/-/structure-1.149.7.tgz#1fbdf86c612d2715c1b969420e1254dc4b5ee908"
+  dependencies:
+    "@sanity/initial-value-templates" "1.149.7"
+    "@types/lodash" "^4.14.149"
+    "@types/memoize-one" "^3.1.1"
+    "@types/node" "^8.0.0"
+    lodash "^4.17.15"
+    memoize-one "^3.1.1"
+
 "@sanity/timed-out@^4.0.2":
   version "4.0.2"
   resolved "https://registry.npmjs.org/@sanity/timed-out/-/timed-out-4.0.2.tgz#c9f61f9a1609baa1eb3e4235a24ea2a775022cdf"
@@ -1568,9 +1658,27 @@
     "@types/node" "^8.0.0"
     lodash "^4.17.15"
 
+"@sanity/transaction-collator@1.149.7":
+  version "1.149.7"
+  resolved "https://registry.yarnpkg.com/@sanity/transaction-collator/-/transaction-collator-1.149.7.tgz#fce7485240a78a739b4060805db3bd45afeb3779"
+  dependencies:
+    "@types/lodash" "^4.14.149"
+    "@types/node" "^8.0.0"
+    lodash "^4.17.15"
+
 "@sanity/util@1.149.0":
   version "1.149.0"
   resolved "https://registry.npmjs.org/@sanity/util/-/util-1.149.0.tgz#9c10fc49bbbdc8c2185d0dd27f403d42fd087e97"
+  dependencies:
+    dotenv "^8.2.0"
+    fs-extra "^6.0.1"
+    get-random-values "^1.2.0"
+    lodash "^4.17.15"
+    resolve-from "^4.0.0"
+
+"@sanity/util@1.149.7":
+  version "1.149.7"
+  resolved "https://registry.yarnpkg.com/@sanity/util/-/util-1.149.7.tgz#a21a7539fa574070c2c096880bd346e3f7b597b9"
   dependencies:
     dotenv "^8.2.0"
     fs-extra "^6.0.1"
