@@ -18,10 +18,10 @@ export default {
   initialValue: {
     authors: [
       {
-        "_type": "personReference",
-        "person": {
-          "_type": "reference",
-          "_ref": "bc5ad6cb-ea01-42c7-a285-bd5031f5b71e"
+        _type: 'personReference',
+        person: {
+          _type: 'reference',
+          _ref: 'bc5ad6cb-ea01-42c7-a285-bd5031f5b71e'
         }
       }
     ]
@@ -51,7 +51,8 @@ export default {
     {
       name: 'tweet',
       type: 'url',
-      title: 'Post tweet'
+      title: 'Post tweet',
+      hidden: !!process.env.SANITY_STUDIO_HIDE
     },
     {
       name: 'publishedAt',
@@ -98,7 +99,7 @@ export default {
       name: 'tags',
       type: 'array',
       title: 'Tags',
-      of:[{type:'string'}],
+      of: [{type: 'string'}],
       options: {
         layout: 'tags'
       }
