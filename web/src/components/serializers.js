@@ -6,13 +6,14 @@ import TwitterEmbed from './twitterEmbed'
 import { getBlogUrl } from '../lib/helpers'
 import YouTube from './youtube'
 import ReactTooltip from 'react-tooltip'
-
+import Block from './Block'
 /**
  * Remeber the RSS serializers too!
  */
 const serializers = {
   container: ({ children }) => <React.Fragment>{children}</React.Fragment>,
   types: {
+    block: Block,
     authorReference: ({ node }) => <span>{node.author.name}</span>,
     mainImage: Figure,
     code: Code,

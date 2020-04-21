@@ -1,0 +1,22 @@
+@import '../styles/custom-media.css';
+@import '../styles/custom-properties.css';
+
+.blockquote {
+  margin: 2em 0;
+  padding-left: 2em;
+  border-left: 0.5em solid var(--color-very-light-gray);
+}
+
+.headingtag {
+  @media (--media-max-small) {
+    display: none;
+  }
+
+  color: var(--color-very-light-gray);
+  margin-left: -1em;
+  text-decoration: none;
+}
+
+.headingtag:hover {
+  color: var(--color-black);
+}
