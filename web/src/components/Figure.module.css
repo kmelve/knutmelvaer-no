@@ -1,11 +1,18 @@
+@import '../styles/custom-media.css';
+@import '../styles/custom-properties.css';
+
 .root {
   display: block;
   width: 100%;
+  margin: 3rem 0;
+  border-radius: 0.5rem;
+  box-shadow: 27.1px 62.5px 125px -25px rgba(213, 213, 223, 0.9), 16.2px 37.5px 35px -37.5px;
 }
+
 .figcaption {
   font-size: smaller;
-  border-bottom: 1px solid gainsboro;
-  border-left: 1px solid gainsboro;
-  border-right: 1px solid gainsboro;
+  border-top: 1px solid var(--color-very-light-gray);
+  /*border-left: 1px solid var(--color-very-light-gray);
+  border-right: 1px solid var(--color-very-light-gray); */
   padding: 0.5rem;
 }
