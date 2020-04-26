@@ -29,6 +29,7 @@ function BlogPost (props) {
     <article className={styles.root + ' h-entry'}>
       <SEO
         title={title}
+        publishedAt={publishedAt}
         description={toPlainText(_rawExcerpt || [])}
         image={imageUrlFor(buildImageObj(mainImage))
           .width(960)
@@ -37,6 +38,7 @@ function BlogPost (props) {
           .auto('format')
           .url()}
         type='article'
+        url={getBlogUrl(publishedAt, slug)}
       />
       <Container>
         {mainImage && mainImage.asset && (
