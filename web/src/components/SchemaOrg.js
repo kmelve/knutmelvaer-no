@@ -1,7 +1,7 @@
 import React from 'react';
-import Helmet from 'react-helmet';
+import {Helmet} from 'react-helmet';
 
-export default React.memo(
+const SchemaOrg = React.memo(
   ({
     author,
     siteUrl,
@@ -84,3 +84,5 @@ export default React.memo(
     );
   },
 );
+
+export default SchemaOrg
