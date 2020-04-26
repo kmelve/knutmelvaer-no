@@ -65,6 +65,7 @@ function SEO ({
                 property="og:image"
                 content={ogImage}
               />
+              <meta name="author" content="Knut Melvær" />
 
               {/* Twitter Card tags */}
               <meta name="twitter:card" content="summary_large_image" />
