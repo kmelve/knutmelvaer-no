@@ -26,7 +26,7 @@
     "@sanity/storybook": "^1.149.7",
     "@sanity/vision": "^1.149.0",
     "babel-preset-es2015": "^6.24.1",
-    "date-fns": "2.11.1",
+    "date-fns": "2.12.0",
     "get-youtube-id": "^1.0.1",
     "install": "^0.13.0",
     "npm": "^6.14.4",
