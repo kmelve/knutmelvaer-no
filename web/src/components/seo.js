@@ -42,7 +42,7 @@ function SEO ({
               }}
             >
               {/* General tags */}
-              <title>{title === siteTitle ? '%s' : `%s | ${siteTitle}`}</title>
+              <title>{title === siteTitle ? siteTitle : `${title} | ${siteTitle}`}</title>
               <meta name="description" content={metaDescription} />
               <meta
                 name="image"
