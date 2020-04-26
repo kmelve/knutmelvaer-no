@@ -29,7 +29,7 @@ function SEO ({
 
         const ogUrl = url || siteUrl
         const isBlogPost = /.*\/blog\//.test(ogUrl)
-        console.log(url, ogUrl, isBlogPost)
+
         const ogImage = image ||
         'https://cdn.sanity.io/images/ndjrels0/production/46f420efe0408caaf07eb2c4e6989323001f080f-1200x802.jpg'
 

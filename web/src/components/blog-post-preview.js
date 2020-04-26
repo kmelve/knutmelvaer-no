@@ -23,6 +23,9 @@ function BlogPostPreview ({isInList, title, publishedAt, slug = {}, mainImage, _
               .auto('format')
               .url()}
             alt={mainImage.alt}
+            width="600"
+            height={Math.floor((9 / 16) * 600)}
+            loading="lazy"
           />
         )}
       </div>
