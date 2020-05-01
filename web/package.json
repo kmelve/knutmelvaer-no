@@ -34,6 +34,7 @@
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-helmet": "^6.0.0",
+    "react-scroll-percentage": "^4.2.0",
     "react-syntax-highlighter": "^12.2.1",
     "react-tooltip": "^4.2.5",
     "react-twitter-embed": "^3.0.3",
