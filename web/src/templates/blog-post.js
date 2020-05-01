@@ -1,5 +1,6 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import {graphql} from 'gatsby'
+import {useScrollPercentage} from 'react-scroll-percentage'
 import Container from '../components/container'
 import GraphQLErrorList from '../components/graphql-error-list'
 import BlogPost from '../components/blog-post'
@@ -88,20 +89,31 @@ export const query = graphql`
 `
 
 const BlogPostTemplate = props => {
+  const [ref, percentage] = useScrollPercentage({
+    /* Optional options */
+    threshold: 0,
+  })
   const {data, errors} = props
   const post = data && data.post
   const allWebMentionEntry = data && data.allWebMentionEntry
+  useEffect(() => {
+    if (post) {
+      const percent = Math.round(percentage * 100)
+      document.title = `${percent}% ${post.title}`
+    }
+  }, [percentage])
   return (
     <Layout>
       {errors && <SEO title='GraphQL Error' />}
-      {post && <SEO title={post.title || 'Untitled'} description={toPlainText(post._rawExcerpt || [])} />}
+      {post && <SEO title={` ${post.title}` || 'Untitled'} description={toPlainText(post._rawExcerpt || [])} />}
 
       {errors && (
         <Container>
           <GraphQLErrorList errors={errors} />
         </Container>
-      )}
+      )}<div ref={ref}>
       {post && <BlogPost {...post} wm={allWebMentionEntry} />}
+      </div>
     </Layout>
   )
 }
