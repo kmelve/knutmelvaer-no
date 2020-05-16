@@ -4,11 +4,11 @@ require('dotenv').config({
 })
 
 const fetch = require('isomorphic-fetch')
-const { createHttpLink } = require('apollo-link-http')
+const {createHttpLink} = require('apollo-link-http')
 const PortableText = require('@sanity/block-content-to-html')
 const imageUrlBuilder = require('@sanity/image-url')
 
-const { isFuture, parseISO } = require('date-fns')
+const {isFuture, parseISO} = require('date-fns')
 const clientConfig = require('./client-config')
 const {
   getBlogUrl,
@@ -57,9 +57,9 @@ module.exports = {
       }
     },
     {
-      resolve: `gatsby-transform-portable-text`,
+      resolve: 'gatsby-transform-portable-text',
       options: {
-        extendTypes: [{ typeName: `SanityPost`, contentFieldName: "body" }]
+        extendTypes: [{typeName: 'SanityPost', contentFieldName: 'body'}]
       }
     },
     {
@@ -92,16 +92,16 @@ module.exports = {
             }
           }
       }`,
-        serialize: ({ site, allSitePage, allSanityPost }) => {
+        serialize: ({site, allSitePage, allSanityPost}) => {
           // make a list of future posts
           const futurePosts = [
-            ...allSanityPost.edges.filter(({ node }) =>
+            ...allSanityPost.edges.filter(({node}) =>
               isFuture(parseISO(node.publishedAt))
             )
             // ...otherSanityType.edges.filter(({node})=> isFuture(node.publishedAt)),
           ]
-          const pagesInFuture = ({ node }) =>
-            futurePosts.find(({ node }) => node.id !== node.context.id)
+          const pagesInFuture = ({node}) =>
+            futurePosts.find(({node}) => node.id !== node.context.id)
           return allSitePage.edges.filter(pagesInFuture).map(edge => {
             return {
               url: site.siteMetadata.siteUrl + edge.node.path,
@@ -153,13 +153,13 @@ module.exports = {
         `,
         feeds: [
           {
-            serialize: ({ query: { site, allSanityPost = [] } }) => {
+            serialize: ({query: {site, allSanityPost = []}}) => {
               return allSanityPost.edges
-                .filter(({ node }) => node.publishedAt)
-                .filter(({ node }) => filterOutDocsPublishedInTheFuture(node))
-                .filter(({ node }) => node.slug)
-                .map(({ node }) => {
-                  const { title, publishedAt, slug, _rawBody } = node
+                .filter(({node}) => node.publishedAt)
+                .filter(({node}) => filterOutDocsPublishedInTheFuture(node))
+                .filter(({node}) => node.slug)
+                .map(({node}) => {
+                  const {title, publishedAt, slug, _rawBody} = node
                   const url =
                     site.siteMetadata.siteUrl +
                     getBlogUrl(publishedAt, slug.current)
@@ -175,7 +175,7 @@ module.exports = {
                             blocks: _rawBody,
                             serializers: {
                               marks: {
-                                internalLink: ({ mark, children }) => {
+                                internalLink: ({mark, children}) => {
                                   const {
                                     publishedAt,
                                     slug,
@@ -201,29 +201,29 @@ module.exports = {
                                 }
                               },
                               types: {
-                                youtube: ({ node}) =>
-                                h(
-                                  'p',
-                                  {},
-                                  h('a', {
-                                    href: node.url,
-                                    innerHTML: 'Watch on Youtube.'
-                                  })
-                                ),
-                                code: ({ node }) =>
+                                youtube: ({node}) =>
+                                  h(
+                                    'p',
+                                    {},
+                                    h('a', {
+                                      href: node.url,
+                                      innerHTML: 'Watch on Youtube.'
+                                    })
+                                  ),
+                                code: ({node}) =>
                                   h(
                                     'pre',
                                     h(
                                       'code',
-                                      { lang: node.language },
+                                      {lang: node.language},
                                       node.code
                                     )
                                   ),
-                                mainImage: ({ node }) =>
+                                mainImage: ({node}) =>
                                   h('img', {
                                     src: imageUrlFor(node.asset).url()
                                   }),
-                                twitter: ({ node }) =>
+                                twitter: ({node}) =>
                                   h(
                                     'p',
                                     {},
