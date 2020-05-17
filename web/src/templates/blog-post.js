@@ -7,10 +7,11 @@ import BlogPost from '../components/blog-post'
 import SEO from '../components/seo'
 import Layout from '../containers/layout'
 import {toPlainText} from '../lib/helpers'
+import {handleScrollPositionToPercent} from '../lib/handleScrollPositionToPercent'
 
 export const query = graphql`
   query BlogPostTemplateQuery($id: String!, $permalink: String!) {
-    post: sanityPost(id: {eq: $id}) {
+    post: sanityPost(id: { eq: $id }) {
       id
       readingTimeInMinutes
       publishedAt
@@ -32,7 +33,7 @@ export const query = graphql`
         current
       }
       _rawExcerpt
-      _rawBody(resolveReferences: {maxDepth: 5})
+      _rawBody(resolveReferences: { maxDepth: 5 })
       tweet
       authors {
         _key
@@ -64,56 +65,60 @@ export const query = graphql`
         }
       }
     }
-    allWebMentionEntry(filter: {wmTarget: {eq: $permalink}}) {
-    edges {
-      node {
-        type
-        mentionOf
-        name
-        wmTarget
-        wmSource
-        wmProperty
-        wmPrivate
-        wmId
-        url
-        author {
-          name
+    allWebMentionEntry(filter: { wmTarget: { eq: $permalink } }) {
+      edges {
+        node {
           type
-          photo
+          mentionOf
+          name
+          wmTarget
+          wmSource
+          wmProperty
+          wmPrivate
+          wmId
           url
+          author {
+            name
+            type
+            photo
+            url
+          }
         }
       }
     }
   }
-  }
 `
 
 const BlogPostTemplate = props => {
-  const [ref, percentage] = useScrollPercentage({
-    /* Optional options */
-    threshold: 0,
-  })
   const {data, errors} = props
   const post = data && data.post
   const allWebMentionEntry = data && data.allWebMentionEntry
+
   useEffect(() => {
     if (post) {
-      const percent = Math.round(percentage * 100)
-      document.title = `${percent}% ${post.title}`
+      // const percentLabel = document.querySelector("#percent");
+      window.addEventListener('scroll', () => handleScrollPositionToPercent(post.title))
     }
-  }, [percentage])
+    return () => {
+      window.removeEventListener('scroll', handleScrollPositionToPercent)
+    }
+  }, [handleScrollPositionToPercent])
   return (
     <Layout>
       {errors && <SEO title='GraphQL Error' />}
-      {post && <SEO title={` ${post.title}` || 'Untitled'} description={toPlainText(post._rawExcerpt || [])} />}
+      {post && (
+        <SEO
+          title={` ${post.title}` || 'Untitled'}
+          description={toPlainText(post._rawExcerpt || [])}
+        />
+      )}
 
       {errors && (
         <Container>
           <GraphQLErrorList errors={errors} />
         </Container>
-      )}<div ref={ref}>
+      )}
       {post && <BlogPost {...post} wm={allWebMentionEntry} />}
-      </div>
     </Layout>
   )
 }

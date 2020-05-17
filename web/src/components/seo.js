@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import {Helmet} from 'react-helmet'
-import { StaticQuery, graphql } from 'gatsby'
+import {StaticQuery, graphql} from 'gatsby'
 import SchemaOrg from './SchemaOrg'
 
 function SEO ({
@@ -34,7 +34,7 @@ function SEO ({
         'https://cdn.sanity.io/images/ndjrels0/production/46f420efe0408caaf07eb2c4e6989323001f080f-1200x802.jpg'
 
         return (
-          <React.Fragment>
+          <>
             <Helmet
               htmlAttributes={{
                 lang,
@@ -43,43 +43,47 @@ function SEO ({
             >
               {/* General tags */}
               <title>{title === siteTitle ? siteTitle : `${title} | ${siteTitle}`}</title>
-              <meta name="description" content={metaDescription} />
+              <meta name='description' content={metaDescription} />
+              <link
+                rel='icon'
+                id='favicon'
+                href='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>👀</text></svg>'
+              />
               <meta
-                name="image"
+                name='image'
                 content={ogImage}
               />
               <link
-                rel="canonical"
+                rel='canonical'
                 href={ogUrl}
               />
 
               {/* OpenGraph tags */}
               <meta
-                property="og:url"
+                property='og:url'
                 content={ogUrl}
               />
-              {isBlogPost ? <meta property="og:type" content="article" /> : null}
-              <meta property="og:title" content={title} />
-              <meta property="og:description" content={metaDescription} />
+              {isBlogPost ? <meta property='og:type' content='article' /> : null}
+              <meta property='og:title' content={title} />
+              <meta property='og:description' content={metaDescription} />
               <meta
-                property="og:image"
+                property='og:image'
                 content={ogImage}
               />
-              <meta name="author" content="Knut Melvær" />
+              <meta name='author' content='Knut Melvær' />
 
               {/* Twitter Card tags */}
-              <meta name="twitter:card" content="summary_large_image" />
-              <meta name="twitter:creator" content={siteAuthor} />
-              <meta name="twitter:title" content={title} />
-              <meta name="twitter:description" content={metaDescription} />
+              <meta name='twitter:card' content='summary_large_image' />
+              <meta name='twitter:creator' content={siteAuthor} />
+              <meta name='twitter:title' content={title} />
+              ame='twitter:description' content={metaDescription} />
               <meta
-                name="twitter:image"
+                name='twitter:image'
                 content={ogImage}
               />
               {keywords &&
-                keywords.length > 0 && (
-                  <meta name="keywords" content={keywords.join(', ')} />
-                )}
+                keywords.length > 0 && (<meta name='keywords' content={keywords.join(', ')} />
+              )}
             </Helmet>
             <SchemaOrg
               isBlogPost={isBlogPost}
@@ -93,7 +97,7 @@ function SEO ({
               organization={siteAuthor}
               defaultTitle={siteTitle}
             />
-          </React.Fragment>
+          </>
         )
       }}
     />

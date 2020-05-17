@@ -19,13 +19,16 @@ body {
   margin: 0;
 }
 
+/*
+ * Makes the scroll position act out
+
 html,
 body,
 body>div,
 body>div>div {
   height: 100%;
 }
-
+ */
 a {
   color: var(--color-dark-gray);
   text-decoration-skip-ink: 1;
