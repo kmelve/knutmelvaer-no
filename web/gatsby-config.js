@@ -201,6 +201,7 @@ module.exports = {
                                 }
                               },
                               types: {
+                                authorReference: ({ node }) => h('span', { innerHTML: node.author.name}),
                                 youtube: ({node}) =>
                                   h(
                                     'p',
@@ -242,7 +243,10 @@ module.exports = {
                 })
             },
             query: `{
-              allSanityPost(sort: {fields: publishedAt, order: DESC}) {
+              allSanityPost(
+                sort: {fields: publishedAt, order: DESC},
+                limit: 10
+                ) {
                 edges {
                   node {
                     _rawExcerpt
