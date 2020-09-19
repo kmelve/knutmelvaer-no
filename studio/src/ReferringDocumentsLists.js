@@ -19,7 +19,7 @@ export default function ReferringDocumentsList (props) {
               <IntentLink
                 className={styles.link}
                 intent='edit'
-                params={{id: document._id, type: document._type}}
+                params={{id: document._id.replace('drafts.', ''), type: document._type}}
               >
                 <Preview value={document} type={schemaType} />
                 {/* document._hasDraft && <DraftStatus /> */}
