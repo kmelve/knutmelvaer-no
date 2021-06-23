@@ -28,7 +28,7 @@ module.exports = {
   plugins: [
     'gatsby-plugin-postcss',
     'gatsby-plugin-react-helmet',
-    {
+   /*  {
       resolve: 'gatsby-plugin-fathom',
       options: {
         // Fathom server URL. Defaults to `cdn.usefathom.com`
@@ -36,8 +36,8 @@ module.exports = {
         // Unique site id
         siteId: process.env.FATHOM_KEY
       }
-    },
-    {
+    }, */
+    /* {
       resolve: 'gatsby-source-graphql',
       options: {
         // This type will contain remote schema Query type
@@ -55,7 +55,7 @@ module.exports = {
           }),
         refetchInterval: 10 // Refresh every 10 seconds for new data
       }
-    },
+    }, */
     {
       resolve: 'gatsby-transform-portable-text',
       options: {

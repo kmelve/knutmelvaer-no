@@ -3,8 +3,11 @@ import { StaticQuery, graphql, Link } from 'gatsby'
 import css from './stats.module.css'
 
 export default function Stats () {
-  return (
-    <StaticQuery
+  return null
+}
+
+
+/* <StaticQuery
       query={graphql`
         query StatsQuery {
           fathom {
@@ -78,6 +81,4 @@ export default function Stats () {
           </div>
         )
       }}
-    />
-  )
-}
+    /> */
