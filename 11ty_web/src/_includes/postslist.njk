@@ -1,0 +1,20 @@
+<ol reversed class="postlist" style="counter-reset: start-from {{ postslist.length + 1 }}">
+{% for post in postslist | reverse %}
+  {% set currentPost = post.data.post %}
+  <li class="postlist-item{% if post.url == url %} postlist-item-active{% endif %}">
+    <a href="{{ post.url | url }}" class="postlist-link">
+      <h3>
+      {% if currentPost.title %}
+        {{ currentPost.title }}
+      {% else %}
+        <code>{{ post.url }}</code>
+      {% endif %}
+      </h3>
+    </a>
+    <div class="postlist-meta">
+      <time class="postlist-date" datetime="{{ currentPost.publishedAt }}">{{ currentPost.publishedAt|readableDate }}</time></div>
+    <p>{{currentPost.excerpt}}</p>
+    <div><a href="{{ post.url | url }}" class="postlist-link">Read more →</a></div>
+  </li>
+{% endfor %}
+</ol>

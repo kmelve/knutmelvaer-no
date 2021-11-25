@@ -1,0 +1,21 @@
+---
+layout: layouts/home.njk
+tags:
+  - nav
+navtitle: Home
+---
+
+<h1>Collaborations</h1>
+
+
+
+<ul>
+{% for author in authors%}
+<li>
+<a href="/authors/{{ author.slug.current}}">{{ author.name }}</a>
+<!-- <pre>{{author | jsondump}}</pre> -->
+</li>
+{%- endfor -%}
+
+</ul>
+
