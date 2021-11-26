@@ -4,13 +4,20 @@
   "description": "",
   "license": "",
   "scripts": {
-    "build": "remix build",
-    "dev": "remix dev",
+    "build": "concurrently \"npm run build:css\" \"remix build\"",
+    "dev": "concurrently \"remix dev\" \"npm run watch:css\"",
+    "watch:css": "postcss styles --base styles --dir app/styles -w",
+    "build:css": "postcss styles --base styles --dir app/styles --env production",
     "postinstall": "remix setup node"
   },
   "dependencies": {
     "@remix-run/react": "^1.0.5",
     "@remix-run/vercel": "^1.0.5",
+    "@sanity/block-content-to-react": "^3.0.0",
+    "@sanity/image-url": "^1.0.1",
+    "concurrently": "^6.4.0",
+    "date-fns": "^2.26.0",
+    "picosanity": "^3.0.2",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "remix": "^1.0.5"
@@ -20,6 +27,11 @@
     "@remix-run/serve": "^1.0.5",
     "@types/react": "^17.0.24",
     "@types/react-dom": "^17.0.9",
+    "autoprefixer": "^10.4.0",
+    "postcss": "^8.4.1",
+    "postcss-cli": "^9.0.2",
+    "stylelint-config-recommended": "^6.0.0",
+    "tailwindcss": "^2.2.19",
     "typescript": "^4.1.2"
   },
   "engines": {
