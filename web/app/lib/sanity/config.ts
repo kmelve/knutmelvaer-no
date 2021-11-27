@@ -1,6 +1,6 @@
-import { api } from '../../../../studio/sanity.json'
 export const config = {
-  ...api,
+  projectId: "ndjrels0",
+  dataset: "product",
   useCdn: false,
-  apiVersion: '2021-11-25',
-}
+  apiVersion: "2021-11-25",
+};

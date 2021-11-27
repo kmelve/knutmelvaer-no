@@ -9,11 +9,13 @@
     "watch:css": "postcss styles --base styles --dir app/styles -w",
     "build:css": "postcss styles --base styles --dir app/styles --env production",
     "postinstall": "remix setup node",
+    "deploy": "flyctl deploy",
     "test": "jest"
   },
   "dependencies": {
     "@remix-run/react": "^1.0.5",
     "@remix-run/vercel": "^1.0.5",
+    "@remix-run/serve": "*",
     "@sanity/block-content-to-react": "^3.0.0",
     "@sanity/image-url": "^1.0.1",
     "@tailwindcss/typography": "^0.4.1",

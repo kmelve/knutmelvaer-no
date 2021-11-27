@@ -1,4 +1,8 @@
 /*
+ purgecss start ignore
+ */
+
+/*
  * You can just delete everything here or keep whatever you like, it's just a
  * quick baseline!
  */
@@ -97,3 +101,7 @@ input:where([type="search"]) {
   margin-right: auto;
   margin-left: auto;
 }
+
+/*
+ purgecss end ignore
+ */
