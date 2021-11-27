@@ -1,3 +1,4 @@
+@import url("https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/themes/prism-solarizedlight.min.css");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
