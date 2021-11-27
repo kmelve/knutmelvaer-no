@@ -14,8 +14,8 @@
   },
   "dependencies": {
     "@remix-run/react": "^1.0.5",
-    "@remix-run/vercel": "^1.0.5",
     "@remix-run/serve": "*",
+    "@remix-run/vercel": "^1.0.5",
     "@sanity/block-content-to-react": "^3.0.0",
     "@sanity/image-url": "^1.0.1",
     "@tailwindcss/typography": "^0.4.1",
@@ -29,6 +29,7 @@
     "react-refractor": "^2.1.5",
     "react-twitter-embed": "^3.0.3",
     "react-youtube": "^7.13.1",
+    "refractor": "^4.3.0",
     "remix": "^1.0.5",
     "shiki": "^0.9.12"
   },
