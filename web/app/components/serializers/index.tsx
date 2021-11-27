@@ -1,4 +1,5 @@
 // import { Link } from "remix";
+import Block from "./Block";
 import Code from "./Code";
 import Image from "./Image";
 // import Code from "./code";
@@ -13,7 +14,7 @@ import YouTube from "./Youtube";
 const serializers: any = {
   //container: ({ children }: any) => <React.Fragment>{children}</React.Fragment>,
   types: {
-    // block: Block,
+    block: Block,
     // authorReference: ({ node }) => <span>{node.author.name}</span>,
     mainImage: Image,
     code: Code,

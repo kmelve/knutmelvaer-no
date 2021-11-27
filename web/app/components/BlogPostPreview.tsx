@@ -19,18 +19,13 @@ export default function BlogPostPreview(props: BlogPost) {
     <Link
       key={_id}
       to={`${slug}`}
-      className="flex flex-col md:flex-row p-2 max-w-2xl"
+      className={`flex flex-col md:flex-row max-w-2xl mb-6
+      bg-gray-100 rounded p-4 hover:bg-gray-200
+      transition-shadow duration-200 hover:shadow`}
     >
-      <div className="w-full md:w-4/12 rounded overflow-hidden mb-6">
-        {mainImage && (
-          <img
-            src={urlFor(mainImage).width(600).height(400).auto("format").url()}
-          />
-        )}
-      </div>
-      <div className="w-full md:w-8/12 mt-4 md:mt-0 md:ml-4">
-        <h2 className="leading-none font-black text-xl md:text-2xl">{title}</h2>
+      <div className="w-full md:w-10/12">
         <small className="font-grey">{publishedAt}</small>
+        <h2 className="leading-none font-black md:text-xl mb-2">{title}</h2>
         <PortableText blocks={excerpt} />
       </div>
     </Link>
