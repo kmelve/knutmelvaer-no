@@ -1,6 +1,9 @@
 {
   "include": ["remix.env.d.ts", "**/*.ts", "**/*.tsx"],
-  "files": ["@types/block-content-to-react.d.ts"],
+  "files": [
+    "@types/block-content-to-react.d.ts",
+    "@types/react-twitter-embed.d.ts"
+  ],
   "compilerOptions": {
     "lib": ["DOM", "DOM.Iterable", "ES2019"],
     "esModuleInterop": true,
