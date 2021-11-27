@@ -8,6 +8,14 @@ export const indexQuery = `//groq
     author->{
       name,
       image
+    },
+    resources[]{
+      _key,
+      "link" != null => @,
+      _type == "internalLink" => @->{
+        _id,
+        slug
+      }
     }
   },
   "posts": *[
