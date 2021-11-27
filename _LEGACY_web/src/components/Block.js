@@ -1,21 +1,23 @@
-import React from 'react'
+import { Link } from 'remix'
 import BlockContent from '@sanity/block-content-to-react'
-import css from './Block.module.css'
+
 
 const Block = props => {
-  const {style = 'normal', _key} = props.node;
+  const { style = 'normal', _key } = props.node;
 
   if (/^h\d/.test(style)) {
     const HeadingTag = style;
+    const headingId = `h${_key}`
+    console.log(headingId)
     return (
-      <HeadingTag id={_key}>
-        <a className={css.headingtag} href={`#${_key}`}>#</a> <span className={css.heading}>{props.children}</span>
+      <HeadingTag id={headingId}>
+        <span>{props.children}</span> <Link href={`#${headingId}`}>#</Link>
       </HeadingTag>
     );
   }
 
   if (style === 'blockquote') {
-    return <blockquote className={css.blockquote}>{props.children}</blockquote>
+    return <blockquote>{props.children}</blockquote>
   }
 
   // Fall back to default handling

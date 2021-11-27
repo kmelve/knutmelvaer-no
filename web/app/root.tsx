@@ -1,6 +1,7 @@
 import * as React from "react";
 import {
   Link,
+  NavLink,
   Links,
   LiveReload,
   Meta,
@@ -73,9 +74,9 @@ function Document({
 
 function Layout({ children }: React.PropsWithChildren<{}>) {
   return (
-    <div className="container mx-auto">
+    <div className="container mx-auto w-full max-w-6xl px-2 xl:px-0">
       <header>
-        <div className="container mx-auto flex flex-wrap py-2 flex-col md:flex-row items-center mb-12">
+        <div className="container flex flex-wrap py-2 flex-col md:flex-row items-center mb-4">
           <Link
             to="/"
             title="Knut Melvær"
@@ -87,16 +88,16 @@ function Layout({ children }: React.PropsWithChildren<{}>) {
             aria-label="Main navigation"
             className="md:mr-auto md:ml-4 py-4 md:py-1 md:pl-4 md:border-l md:border-gray-400 flex flex-wrap items-center text-base justify-center space-x-2"
           >
-            <Link to="/" className="md:mr-5 hover:text-gray-900">
+            <NavLink to="/" className="md:mr-5 hover:text-gray-900">
               Home
-            </Link>
-            <Link to="/about" className="md:mr-5 hover:text-gray-900">
+            </NavLink>
+            <NavLink to="/about" className="md:mr-5 hover:text-gray-900">
               About
-            </Link>
+            </NavLink>
           </nav>
         </div>
       </header>
-      <div className="my-4">{children}</div>
+      <div className="mb-12">{children}</div>
       <footer>
         <p>&copy; Knut Melvær {readableDate(new Date().toISOString())}</p>
       </footer>

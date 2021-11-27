@@ -2,10 +2,28 @@ import type { MetaFunction, LoaderFunction } from "remix";
 import { useLoaderData, json, Link } from "remix";
 import BlogPostPreview from "~/components/BlogPostPreview";
 import { BlogPost } from "~/components/BlogPostPreview";
+import ResourceItem from "~/components/ResourceItem";
+
 import { preparedPosts } from "~/lib/preparePost";
 import { indexQuery } from "~/lib/queries";
 import { sanityClient } from "~/lib/sanity/getClient";
 import { urlFor } from "~/lib/sanity/urlFor";
+
+export type Link = {
+  _key: string;
+  text: string;
+  link: {
+    href: string;
+  };
+};
+
+export type InternalLink = {
+  _key: string;
+  text: string;
+  slug: {
+    current: string;
+  };
+};
 
 type IndexData = {
   siteSettings: {
@@ -21,6 +39,7 @@ type IndexData = {
         };
       };
     };
+    resources: Array<Link>;
   };
   posts: [BlogPost];
   resources: Array<{ name: string; url: string }>;
@@ -49,35 +68,23 @@ export let meta: MetaFunction = () => {
 // https://remix.run/guides/routing#index-routes
 export default function Index() {
   let { siteSettings, posts } = useLoaderData<IndexData>();
-  const { title, description, keywords, author } = siteSettings;
+  const { title, description, keywords, author, resources } = siteSettings;
   return (
-    <div className="flex flex-wrap">
-      <main className="w-full sm:w-8/12 lg:w-9/12">
-        {posts.length > 0 && posts.map(BlogPostPreview)}
-        <div className="flex flex-row space-x-6">
-          <div className="">
-            {author?.image && (
-              <img
-                src={urlFor(author?.image).width(200).url()}
-                className="rounded-full"
-              />
-            )}
-          </div>
-          <div className="md:w-10/12">
-            <h2>{title}</h2>
-            <p className="prose">{description}</p>
-          </div>
+    <div className="flex flex-wrap px-4 md:px-0">
+      <div className="md:w-10/12 prose mb-12">
+        <p>{description}</p>
+      </div>
+      <main className="w-full pr-6 sm:w-9/12 lg:w-8/12">
+        <div className="prose mb-4">
+          <h3>Musings</h3>
         </div>
+        {posts.length > 0 && posts.map(BlogPostPreview)}
       </main>
-      <aside className="w-full sm:w-4/12 lg:w-3/12">
-        <h2>Links</h2>
-        <ul>
-          {/* {data.resources.map((resource) => (
-            <li key={resource.url} className="remix__page__resource">
-              <a href={resource.url}>{resource.name}</a>
-            </li>
-          ))} */}
-        </ul>
+      <aside className="w-full sm:w-3/12 lg:w-2/12">
+        <div className="prose">
+          <h3 className="my-0">Links</h3>
+          <ul>{resources?.length > 0 && resources.map(ResourceItem)}</ul>
+        </div>
       </aside>
     </div>
   );
