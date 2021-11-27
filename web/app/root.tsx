@@ -13,6 +13,7 @@ import {
 import type { LinksFunction } from "remix";
 
 import app from "~/styles/app.css";
+import { readableDate } from "./lib/dateUtils";
 //import globalStylesUrl from "~/styles/global.css";
 //import darkStylesUrl from "~/styles/dark.css";
 
@@ -72,34 +73,32 @@ function Document({
 
 function Layout({ children }: React.PropsWithChildren<{}>) {
   return (
-    <div className="remix-app">
-      <header className="remix-app__header">
-        <div className="container remix-app__header-content">
-          <Link to="/" title="Remix" className="remix-app__header-home-link">
-            <RemixLogo />
+    <div className="container mx-auto">
+      <header>
+        <div className="container mx-auto flex flex-wrap py-2 flex-col md:flex-row items-center mb-12">
+          <Link
+            to="/"
+            title="Knut Melvær"
+            className="title-font font-medium text-gray-900"
+          >
+            Knut Melvær
           </Link>
-          <nav aria-label="Main navigation" className="remix-app__header-nav">
-            <ul>
-              <li>
-                <Link to="/">Home</Link>
-              </li>
-              <li>
-                <a href="https://remix.run/docs">Remix Docs</a>
-              </li>
-              <li>
-                <a href="https://github.com/remix-run/remix">GitHub</a>
-              </li>
-            </ul>
+          <nav
+            aria-label="Main navigation"
+            className="md:mr-auto md:ml-4 py-4 md:py-1 md:pl-4 md:border-l md:border-gray-400 flex flex-wrap items-center text-base justify-center space-x-2"
+          >
+            <Link to="/" className="md:mr-5 hover:text-gray-900">
+              Home
+            </Link>
+            <Link to="/about" className="md:mr-5 hover:text-gray-900">
+              About
+            </Link>
           </nav>
         </div>
       </header>
-      <div className="remix-app__main">
-        <div className="container remix-app__main-content">{children}</div>
-      </div>
-      <footer className="remix-app__footer">
-        <div className="container remix-app__footer-content">
-          <p>&copy; You!</p>
-        </div>
+      <div className="my-4">{children}</div>
+      <footer>
+        <p>&copy; Knut Melvær {readableDate(new Date().toISOString())}</p>
       </footer>
     </div>
   );
