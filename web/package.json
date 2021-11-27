@@ -18,6 +18,7 @@
     "@sanity/image-url": "^1.0.1",
     "@tailwindcss/typography": "^0.4.1",
     "concurrently": "^6.4.0",
+    "date-fns": "^2.26.0",
     "get-youtube-id": "^1.0.1",
     "picosanity": "^3.0.2",
     "react": "^17.0.2",
