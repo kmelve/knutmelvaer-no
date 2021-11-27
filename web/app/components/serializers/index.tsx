@@ -5,7 +5,7 @@ import Image from "./Image";
 // import Code from "./code";
 import TwitterEmbed from "./TwitterEmbed";
 // import { getBlogUrl } from "../lib/helpers";
-import YouTube from "./Youtube";
+import YouTube from "./YouTube";
 // import ReactTooltip from "react-tooltip";
 // import Block from "./Block";
 /**
