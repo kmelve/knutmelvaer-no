@@ -2,12 +2,10 @@
 import Block from "./Block";
 import Code from "./Code";
 import Image from "./Image";
-// import Code from "./code";
 import TwitterEmbed from "./TwitterEmbed";
-// import { getBlogUrl } from "../lib/helpers";
 import YouTube from "./YouTube";
+// import { getBlogUrl } from "../lib/helpers";
 // import ReactTooltip from "react-tooltip";
-// import Block from "./Block";
 /**
  * Remeber the RSS serializers too!
  */

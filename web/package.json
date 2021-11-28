@@ -4,13 +4,16 @@
   "description": "",
   "license": "",
   "scripts": {
-    "build": "npm run build:css && remix build",
-    "dev": "concurrently \"remix dev\" \"npm run watch:css\"",
-    "watch:css": "postcss styles --base styles --dir app/styles -w",
+    "build": "concurrently \"npm:build:*\"",
     "build:css": "postcss styles --base styles --dir app/styles --env production",
+    "build:remix": "remix build",
+    "dev": "concurrently \"npm:dev:*\"",
+    "dev:remix": "remix dev",
+    "dev:css": "postcss styles --base styles --dir app/styles -w",
     "postinstall": "remix setup node",
-    "deploy": "flyctl deploy",
-    "test": "jest"
+    "deploy": "npm run build && flyctl deploy",
+    "test": "jest",
+    "start": "remix-serve build"
   },
   "dependencies": {
     "@remix-run/react": "^1.0.5",
