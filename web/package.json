@@ -4,7 +4,7 @@
   "description": "",
   "license": "",
   "scripts": {
-    "build": "concurrently \"npm:build:*\"",
+    "build": "npm run build:css && npm run build:remix",
     "build:css": "postcss styles --base styles --dir app/styles --env production",
     "build:remix": "remix build",
     "dev": "concurrently \"npm:dev:*\"",
