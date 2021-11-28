@@ -5,7 +5,9 @@ node_modules/
 /.cache
 /build
 /server-build
-/public/build
+public/build
+api/build
+
 /coverage
 tsconfig.tsbuildinfo
 
