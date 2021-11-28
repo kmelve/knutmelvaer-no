@@ -1,0 +1,79 @@
+{
+  "version": "97834a9e",
+  "entry": {
+    "module": "/build/entry.client-N4A2Z45U.js",
+    "imports": [
+      "/build/_shared/chunk-RZMJ4F2R.js"
+    ]
+  },
+  "routes": {
+    "root": {
+      "id": "root",
+      "path": "",
+      "module": "/build/root-XNNSBOGD.js",
+      "imports": [
+        "/build/_shared/chunk-RG4JAEJR.js"
+      ],
+      "hasAction": false,
+      "hasLoader": false,
+      "hasCatchBoundary": true,
+      "hasErrorBoundary": true
+    },
+    "routes/about": {
+      "id": "routes/about",
+      "parentId": "root",
+      "path": "about",
+      "module": "/build/routes/about-RKHTYLH5.js",
+      "imports": [
+        "/build/_shared/chunk-BNWCFZ5P.js"
+      ],
+      "hasAction": false,
+      "hasLoader": true,
+      "hasCatchBoundary": false,
+      "hasErrorBoundary": false
+    },
+    "routes/blog/$year.$month.$slug": {
+      "id": "routes/blog/$year.$month.$slug",
+      "parentId": "root",
+      "path": "blog/:year/:month/:slug",
+      "module": "/build/routes/blog/$year.$month.$slug-BEL52LNS.js",
+      "imports": [
+        "/build/_shared/chunk-BNWCFZ5P.js"
+      ],
+      "hasAction": false,
+      "hasLoader": true,
+      "hasCatchBoundary": false,
+      "hasErrorBoundary": false
+    },
+    "routes/blog/index": {
+      "id": "routes/blog/index",
+      "parentId": "root",
+      "path": "blog",
+      "index": true,
+      "module": "/build/routes/blog/index-KQ34BXBQ.js",
+      "imports": [
+        "/build/_shared/chunk-KBOJN2VJ.js",
+        "/build/_shared/chunk-BNWCFZ5P.js"
+      ],
+      "hasAction": false,
+      "hasLoader": true,
+      "hasCatchBoundary": false,
+      "hasErrorBoundary": false
+    },
+    "routes/index": {
+      "id": "routes/index",
+      "parentId": "root",
+      "index": true,
+      "module": "/build/routes/index-VE3GWYJA.js",
+      "imports": [
+        "/build/_shared/chunk-KBOJN2VJ.js",
+        "/build/_shared/chunk-BNWCFZ5P.js"
+      ],
+      "hasAction": false,
+      "hasLoader": true,
+      "hasCatchBoundary": false,
+      "hasErrorBoundary": false
+    }
+  },
+  "url": "/build/manifest-97834A9E.js"
+}
