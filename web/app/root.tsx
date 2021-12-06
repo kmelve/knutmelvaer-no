@@ -94,6 +94,13 @@ function Layout({ children }: React.PropsWithChildren<{}>) {
             <NavLink to="/about" className="md:mr-5 hover:text-gray-900">
               About
             </NavLink>
+            <NavLink
+              to="/rss.xml"
+              reloadDocument
+              className="md:mr-5 hover:text-gray-900"
+            >
+              RSS
+            </NavLink>
           </nav>
         </div>
       </header>
