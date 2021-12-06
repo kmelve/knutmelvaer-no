@@ -19,11 +19,13 @@
     "@remix-run/react": "^1.0.5",
     "@remix-run/serve": "*",
     "@remix-run/vercel": "^1.0.5",
+    "@sanity/block-content-to-html": "^2.0.0",
     "@sanity/block-content-to-react": "^3.0.0",
     "@sanity/image-url": "^1.0.1",
     "@tailwindcss/typography": "^0.4.1",
     "concurrently": "^6.4.0",
     "date-fns": "^2.26.0",
+    "feed": "^4.2.2",
     "get-youtube-id": "^1.0.1",
     "picosanity": "^3.0.2",
     "prism-react-renderer": "^1.2.1",
@@ -33,7 +35,8 @@
     "react-twitter-embed": "^3.0.3",
     "react-youtube": "^7.13.1",
     "remix": "^1.0.5",
-    "shiki": "^0.9.12"
+    "shiki": "^0.9.12",
+    "utf-8": "^2.0.0"
   },
   "devDependencies": {
     "@babel/preset-typescript": "^7.16.0",
