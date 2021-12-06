@@ -86,18 +86,18 @@ function Layout({ children }: React.PropsWithChildren<{}>) {
           </Link>
           <nav
             aria-label="Main navigation"
-            className="md:mr-auto md:ml-4 py-4 md:py-1 md:pl-4 md:border-l md:border-gray-400 flex flex-wrap items-center text-base justify-center space-x-2"
+            className="md:mr-auto md:ml-4 py-4 md:py-1 md:pl-4 md:border-l md:border-gray-400 flex flex-wrap items-center text-base justify-center space-x-5"
           >
-            <NavLink to="/" className="md:mr-5 hover:text-gray-900">
+            <NavLink to="/" className="hover:text-gray-900">
               Home
             </NavLink>
-            <NavLink to="/about" className="md:mr-5 hover:text-gray-900">
+            <NavLink to="/about" className="hover:text-gray-900">
               About
             </NavLink>
             <NavLink
               to="/rss.xml"
+              className="hover:text-gray-900"
               reloadDocument
-              className="md:mr-5 hover:text-gray-900"
             >
               RSS
             </NavLink>
