@@ -21,5 +21,15 @@ export const indexQuery = `//groq
   "posts": *[
     _type == "post"
     && slug.current != null
-  ]|order(publishedAt desc)
+  ]|order(publishedAt desc){
+    ...,
+    body[]{
+      ...,
+      "link" != null => @,
+      _type == "internalLink" => @->{
+        _id,
+        slug,
+      }
+    }
+  }
 }`;
