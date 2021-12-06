@@ -128,14 +128,18 @@ function Layout({ children }) {
     className: "title-font font-medium text-gray-900"
   }, "Knut Melv\xE6r"), /* @__PURE__ */ React2.createElement("nav", {
     "aria-label": "Main navigation",
-    className: "md:mr-auto md:ml-4 py-4 md:py-1 md:pl-4 md:border-l md:border-gray-400 flex flex-wrap items-center text-base justify-center space-x-2"
+    className: "md:mr-auto md:ml-4 py-4 md:py-1 md:pl-4 md:border-l md:border-gray-400 flex flex-wrap items-center text-base justify-center space-x-5"
   }, /* @__PURE__ */ React2.createElement(import_remix2.NavLink, {
     to: "/",
-    className: "md:mr-5 hover:text-gray-900"
+    className: "hover:text-gray-900"
   }, "Home"), /* @__PURE__ */ React2.createElement(import_remix2.NavLink, {
     to: "/about",
-    className: "md:mr-5 hover:text-gray-900"
-  }, "About")))), /* @__PURE__ */ React2.createElement("div", {
+    className: "hover:text-gray-900"
+  }, "About"), /* @__PURE__ */ React2.createElement(import_remix2.NavLink, {
+    to: "/rss.xml",
+    className: "hover:text-gray-900",
+    reloadDocument: true
+  }, "RSS")))), /* @__PURE__ */ React2.createElement("div", {
     className: "mb-12"
   }, children), /* @__PURE__ */ React2.createElement("footer", null, /* @__PURE__ */ React2.createElement("p", null, "\xA9 Knut Melv\xE6r\xA0", readableDate(new Date().toISOString()))));
 }
@@ -212,17 +216,13 @@ var import_remix5 = __toModule(require("remix"));
 // app/lib/sanity/getClient.ts
 var import_picosanity = __toModule(require("picosanity"));
 
-// ../studio/sanity.json
-var api = {
-  projectId: "ndjrels0",
-  dataset: "production"
-};
-
 // app/lib/sanity/config.ts
-var config = __spreadProps(__spreadValues({}, api), {
+var config = {
+  projectId: "ndjrels0",
+  dataset: "production",
   useCdn: false,
   apiVersion: "2021-11-25"
-});
+};
 
 // app/lib/sanity/getClient.ts
 var sanityClient = new import_picosanity.default(config);
@@ -263,35 +263,18 @@ function Block(props) {
 }
 
 // app/components/serializers/Code.tsx
-var import_react_refractor = __toModule(require("react-refractor"));
-var import_typescript = __toModule(require("refractor/lang/typescript"));
-var import_javascript = __toModule(require("refractor/lang/javascript"));
-var import_json = __toModule(require("refractor/lang/json"));
-var import_jsx = __toModule(require("refractor/lang/jsx"));
-var import_bash = __toModule(require("refractor/lang/bash"));
-var import_css = __toModule(require("refractor/lang/css"));
-var import_php = __toModule(require("refractor/lang/php"));
-var import_shell_session = __toModule(require("refractor/lang/shell-session"));
-var import_markdown = __toModule(require("refractor/lang/markdown"));
-import_react_refractor.default.registerLanguage(import_javascript.default);
-import_react_refractor.default.registerLanguage(import_typescript.default);
-import_react_refractor.default.registerLanguage(import_json.default);
-import_react_refractor.default.registerLanguage(import_jsx.default);
-import_react_refractor.default.registerLanguage(import_php.default);
-import_react_refractor.default.registerLanguage(import_bash.default);
-import_react_refractor.default.registerLanguage(import_shell_session.default);
-import_react_refractor.default.registerLanguage(import_css.default);
-import_react_refractor.default.registerLanguage(import_markdown.default);
-var languageOverrides = (lang) => ({
-  sh: "shell-session"
-})[lang] || lang || "text";
+var import_prism_react_renderer = __toModule(require("prism-react-renderer"));
+var import_github = __toModule(require("prism-react-renderer/themes/github"));
 function Code({ node }) {
   const { code, language } = node;
-  return /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement(import_react_refractor.default, {
-    value: code,
-    language: languageOverrides(language),
-    className: "my-0"
-  }));
+  return /* @__PURE__ */ React.createElement(import_prism_react_renderer.default, __spreadProps(__spreadValues({}, import_prism_react_renderer.defaultProps), {
+    code,
+    language,
+    theme: import_github.default
+  }), ({ className, style, tokens, getLineProps, getTokenProps }) => /* @__PURE__ */ React.createElement("pre", {
+    className,
+    style
+  }, tokens.map((line, i) => /* @__PURE__ */ React.createElement("div", __spreadValues({}, getLineProps({ line, key: i })), line.map((token, key) => /* @__PURE__ */ React.createElement("span", __spreadValues({}, getTokenProps({ token, key }))))))));
 }
 
 // app/lib/sanity/urlFor.ts
@@ -324,7 +307,7 @@ function TweetEmbed({ node }) {
   return null;
 }
 
-// app/components/serializers/Youtube.tsx
+// app/components/serializers/YouTube.tsx
 var import_get_youtube_id = __toModule(require("get-youtube-id"));
 var import_react_youtube = __toModule(require("react-youtube"));
 function YouTube({ node }) {
@@ -398,8 +381,12 @@ function TableOfContents(props) {
 
 // app/components/BlogPost.tsx
 function BlogPost({ post }) {
-  const { title, body, publishedAt } = post;
-  return /* @__PURE__ */ React.createElement("div", {
+  const { title, body, publishedAt, mainImage } = post;
+  return /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("figure", null, /* @__PURE__ */ React.createElement("img", {
+    className: "w-full rounded-sm mb-10",
+    src: urlFor(post.mainImage).height(350).width(900).auto("format").url(),
+    alt: post.mainImage.alt
+  })), /* @__PURE__ */ React.createElement("div", {
     className: "flex flex-col md:flex-row"
   }, /* @__PURE__ */ React.createElement("article", {
     className: "prose mr-20 w-full md:w-8/12"
@@ -417,7 +404,7 @@ function BlogPost({ post }) {
     dateTime: publishedAt
   }, publishedAt))), /* @__PURE__ */ React.createElement(TableOfContents, {
     blocks: body
-  })));
+  }))));
 }
 
 // route-module:/Users/knutmelvaer/Sites/kmelve/knutmelvaer-no-v2/web/app/routes/blog/$year.$month.$slug.tsx
@@ -496,11 +483,87 @@ function Blog() {
   }, "Posts"), posts.length > 0 && posts.map(BlogPostPreview));
 }
 
+// route-module:/Users/knutmelvaer/Sites/kmelve/knutmelvaer-no-v2/web/app/routes/rss[.xml].ts
+var rss_xml_exports = {};
+__export(rss_xml_exports, {
+  loader: () => loader3
+});
+var import_feed = __toModule(require("feed"));
+var import_block_content_to_html = __toModule(require("@sanity/block-content-to-html"));
+var PortableTextToXML = (blocks) => (0, import_block_content_to_html.default)({
+  blocks,
+  serializers: {
+    marks: {
+      internalLink: ({ mark, children }) => {
+        let { publishedAt, slug, _type } = mark.reference;
+        if (_type == "post") {
+          return (0, import_block_content_to_html.h)("a", {
+            href: `https://www.knutmelvaer.no/${slug}`
+          }, children);
+        }
+        console.log("Unknown internal link type ", mark.reference);
+        return (0, import_block_content_to_html.h)("span", {}, children);
+      }
+    },
+    types: {
+      authorReference: ({ node }) => (0, import_block_content_to_html.h)("span", { innerHTML: node.author.name }),
+      youtube: ({ node }) => (0, import_block_content_to_html.h)("p", {}, (0, import_block_content_to_html.h)("a", {
+        href: node.url,
+        innerHTML: "Watch on Youtube."
+      })),
+      code: ({ node }) => (0, import_block_content_to_html.h)("pre", (0, import_block_content_to_html.h)("code", { lang: node.language }, node.code)),
+      mainImage: ({ node }) => (0, import_block_content_to_html.h)("img", {
+        src: urlFor(node.asset).url()
+      }),
+      twitter: ({ node }) => (0, import_block_content_to_html.h)("p", {}, (0, import_block_content_to_html.h)("a", {
+        href: node.url,
+        innerHTML: "Look at the tweet."
+      }))
+    }
+  }
+});
+async function loader3({ params }) {
+  let posts = await sanityClient.fetch(postsQuery).then((docs) => preparedPosts(docs, "https://www.knutmelvaer.no")).then((posts2) => posts2.map((post) => __spreadProps(__spreadValues({}, post), {
+    body: PortableTextToXML(post.body)
+  })));
+  let feed = new import_feed.Feed({
+    title: "Knut Melvaer",
+    description: "Knut Melvaer's blog",
+    id: "https://www.knutmelvaer.no/rss.xml",
+    link: "https://www.knutmelvaer.no",
+    image: "https://www.knutmelvaer.no/logo.png",
+    copyright: "Knut Melvaer",
+    updated: new Date(posts[0].publishedAt),
+    generator: "Remix",
+    feedLinks: {
+      json: "https://www.knutmelvaer.no/rss.json",
+      atom: "https://www.knutmelvaer.no/rss.xml"
+    }
+  });
+  posts.forEach((post) => {
+    feed.addItem({
+      title: post.title,
+      id: post.slug,
+      link: `https://www.knutmelvaer.no/${post.slug}`,
+      description: post.body,
+      content: post.body,
+      author: [{ name: post.authors[0].name }]
+    });
+  });
+  let rssString = feed.rss2();
+  return new Response(rssString, {
+    status: 200,
+    headers: {
+      "Content-Type": "application/xml"
+    }
+  });
+}
+
 // route-module:/Users/knutmelvaer/Sites/kmelve/knutmelvaer-no-v2/web/app/routes/about.tsx
 var about_exports = {};
 __export(about_exports, {
   default: () => About,
-  loader: () => loader3
+  loader: () => loader4
 });
 var import_remix8 = __toModule(require("remix"));
 
@@ -514,7 +577,7 @@ var aboutQuery = `//groq
 }`;
 
 // route-module:/Users/knutmelvaer/Sites/kmelve/knutmelvaer-no-v2/web/app/routes/about.tsx
-async function loader3() {
+async function loader4() {
   const about = await sanityClient.fetch(aboutQuery);
   return { about };
 }
@@ -532,7 +595,7 @@ function About() {
 var routes_exports = {};
 __export(routes_exports, {
   default: () => Index,
-  loader: () => loader4,
+  loader: () => loader5,
   meta: () => meta
 });
 var import_remix9 = __toModule(require("remix"));
@@ -571,11 +634,21 @@ var indexQuery = `//groq
   "posts": *[
     _type == "post"
     && slug.current != null
-  ]|order(publishedAt desc)
+  ]|order(publishedAt desc){
+    ...,
+    body[]{
+      ...,
+      "link" != null => @,
+      _type == "internalLink" => @->{
+        _id,
+        slug,
+      }
+    }
+  }
 }`;
 
 // route-module:/Users/knutmelvaer/Sites/kmelve/knutmelvaer-no-v2/web/app/routes/index.tsx
-var loader4 = async () => {
+var loader5 = async () => {
   const { siteSettings, posts } = await sanityClient.fetch(indexQuery);
   return {
     siteSettings,
@@ -635,6 +708,14 @@ var routes = {
     index: true,
     caseSensitive: void 0,
     module: blog_exports
+  },
+  "routes/rss[.xml]": {
+    id: "routes/rss[.xml]",
+    parentId: "root",
+    path: "rss.xml",
+    index: void 0,
+    caseSensitive: void 0,
+    module: rss_xml_exports
   },
   "routes/about": {
     id: "routes/about",
