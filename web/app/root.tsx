@@ -61,7 +61,7 @@ function Document({
         <Meta />
         <Links />
       </head>
-      <body>
+      <body className="dark:bg-gray-800 dark:text-gray-100">
         {children}
         <RouteChangeAnnouncement />
         <ScrollRestoration />
@@ -74,19 +74,19 @@ function Document({
 
 function Layout({ children }: React.PropsWithChildren<{}>) {
   return (
-    <div className="container mx-auto w-full max-w-6xl px-2 xl:px-0">
+    <div className="container w-full max-w-6xl px-2 mx-auto xl:px-0">
       <header>
-        <div className="container flex flex-wrap py-2 flex-col md:flex-row items-center mb-4">
+        <div className="container flex flex-col flex-wrap items-center py-2 mb-4 md:flex-row">
           <Link
             to="/"
             title="Knut Melvær"
-            className="title-font font-medium text-gray-900"
+            className="font-medium text-gray-900 dark:text-gray-200 title-font"
           >
             Knut Melvær
           </Link>
           <nav
             aria-label="Main navigation"
-            className="md:mr-auto md:ml-4 py-4 md:py-1 md:pl-4 md:border-l md:border-gray-400 flex flex-wrap items-center text-base justify-center space-x-5"
+            className="flex flex-wrap items-center justify-center py-4 space-x-5 text-base md:mr-auto md:ml-4 md:py-1 md:pl-4 md:border-l md:border-gray-400"
           >
             <NavLink to="/" className="hover:text-gray-900">
               Home
