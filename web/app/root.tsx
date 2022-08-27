@@ -77,12 +77,19 @@ function Layout({ children }: React.PropsWithChildren<{}>) {
     <div className="container w-full max-w-6xl px-2 mx-auto xl:px-0">
       <header>
         <div className="container flex flex-col flex-wrap items-center py-2 mb-4 md:flex-row">
+          <img
+            src="/apple-touch-icon.png"
+            width="20"
+            height="20"
+            className="mr-2"
+            alt="Book emoji"
+          />
           <Link
             to="/"
             title="Knut Melvær"
             className="font-medium text-gray-900 dark:text-gray-200 title-font"
           >
-            Knut Melvær
+            Knut Melvær
           </Link>
           <nav
             aria-label="Main navigation"
