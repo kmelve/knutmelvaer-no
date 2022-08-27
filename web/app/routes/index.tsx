@@ -71,12 +71,12 @@ export default function Index() {
   const { title, description, keywords, author, resources } = siteSettings;
   return (
     <div className="flex flex-wrap px-4 md:px-0">
-      <div className="md:w-10/12 prose mb-12">
+      <div className="p-4 mb-8 bg-blue-100 rounded-md md:w-7/12">
         <p>{description}</p>
       </div>
       <main className="w-full pr-6 sm:w-9/12 lg:w-8/12">
-        <div className="prose mb-4">
-          <h3>Musings</h3>
+        <div className="mb-4 prose">
+          <h3 className="font-bold">Written things</h3>
         </div>
         {posts.length > 0 && posts.map(BlogPostPreview)}
       </main>
