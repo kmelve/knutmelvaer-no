@@ -7,7 +7,10 @@ export default function Block(props: any) {
     const HeadingTag = style;
     const headingId = `h${_key}`;
     return (
-      <HeadingTag id={headingId} className="group flex whitespace-pre-wrap">
+      <HeadingTag
+        id={headingId}
+        className="heading group flex whitespace-pre-wrap"
+      >
         <a
           href={`#${headingId}`}
           aria-hidden="true"
