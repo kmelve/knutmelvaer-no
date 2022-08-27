@@ -23,6 +23,6 @@
         "eslint-plugin-prettier": "^4.0.0",
         "eslint-plugin-promise": "^5.1.0",
         "eslint-plugin-react": "^7.25.2",
-        "lerna": "^4.0.0"
+        "lerna": "^5.4.3"
     }
 }
