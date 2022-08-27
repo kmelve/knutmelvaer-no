@@ -3,10 +3,11 @@
 node_modules/
 
 /.cache
-build
+/build
 /server-build
 public/build
 api/build
+web/api/build
 
 /coverage
 tsconfig.tsbuildinfo
