@@ -3,7 +3,7 @@
 node_modules/
 
 /.cache
-/build
+build
 /server-build
 public/build
 api/build

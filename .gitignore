@@ -11,6 +11,4 @@
 .env.development
 .env.production
 .env
-web/api/build
-web/api/build
-web/api/build
+
