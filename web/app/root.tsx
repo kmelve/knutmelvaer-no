@@ -1,17 +1,18 @@
 import * as React from "react";
+import type { LinksFunction } from "@remix-run/node";
+
 import {
   Link,
-  NavLink,
   Links,
   LiveReload,
   Meta,
+  NavLink,
   Outlet,
   Scripts,
   ScrollRestoration,
   useCatch,
   useLocation,
-} from "remix";
-import type { LinksFunction } from "remix";
+} from "@remix-run/react";
 
 import app from "~/styles/app.css";
 import { readableDate } from "./lib/dateUtils";

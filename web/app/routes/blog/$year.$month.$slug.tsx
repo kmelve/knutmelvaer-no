@@ -1,4 +1,4 @@
-import { useLoaderData } from "remix";
+import { useLoaderData } from "@remix-run/react";
 import { sanityClient } from "~/lib/sanity/getClient";
 import BlogPost from "~/components/BlogPost";
 import { slugDate, readableDate } from "~/lib/dateUtils";

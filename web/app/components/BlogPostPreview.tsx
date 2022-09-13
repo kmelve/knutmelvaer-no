@@ -1,4 +1,4 @@
-import { Link } from "remix";
+import { Link } from "@remix-run/react";
 import { urlFor } from "~/lib/sanity/urlFor";
 import { PortableText } from "~/components/PortableText";
 import { SanityImageObject } from "@sanity/image-url/lib/types/types";

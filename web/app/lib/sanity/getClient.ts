@@ -1,8 +1,7 @@
-import PicoSanity from 'picosanity'
+import PicoSanity from "picosanity";
 
-import { config } from './config'
+import { config } from "./config";
 
-export const sanityClient = new PicoSanity(config)
+export const sanityClient = new PicoSanity(config);
 
-export const getClient = () => sanityClient
-
+export const getClient = () => sanityClient;

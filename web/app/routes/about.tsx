@@ -1,4 +1,4 @@
-import { useLoaderData } from "remix";
+import { useLoaderData } from "@remix-run/react";
 import { PortableText } from "~/components/PortableText";
 import { aboutQuery } from "~/lib/queries/about";
 import { sanityClient } from "~/lib/sanity/getClient";

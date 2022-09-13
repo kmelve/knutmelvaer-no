@@ -1,4 +1,4 @@
-import { Outlet, useLoaderData } from "remix";
+import { Outlet, useLoaderData } from "@remix-run/react";
 import { Feed } from "feed";
 import utf8 from "utf8";
 import { sanityClient } from "~/lib/sanity/getClient";

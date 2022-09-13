@@ -1,4 +1,4 @@
-import type { LoaderFunction, MetaFunction } from "remix";
+import type { LoaderFunction, MetaFunction } from "@remix-run/node";
 
 let categories: string[] = [
   "Developer relations",

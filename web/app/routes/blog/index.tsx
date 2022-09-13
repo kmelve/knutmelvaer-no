@@ -1,4 +1,4 @@
-import { Outlet, useLoaderData } from "remix";
+import { Outlet, useLoaderData } from "@remix-run/react";
 import { sanityClient } from "~/lib/sanity/getClient";
 import BlogPostPreview from "~/components/BlogPostPreview";
 
