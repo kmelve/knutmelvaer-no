@@ -15,7 +15,9 @@ export default function Blog() {
 
   return (
     <main>
-      <h2 className="leading-none font-black text-xl md:text-2xl">Posts</h2>
+      <h2 className="mb-4 text-xl font-black leading-none dark:font-white md:text-2xl">
+        Posts
+      </h2>
       {posts.length > 0 && posts.map(BlogPostPreview)}
     </main>
   );

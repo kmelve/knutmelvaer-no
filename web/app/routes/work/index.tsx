@@ -21,7 +21,7 @@ export const meta: MetaFunction = () => {
 export default function Work() {
   return (
     <>
-      <section className="mb-10 prose">
+      <section className="mb-10 prose dark:prose-invert">
         <h1 className="pb-2">Work</h1>
         <nav>
           <ul className="inline text-xs list-style-none">
@@ -37,7 +37,7 @@ export default function Work() {
           </ul>
         </nav>
       </section>
-      <section className="prose">
+      <section className="prose dark:prose-invert">
         <h2>Collaborators</h2>
       </section>
     </>

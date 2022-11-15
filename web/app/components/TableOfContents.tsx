@@ -1,8 +1,9 @@
 import { Link } from "@remix-run/react";
-import BlockContent, {
+import type {
   SerializerTypes,
   BlockContentProps,
 } from "@sanity/block-content-to-react";
+import BlockContent from "@sanity/block-content-to-react";
 import { useContext, useEffect, useState } from "react";
 import { HeadingContext } from "./HeadingContext";
 
@@ -77,8 +78,8 @@ export default function TableOfContents(props: TableOfContentsProps) {
   );
   if (onlyParagraphBlocks.length > 0) {
     return (
-      <nav className="p-4 bg-gray-100 rounded sticky top-6 max-h-screen overflow-auto">
-        <h3 className="text-xs mb-4">Table of contents</h3>
+      <nav className="sticky max-h-screen p-4 overflow-auto bg-gray-100 rounded dark:bg-gray-700 top-6">
+        <h3 className="mb-4 text-xs">Table of contents</h3>
         <ul>
           <BlockContent
             blocks={onlyParagraphBlocks}

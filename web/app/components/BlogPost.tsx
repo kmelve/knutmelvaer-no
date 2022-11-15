@@ -44,13 +44,13 @@ export default function BlogPost({ post }: PostType) {
       </figure>
 
       <div className="flex flex-col md:flex-row">
-        <article className="w-full mr-20 prose md:w-8/12">
+        <article className="w-full mr-20 prose dark:prose-invert md:w-8/12">
           <h1>{title}</h1>
           <PortableText blocks={body} />
           <Link to="/">Moar posts!</Link>
         </article>
         <aside className="w-4/12 pt-28">
-          <div className="p-4 mb-4 bg-gray-100 rounded">
+          <div className="p-4 mb-4 bg-gray-100 rounded dark:bg-gray-700">
             <div className="text-sm">
               Published <time dateTime={publishedAt}>{publishedAt}</time>
               {/*

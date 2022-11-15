@@ -12,7 +12,7 @@ export default function About() {
   const { about } = useLoaderData();
   const { bio } = about;
   return (
-    <main className="prose">
+    <main className="prose dark:prose-invert">
       <h2>About</h2>
       <PortableText blocks={bio} />
     </main>
