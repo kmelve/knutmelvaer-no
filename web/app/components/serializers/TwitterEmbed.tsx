@@ -1,10 +1,10 @@
 import { TwitterTweetEmbed } from "react-twitter-embed";
-type TweetEmbed = {
+type TweetEmbedProps = {
   url: string;
   title: string;
 };
 
-export default function TweetEmbed({ node }: { node: TweetEmbed }) {
+export default function TweetEmbed({ node }: { node: TweetEmbedProps }) {
   const { url, title } = node;
   if (!url) {
     return null;
